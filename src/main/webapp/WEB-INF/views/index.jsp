@@ -1,54 +1,62 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%--<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>--%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
-<html lang="ru">
+<html>
+
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>SignIn</title>
+    <title>Firstpage</title>
+
+    <%--<link href='style.css' rel='stylesheet' type='text/css'>--%>
+
+    <style type="text/css">
+
+        .style1 {
+            color: mediumblue;
+            font-size: 24px;
+            font-family: "Baskerville Old Face";
+            text-align-all: center;
+            display: block;
+        }
+        .style2 {
+            color: green;
+            font-size: 24px;
+            font-family: "Coronetscript";
+            text-align-all: center;
+            display: block;
+        }
+    </style>
+
 </head>
 
-<body>
 
-<style type="text/css">
-    .style1 {
-        color: blue;
-        font-size: 36px;
-        font-family: "Baskerville Old Face";
-        text-align-all: center;
-        display: block;
-    }
-</style>
 
-<style type="text/css">
-    .style2 {
-        color: red;
-        font-size: 24px;
-        font-family: Consolas;
-        text-align-all: center;
-        display: block;
-    }
-</style>
+<div class="style1"  align = center>
 
-<div class="style1" align="center">
-    <h1>Sign in</h1>
+    <h1>Sign Up </h1>
 </div>
 
 
-<div class="style2" align="center">
+
+<div class = "style2" align = "center">
+    <form action="/index" id="signup" method="post">
+        <table>
+            <tr>
+                <td> Name: </td><td>    <label> <input type="username"  type="text" form="signup" required></label>        </td>
+            </tr>
 
 
-    ${user}
-    <form action="/" id="auth" method="post"></form>
+            <tr>
+                <td> Password: </td><td>    <label> <input type="password" type="text" form="signup" required></label> </td>
+            </tr>
 
-    <p><input name="uname" form="auth">
-        <input name="lastname" form="auth">
-        <input type="password" name="unumber" form="auth"></p>
-    <p><input type="submit" form="auth"></p>
+
+        </table>
+    </form>
 </div>
 
 <div align="center">
-    <h2>${message}</h2>
+    <form>
+        <button formmethod="post">Submit</button>
+    </form>
 </div>
-</body>
+
+
 </html>

@@ -10,6 +10,6 @@ public interface UsertDAO {
 
     void delete(int id);
 
-    void update(int id);
+    UsertEntity update(int id,String username, String password);
 }
 

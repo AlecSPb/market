@@ -3,9 +3,10 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:tx="http://www.springframework.org/schema/tx"
        xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
-       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd" >
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <!--@Transaction annotation support -->
     <tx:annotation-driven transaction-manager="transactionManager"/>
@@ -15,6 +16,7 @@
 
     <!--Activates various annotations to be detected in bean classes: Spring's @Required and @Autowired and so on-->
     <context:annotation-config/>
+
 
     <!--Обеспечивает работу с транзакциями в Spring -->
     <bean id="transactionManager"

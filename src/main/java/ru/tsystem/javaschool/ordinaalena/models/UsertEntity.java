@@ -3,16 +3,16 @@ package ru.tsystem.javaschool.ordinaalena.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "usert", schema = "eshopdatabase", catalog = "")
+@Table(name = "usert")
 public class UsertEntity {
     private String username;
     private String password;
 
-    public UsertEntity (String username,  String password) {
-        this.username = username;
-        this.password = password;
+  //  public UsertEntity (String username,  String password) {
+   //     this.username = username;
+   //     this.password = password;
 
-    }
+  //  }
     @Id
     @Column(name = "username")
     public String getUsername() {
