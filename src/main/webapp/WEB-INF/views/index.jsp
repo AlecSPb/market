@@ -39,22 +39,22 @@
     <form action="/index" id="signup" method="post">
         <table>
             <tr>
-                <td> Name: </td><td>    <label> <input type="username"  type="text" form="signup" required></label>        </td>
+                <td> Name: </td><td>    <label> <input name="username"  type="text"  required></label>        </td>
             </tr>
 
 
             <tr>
-                <td> Password: </td><td>    <label> <input type="password" type="text" form="signup" required></label> </td>
+                <td> Password: </td><td>    <label> <input name="password" type="text"  required></label> </td>
             </tr>
 
 
         </table>
-    </form>
+
 </div>
 
 <div align="center">
-    <form>
-        <button formmethod="post">Submit</button>
+
+        <button formmethod="post">Sign in</button>
     </form>
 </div>
 

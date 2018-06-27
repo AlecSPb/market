@@ -8,11 +8,10 @@ public class UsertEntity {
     private String username;
     private String password;
 
-  //  public UsertEntity (String username,  String password) {
-   //     this.username = username;
-   //     this.password = password;
-
-  //  }
+ //   public UsertEntity (String username,  String password) {
+ //      this.username = username;
+ //      this.password = password;
+  //}
     @Id
     @Column(name = "username")
     public String getUsername() {
