@@ -1,5 +1,7 @@
 package ru.tsystem.javaschool.ordinaalena.DAO;
 
+
+
 import ru.tsystem.javaschool.ordinaalena.SessionFactorySingleton;
 import ru.tsystem.javaschool.ordinaalena.models.UsertEntity;
 import org.hibernate.Session;

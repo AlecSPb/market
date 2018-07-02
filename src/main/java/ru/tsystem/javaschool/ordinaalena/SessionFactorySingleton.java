@@ -4,6 +4,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 public class SessionFactorySingleton {
+
     private  volatile static   SessionFactory sessionFactory = null;
 
     public static SessionFactory getSessionFactoryInstance() {

@@ -12,8 +12,5 @@
 </head>
 <body>
 Sign Up Success!
-<h1>Name: ${createdUserName}</h1>
-<h2>Last name: ${createdUserLastname}</h2>
-<h2>Personal number: ${createdUserUnumber}</h2>
 </body>
 </html>
