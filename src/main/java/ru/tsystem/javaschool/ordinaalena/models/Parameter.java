@@ -10,6 +10,7 @@ public class Parameter {
     private int id;
     private String parameterName;
 
+
     public Parameter(){}
 
     @OneToMany(mappedBy = "parameter")
