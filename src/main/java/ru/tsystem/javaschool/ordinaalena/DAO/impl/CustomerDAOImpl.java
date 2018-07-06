@@ -1,81 +1,62 @@
 package ru.tsystem.javaschool.ordinaalena.DAO.impl;
-
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
+import org.apache.log4j.Logger;
+import org.springframework.stereotype.Repository;
 import ru.tsystem.javaschool.ordinaalena.DAO.api.CustomerDAO;
-import ru.tsystem.javaschool.ordinaalena.SessionFactorySingleton;
-import ru.tsystem.javaschool.ordinaalena.models.Customer;
+import ru.tsystem.javaschool.ordinaalena.entities.Customer;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+import java.util.List;
 
-import java.sql.Date;
-
+@Repository
 public class CustomerDAOImpl  implements CustomerDAO {
-    private final SessionFactory sessionFactory;
-    private static CustomerDAOImpl instance;
+    private static final Logger logger = Logger.getLogger(AddressDAOImpl.class);
+    @PersistenceContext
+    EntityManager entityManager;
 
-    public CustomerDAOImpl(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
-    }
-    public static CustomerDAO getUsertDAOInstance(){
-        if (instance == null){
-            synchronized (CustomerDAOImpl.class){
-                instance = new CustomerDAOImpl(SessionFactorySingleton.getSessionFactoryInstance());
-            }
-        }
-        return instance;
+
+    @Override
+    public void persist(Customer customer) {
+        logger.info("persist new " + customer.getClass());
+
+        this.entityManager.persist(customer);
     }
 
     @Override
-    public Customer create(String firstname, String secondname, Date dob, String eMail, String parole, String phonenumber) {
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-        Customer customer = new Customer ();
-        customer.setFirstname(firstname);
-        customer.setSecondname(secondname);
-        customer.setDob(dob);
-        customer.seteMail(eMail);
-        customer.setParole(parole);
-        customer.setPhonenumber(phonenumber);
-        session.persist(customer);
-        transaction.commit();
-        if (session.isOpen()) session.close();
-        return customer;
+    public Customer find(int id, Class<Customer> className) {
+        logger.info("find by id " + className + " id " + id);
+        return (Customer) this.entityManager.find(className, id);
     }
 
     @Override
-    public Customer getById(int id) {
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-        Customer customer = session.get(Customer.class, id);
-        transaction.commit();
-        if (session.isOpen()) session.close();
-        return customer;
+    public void remove(Customer customer) {
+        logger.info("remove " + customer.getClass() + " id " + customer.getId());
+        this.entityManager.remove(entityManager.merge(customer));
     }
 
     @Override
-    public void delete(int id) {
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-         Customer customer = getById(id);
-        session.delete(customer);
-        transaction.commit();
-        if (session.isOpen()) session.close();
+    public void merge(Customer customer) {
+        logger.info("merge " + customer.getClass() + " id " + customer.getId());
+        this.entityManager.merge(customer);
+    }
+    @Override
+    public List<Customer> getAll(Class<Customer> className){
+        logger.info("find all " + className);
+        return this.entityManager.
+                createQuery("from "+className.getSimpleName(), className).
+                getResultList();
+    }
+    @Override
+    public Customer getByEmail(String email) {
+        Query query = entityManager.
+                createQuery("from Customer as cl where cl.email=:email",
+                        Customer.class).setParameter("email", email);
+        return (Customer) query.getSingleResult();
     }
 
     @Override
-    public Customer update(int id, String firstname, String secondname, Date dob, String eMail, String parole, String phonenumber) {
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-        Customer customer = session.get(Customer.class, id);
-       customer.setFirstname(firstname);
-       customer.setSecondname(secondname);
-       customer.setDob(dob);
-       customer.seteMail(eMail);
-       customer.setParole(parole);
-       customer.setPhonenumber(phonenumber);
-        session.saveOrUpdate(customer);
-        transaction.commit();
-        if (session.isOpen()) session.close();
-        return customer;
+    public int getCustomerIdByEmail(String email) {
+        return entityManager.createQuery("select id from Customer as user where user.email=:email",
+                Integer.class).setParameter("email", email).getSingleResult();
     }
 }

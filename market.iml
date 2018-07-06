@@ -8,7 +8,7 @@
           <unit-entry name="hibernate.cfg.xml" value="e9f3ce4a-6cc5-49c3-8726-b60eb13bddcd" />
         </datasource-map>
         <naming-strategy-map />
-        <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/main/recources/hibernate.cfg.xml" />
+        <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/main/resources/hibernate.cfg.xml" />
       </configuration>
     </facet>
     <facet type="jpa" name="JPA">
@@ -17,7 +17,6 @@
         <setting name="provider-name" value="" />
         <datasource-mapping>
           <factory-entry name="NewPersistenceUnit" value="e9f3ce4a-6cc5-49c3-8726-b60eb13bddcd" />
-          <factory-entry name="emf" value="e9f3ce4a-6cc5-49c3-8726-b60eb13bddcd" />
           <factory-entry name="noname-a.xml@0" value="e9f3ce4a-6cc5-49c3-8726-b60eb13bddcd" />
         </datasource-mapping>
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/main/java/META-INF/persistence.xml" />

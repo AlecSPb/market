@@ -1,65 +1,94 @@
 package ru.tsystem.javaschool.ordinaalena.DAO.impl;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
+import org.apache.log4j.Logger;
+import org.springframework.stereotype.Repository;
 import ru.tsystem.javaschool.ordinaalena.DAO.api.ProductDAO;
-import ru.tsystem.javaschool.ordinaalena.models.Product;
+import ru.tsystem.javaschool.ordinaalena.entities.Product;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import java.util.List;
 
+@Repository
 public class ProductDAOImpl implements ProductDAO {
-    private SessionFactory sessionFactory;
-    private ProductDAOImpl(SessionFactory sessionFactory){
-        this.sessionFactory=sessionFactory;
-    }
+    private static final Logger logger = Logger.getLogger(AddressDAOImpl.class);
+
+    @PersistenceContext
+    EntityManager entityManager;
+
     @Override
-    public Product create(String title, String price, String brand, Integer count) {
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-        Product product = new Product();
-        product.setTitle(title);
-        product.setPrice(price);
-        product.setBrand(brand);
-        product.setCount(count);
-        session.persist(product);
-        transaction.commit();
-        if (session.isOpen()) session.close();
-        return product;
+    public void persist(Product product) {
+        logger.info("persist new " + product.getClass());
+
+        this.entityManager.persist(product);
     }
 
     @Override
-    public Product getById(int id) {
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-        Product product = session.get(Product.class, id);
-        transaction.commit();
-        if (session.isOpen()) session.close();
-        return product;
+    public Product find(int id, Class<Product> className) {
+        logger.info("find by id " + className + " id " + id);
+        return (Product) this.entityManager.find(className, id);
     }
 
     @Override
-    public void delete(int id) {
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-       Product product = getById(id);
-        session.delete(product);
-        transaction.commit();
-        if (session.isOpen()) session.close();
+    public void remove(Product product) {
+        logger.info("remove " + product.getClass() + " id " + product.getId());
+        this.entityManager.remove(entityManager.merge(product));
     }
 
     @Override
-    public Product update(int id, int categoryId, String title, String price, String brand, Integer count) {
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-        Product product = session.get(Product.class, id);
-        product.setTitle(title);
-        product.setPrice(price);
-        product.setBrand(brand);
-        product.setCount(count);
-        session.saveOrUpdate(product);
-        transaction.commit();
-        if (session.isOpen()) session.close();
-        return product;
+    public void merge(Product product) {
+        logger.info("merge " + product.getClass() + " id " + product.getId());
+        this.entityManager.merge(product);
     }
 
+    @Override
+    public List<Product> getAll(Class<Product> className) {
+        logger.info("find all " + className);
+        return this.entityManager.
+                createQuery("from "+className.getSimpleName(), className).
+                getResultList();
+    }
 
+    @Override
+    public List<Product> getByCategory(String category) { return entityManager.createQuery("from Product as prod " +
+            "where prod.category=:category ", Product.class).
+            setParameter("category", category).getResultList();
+    }
+
+    @Override
+    public List<String> getCategories() {
+        return entityManager.createQuery("SELECT DISTINCT category FROM Product as prod ",
+                String.class).getResultList();
+    }
+
+    @Override
+    public Product getByName(String title) {
+        return entityManager.createQuery(
+                "select product from Product as product where product.title=:title",
+                Product.class)
+                .setParameter("title",title)
+                .getSingleResult();
+    }
+
+    @Override
+    //???
+    public List<Product> getByCategories(String[] categories) {
+        return entityManager.createQuery(
+                "select product from Product as product where product.category=:categories",
+                Product.class).setParameter("categories",categories).getResultList();
+    }
+//??
+    @Override
+    public long getProductsCount(String[] categories) {
+        return  this.entityManager.createQuery("SELECT sum(product.count)" +
+                "                          FROM Product as product" +
+                "                          where product.category =:categories" , Long.class)
+                .setParameter("categories", categories).getSingleResult();
+    }
+
+    @Override
+    public long getProductsCount() {
+        return entityManager
+                .createQuery("select count(*) from Product as prod", Long.class)
+                .getSingleResult();
+    }
 }

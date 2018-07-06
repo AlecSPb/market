@@ -1,78 +1,63 @@
+
 package ru.tsystem.javaschool.ordinaalena.DAO.impl;
-
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
+import java.util.List;
+import org.apache.log4j.Logger;
+import org.springframework.stereotype.Repository;
 import ru.tsystem.javaschool.ordinaalena.DAO.api.AddressDAO;
-import ru.tsystem.javaschool.ordinaalena.SessionFactorySingleton;
-import ru.tsystem.javaschool.ordinaalena.models.Address;
+import ru.tsystem.javaschool.ordinaalena.entities.Address;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
+@Repository
 public class AddressDAOImpl implements AddressDAO {
-    private final SessionFactory sessionFactory;
-    private static AddressDAOImpl instance;
 
-    public AddressDAOImpl(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
-    }
-    public static AddressDAO getAddressDAOInstance(){
-        if (instance == null){
-            synchronized (AddressDAOImpl.class){
-                instance = new AddressDAOImpl(SessionFactorySingleton.getSessionFactoryInstance());
-            }
-        }
-        return instance;
-    }
-    @Override
-    public Address create(String postcode, String country, String city, String street, String building, String apartment) {
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-        Address address = new Address ();
-        address.setPostcode(postcode);
-        address.setCountry(country);
-        address.setCity(city);
-        address.setStreet(street);
-        address.setBuilding(building);
-        address.setApartment(apartment);
-        session.persist(address);
-        transaction.commit();
-        if (session.isOpen()) session.close();
-        return address;
-    }
+    private static final Logger logger = Logger.getLogger(AddressDAOImpl.class);
+
+
+    @PersistenceContext
+    private EntityManager entityManager;
 
     @Override
-    public Address getById(int id) {
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-        Address address= session.get(Address.class, id);
-        transaction.commit();
-        if (session.isOpen()) session.close();
-        return address;
+    public void persist(final Address address){
+
+        logger.info("persist new " + address.getClass());
+
+        this.entityManager.persist(address);
+    }
+
+
+    @Override
+    public void remove(final Address address) {
+        logger.info("remove " + address.getClass() + " id " + address.getId());
+        this.entityManager.remove(entityManager.merge(address));
+    }
+
+
+    @Override
+    public Address find(int id, Class<Address> className) {
+        logger.info("find by id " + className + " id " + id);
+        return (Address) this.entityManager.find(className, id);
+    }
+
+
+    @Override
+    public void merge(Address address){
+        logger.info("merge " + address.getClass() + " id " + address.getId());
+        this.entityManager.merge(address);
     }
 
     @Override
-    public void delete(int id) {
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-        Address address = getById(id);
-        session.delete(address);
-        transaction.commit();
-        if (session.isOpen()) session.close();
+    public List<Address> getAll(Class<Address> className){
+        logger.info("find all " + className);
+        return this.entityManager.
+                createQuery("from "+className.getSimpleName(), className).
+                getResultList();
     }
 
     @Override
-    public Address update(int id, String postcode, String country, String city, String street, String building, String apartment) {
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-        Address address = session.get(Address.class, id);
-        address.setPostcode(postcode);
-        address.setCountry(country);
-        address.setCity(city);
-        address.setStreet(street);
-        address.setBuilding(building);
-        address.setApartment(apartment);
-        session.saveOrUpdate(address);
-        transaction.commit();
-        if (session.isOpen()) session.close();
-        return address;
+    public List<Address> getByClientId(int id) {
+        return this.entityManager.
+                createQuery("from Address as adr where adr.customer.id=:id" ,Address.class).
+                setParameter("id", id).getResultList();
     }
 }

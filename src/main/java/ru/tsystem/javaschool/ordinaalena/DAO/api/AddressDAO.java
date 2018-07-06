@@ -1,15 +1,24 @@
+
 package ru.tsystem.javaschool.ordinaalena.DAO.api;
 
-import ru.tsystem.javaschool.ordinaalena.models.Address;
+import ru.tsystem.javaschool.ordinaalena.entities.Address;
 
+import java.util.List;
 
 
 public interface AddressDAO {
-    Address create(String postcode, String country, String city,String street, String building, String apartment);
+    void persist(Address object);
 
-    Address getById(int id);
 
-    void delete(int id);
+    Address find(int id, Class<Address> className);
 
-    Address update(int id,String postcode, String country, String city,String street, String building, String apartment);
+
+    void remove(final Address model);
+
+
+    void merge(Address address);
+
+
+    List<Address> getAll(Class<Address> className);
+    List<Address> getByClientId(int id);
 }

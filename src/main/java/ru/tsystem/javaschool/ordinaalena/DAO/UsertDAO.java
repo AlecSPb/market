@@ -1,15 +1,17 @@
 package ru.tsystem.javaschool.ordinaalena.DAO;
 
-import ru.tsystem.javaschool.ordinaalena.models.UsertEntity;
+import java.util.List;
 
 public interface UsertDAO {
 
-    UsertEntity create(String username, String password);
+ //   void create(UsertEntity product);
 
-    UsertEntity getById(int id);
+  //  UsertEntity read(Integer id);
 
-    void delete(int id);
+  //  void update(Integer id);
 
-    UsertEntity update(int id,String username, String password);
+   // void delete(Integer id);
+
+   // List<UsertEntity> findAllProduct();
 }
 

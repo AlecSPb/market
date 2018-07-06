@@ -1,59 +1,51 @@
+
 package ru.tsystem.javaschool.ordinaalena.DAO.impl;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
+import org.apache.log4j.Logger;
+import org.springframework.stereotype.Repository;
 import ru.tsystem.javaschool.ordinaalena.DAO.api.ProductParameterDAO;
-import ru.tsystem.javaschool.ordinaalena.models.ProductParameter;
+import ru.tsystem.javaschool.ordinaalena.entities.ProductParameter;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import java.util.List;
 
+@Repository
 public class ProductParameterDAOImpl  implements ProductParameterDAO {
-    private SessionFactory sessionFactory;
-    private ProductParameterDAOImpl(SessionFactory sessionFactory){
-        this.sessionFactory=sessionFactory;
-    }
+    private static final Logger logger=Logger.getLogger(ProductParameterDAOImpl.class);
+    @PersistenceContext
+    EntityManager entityManager;
+
+
     @Override
-    public ProductParameter create(int parameterId, String parameterValue) {
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-        ProductParameter productParameter = new ProductParameter();
-        productParameter.setParameterId(parameterId);
-        productParameter.setParameterValue(parameterValue);
-        session.persist(productParameter);
-        transaction.commit();
-        if (session.isOpen()) session.close();
-        return productParameter;
+    public void persist(ProductParameter productParameter) {
+        logger.info("persist new " + productParameter.getClass());
+
+        this.entityManager.persist(productParameter);
     }
 
     @Override
-    public ProductParameter getById(int id) {
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-        ProductParameter productParameter = session.get(ProductParameter.class, id);
-        transaction.commit();
-        if (session.isOpen()) session.close();
-        return productParameter;
+    public ProductParameter find(int id, Class<ProductParameter> className) {
+        logger.info("find by id " + className + " id " + id);
+        return (ProductParameter) this.entityManager.find(className, id);
     }
 
     @Override
-    public void delete(int id) {
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-        ProductParameter productParameter = getById(id);
-        session.delete(productParameter);
-        transaction.commit();
-        if (session.isOpen()) session.close();
+    public void remove(ProductParameter productParameter) {
+        logger.info("remove " + productParameter.getClass() + " id " + productParameter.getId());
+        this.entityManager.remove(entityManager.merge(productParameter));
     }
 
     @Override
-    public ProductParameter update(int id, int parameterId, String parameterValue) {
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-        ProductParameter productParameter = new ProductParameter();
-        productParameter.setParameterId(parameterId);
-        productParameter.setParameterValue(parameterValue);
-        session.saveOrUpdate(productParameter);
-        transaction.commit();
-        if (session.isOpen()) session.close();
-        return productParameter;
+    public void merge(ProductParameter productParameter) {
+        logger.info("merge " + productParameter.getClass() + " id " + productParameter.getId());
+        this.entityManager.merge(productParameter);
+    }
+
+    @Override
+    public List<ProductParameter> getAll(Class<ProductParameter> className) {
+        logger.info("find all " + className);
+        return this.entityManager.
+                createQuery("from "+className.getSimpleName(), className).
+                getResultList();
     }
 }

@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <!-- Database connection settings -->
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/eshopdatabase</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">polovinka01</property>
+        <!-- JDBC connection pool (use the built-in) -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL57Dialect</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+        <property name="hibernate.connection.useUnicode">true</property>
+
+        <mapping class="ru.tsystem.javaschool.ordinaalena.entities.Address" />
+        <mapping class="ru.tsystem.javaschool.ordinaalena.entities.Customer" />
+        <mapping class="ru.tsystem.javaschool.ordinaalena.entities.Orders" />
+        <mapping class="ru.tsystem.javaschool.ordinaalena.entities.Product"/>
+        <mapping class="ru.tsystem.javaschool.ordinaalena.entities.ProductParameter" />
+        <mapping class="ru.tsystem.javaschool.ordinaalena.entities.Role" />
+        <mapping class="ru.tsystem.javaschool.ordinaalena.entities.ProductOrders" />
+    </session-factory>
+</hibernate-configuration>

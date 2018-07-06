@@ -3,7 +3,7 @@
 
     <persistence-unit name="NewPersistenceUnit">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>ru.tsystem.javaschool.ordinaalena.models.UsertEntity</class>
+        <class>ru.tsystem.javaschool.ordinaalena.entities.Customer</class>
         <properties>
             <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/eshopdatabase"/>
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>

@@ -1,13 +1,13 @@
 package ru.tsystem.javaschool.ordinaalena.DAO.api;
 
-import ru.tsystem.javaschool.ordinaalena.models.ProductParameter;
+import ru.tsystem.javaschool.ordinaalena.entities.ProductParameter;
+
+import java.util.List;
 
 public interface ProductParameterDAO {
-    ProductParameter create( int parameterId, String parameterValue);
-
-    ProductParameter getById(int id);
-
-    void delete(int id);
-
-    ProductParameter update(int id,int parameterId, String parameterValue);
+    void persist(ProductParameter productParameter);
+    ProductParameter find(int id, Class<ProductParameter> className);
+    void remove(final ProductParameter productParameter);
+    void merge(ProductParameter productParameter);
+    List<ProductParameter> getAll(Class<ProductParameter> className);
 }

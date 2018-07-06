@@ -6,67 +6,29 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import ru.tsystem.javaschool.ordinaalena.DAO.UsertDAO;
-import ru.tsystem.javaschool.ordinaalena.DAO.UsertDAOImpl;
-import ru.tsystem.javaschool.ordinaalena.models.UsertEntity;
+import ru.tsystem.javaschool.ordinaalena.entities.Customer;
 
 
 @Controller
 public class MyController {
 
- /*  @RequestMapping(value = "/hello/{name}", method = RequestMethod.GET)
-   public String hello(@PathVariable String name, Model model){
-       model.addAttribute ("name",name);
-          return "index"; }
 
+    @RequestMapping(value = "/checkout", method = RequestMethod.POST)
+    public String indexPost(Customer customer, BindingResult bindingResult, Model ui){
 
- @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String toIndexPage(Model ui){
-        ui.addAttribute("user", new UsertEntity("user1", "ln1"));
-        return "index";
-    }
+        ui.addAttribute("customer", customer);
 
-    @RequestMapping(value = "/", method = RequestMethod.POST)
-    public String postFormData(UsertEntity u, BindingResult br, Model ui){
-
-        System.out.println(br.toString());
-        System.out.println(u.getUsername());
-        System.out.println(u.getPassword());
-
-
-
-        SessionFactory factory = new Configuration().configure().buildSessionFactory();
-        UsertDAOImpl implementation = new UsertDAOImpl(factory);
-        implementation.create(u.getUsername(), u.getPassword());
-
-        ui.addAttribute("user", u);
-
-        return "/index";
-    }
-
-}*/
-
-
-    @RequestMapping(value = "/index", method = RequestMethod.POST)
-    public String indexPost(UsertEntity user, BindingResult bindingResult, Model ui){
-        UsertDAO usersDAO = UsertDAOImpl.getUsertDAOInstance();
-        UsertEntity createdUser = usersDAO.create(user.getUsername(),user.getPassword());
-
-        ui.addAttribute("createdUserName", user.getUsername());
-        ui.addAttribute("createdUserPassword", user.getPassword());
-
-
-        return "signup/success";
+        return "checkout";
     }
 
 
 
 
 
-    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    @RequestMapping(value = "/checkout", method = RequestMethod.GET)
     public String indexGet(){
 
-        return "signup/failed";
+        return "/checkout";
     }
 
 }

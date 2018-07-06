@@ -1,14 +1,21 @@
 package ru.tsystem.javaschool.ordinaalena.DAO.api;
 
-import ru.tsystem.javaschool.ordinaalena.models.Orders;
+import ru.tsystem.javaschool.ordinaalena.entities.Orders;
 
+import java.util.List;
 
 public interface OrdersDAO {
-    Orders create( String paymentMethod,Integer addressId,String ordersStatus);
+    void persist(Orders orders);
+    Orders find(int id, Class<Orders> className);
+    void remove(final Orders orders);
+    void merge(Orders orders);
+    List<Orders> getAll(Class<Orders> className);
+    public Orders getClientBucket(int clientId);
+    public List<Orders> getClientOrders(int clientId);
 
-    Orders getById(int id);
+    public List<Orders> ordersWithAddresses(int addressId);
 
-    void delete(int id);
+    public long getProductCounts(int productId);
 
-    Orders update(int id,int customerId,String paymentMethod,Integer addressId,String ordersStatus);
+    public long getUserBuyingCounts(int customerId);
 }

@@ -1,15 +1,21 @@
 package ru.tsystem.javaschool.ordinaalena.DAO.api;
 
-import ru.tsystem.javaschool.ordinaalena.models.Customer;
+import ru.tsystem.javaschool.ordinaalena.entities.Customer;
 
-import java.sql.Date;
+import java.util.List;
 
 public interface CustomerDAO {
-    Customer create( String firstname,String secondname,Date dob,String eMail,String parole, String phonenumber);
+    void persist(Customer customer);
 
-    Customer getById(int id);
+    Customer find(int id, Class<Customer> className);
 
-    void delete(int id);
+    void remove(final Customer model);
 
-    Customer update(int id,String firstname,String secondname,Date dob,String eMail,String parole, String phonenumber);
+    void merge(Customer customer);
+    public List<Customer> getAll(Class<Customer> className);
+
+    public Customer getByEmail(String email);
+
+
+    public int getCustomerIdByEmail(String email);
 }
