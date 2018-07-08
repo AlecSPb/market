@@ -13,22 +13,22 @@ import ru.tsystem.javaschool.ordinaalena.entities.Customer;
 public class MyController {
 
 
-    @RequestMapping(value = "/checkout", method = RequestMethod.POST)
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String indexPost(Customer customer, BindingResult bindingResult, Model ui){
 
         ui.addAttribute("customer", customer);
 
-        return "checkout";
+        return "/login";
     }
 
 
 
 
 
-    @RequestMapping(value = "/checkout", method = RequestMethod.GET)
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String indexGet(){
 
-        return "/checkout";
+        return "/login";
     }
 
 }

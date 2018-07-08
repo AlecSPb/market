@@ -99,7 +99,7 @@ public class Customer {
         this.secondName = secondName;
     }
 
-    public void setPhone(String phonenumber) {
+    public void setPhonenumber(String phonenumber) {
         this.phonenumber = phonenumber;
     }
 
