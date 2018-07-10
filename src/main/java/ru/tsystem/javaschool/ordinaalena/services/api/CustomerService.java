@@ -10,7 +10,7 @@ public interface CustomerService {
      * Create new user.
      * @param dto  Customer.
      */
-    public void registrationUser(CustomerDTO dto );
+    public void registrationCustomer(CustomerDTO dto );
 
     /**
      * Get user by email.

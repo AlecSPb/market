@@ -1,0 +1,42 @@
+package ru.tsystem.javaschool.ordinaalena.services.impl;
+
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import ru.tsystem.javaschool.ordinaalena.DAO.api.CustomerDAO;
+import ru.tsystem.javaschool.ordinaalena.entities.Customer;
+import ru.tsystem.javaschool.ordinaalena.entities.Role;
+
+import java.util.HashSet;
+import java.util.Set;
+@Service
+public class CustomerDetailsServiceImpl  implements UserDetailsService {
+    @Autowired
+    private CustomerDAO customerDAO;
+
+    private static final Logger logger = Logger.getLogger(CustomerDetailsServiceImpl.class);
+
+    @Override
+    @Transactional(readOnly = true)
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+
+        logger.info("email: " + email);
+
+        Customer customer = customerDAO.getByEmail(email);
+        Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
+
+        for(Role role: customer.getRoles()){
+            grantedAuthorities.add(new SimpleGrantedAuthority(role.getName()));
+        }
+
+        return new org.springframework.security.core.userdetails.
+                User(customer.getEmail(), customer.getParole(), grantedAuthorities);
+    }
+    }
+

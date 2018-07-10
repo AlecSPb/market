@@ -146,7 +146,7 @@
               <br>
               <b>Do not have an account?</b>
               <br>&nbsp;</h1>
-            <a class="btn amado-btn mb-15" href="#">Register</a>
+            <a class="btn amado-btn mb-15" href="registration">Register</a>
           </div>
         </div>
       </div>

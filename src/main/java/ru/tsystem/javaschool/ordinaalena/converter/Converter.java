@@ -5,6 +5,8 @@ import constants.PaymentMethod;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import org.springframework.stereotype.Component;
 import ru.tsystem.javaschool.ordinaalena.DTO.*;
 import ru.tsystem.javaschool.ordinaalena.entities.*;
 
@@ -13,9 +15,10 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+@Component
 public class Converter {
-    @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
+  // @Autowired
+  // private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     private static final Logger logger = Logger.getLogger(Converter.class);
     /**
@@ -41,7 +44,8 @@ public class Converter {
     public Customer convertToEntity (CustomerDTO customerDTO){
        // logger.info("ProductDto ");
         String email = customerDTO.getEmail();
-        String parole = bCryptPasswordEncoder.encode(customerDTO.getParole());
+       // String parole = bCryptPasswordEncoder.encode(customerDTO.getParole());
+       String parole=customerDTO.getParole();
         String firstName = customerDTO.getFirstName();
         String secondName = customerDTO.getSecondName();
         String phonenumber = customerDTO.getPhonenumber();

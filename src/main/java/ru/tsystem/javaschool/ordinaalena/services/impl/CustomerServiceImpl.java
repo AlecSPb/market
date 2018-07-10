@@ -4,6 +4,7 @@ import constants.OrderStatus;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.tsystem.javaschool.ordinaalena.DAO.api.AddressDAO;
 import ru.tsystem.javaschool.ordinaalena.DAO.api.CustomerDAO;
@@ -23,6 +24,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+@Service
 public class CustomerServiceImpl implements CustomerService {
     @Autowired
     CustomerDAO customerDAO;
@@ -32,14 +34,14 @@ public class CustomerServiceImpl implements CustomerService {
     OrdersDAO ordersDAO;
     @Autowired
     AddressDAO addressDAO;
-    @Autowired
-    BCryptPasswordEncoder encoder;
+   // @Autowired
+  //  BCryptPasswordEncoder encoder;
     @Autowired
     Converter converter;
     private static final Logger logger = Logger.getLogger(CustomerServiceImpl.class);
     @Override
     @Transactional
-    public void registrationUser(CustomerDTO dto) {
+    public void registrationCustomer(CustomerDTO dto) {
         logger.info("registration: " + dto.getEmail());
 
         Customer customer = converter.convertToEntity(dto);
@@ -109,6 +111,7 @@ public class CustomerServiceImpl implements CustomerService {
         return customer;
     }
     @Override
+    @Transactional
     public void deleteCustomerAddress(int addressId, String email) {
         Address address = addressDAO.find(addressId, Address.class);
 
@@ -119,11 +122,13 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
+    @Transactional
     public void changeParole(String email, String newParole) {
         logger.info("change password. Email: " + email);
 
         Customer customer = customerDAO.getByEmail(email);
-        customer.setParole(encoder.encode(newParole));
+     //  customer.setParole(encoder.encode(newParole));
+        customer.setParole(newParole);
         customerDAO.merge(customer);
     }
 }

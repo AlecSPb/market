@@ -1,6 +1,5 @@
 
-_squid:S2094"BRemove this empty class, write its code or make it an "interface".(Óé™8’ÏâˆÇ,
-isquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ñ‘ÛŠ8’ÏâˆÇ,
-nsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(»ž•ûÿÿÿÿ8’ÏâˆÇ,
-nsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(…™Ùìýÿÿÿÿ8’ÏâˆÇ,
-~squid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¤ü²Êüÿÿÿÿ8’ÏâˆÇ,
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(‹¹¾£ÿÿÿÿÿ8Î·þŸÈ,
+|squid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¤ü²Êüÿÿÿÿ8Î·þŸÈ,
+]squid:S2094"BRemove this empty class, write its code or make it an "interface".(Óé™8Î·þŸÈ,
+jsquid:UselessImportCheck"<Remove this unused import 'javax.persistence.EntityManager'.(ðàËÒýÿÿÿÿ8Î·þŸÈ,

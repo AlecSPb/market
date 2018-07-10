@@ -12,23 +12,12 @@ import ru.tsystem.javaschool.ordinaalena.entities.Customer;
 @Controller
 public class MyController {
 
-
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String indexPost(Customer customer, BindingResult bindingResult, Model ui){
-
-        ui.addAttribute("customer", customer);
-
-        return "/login";
-    }
-
-
-
-
-
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String indexGet(){
-
-        return "/login";
+    /**
+     * @return home page
+     */
+    @RequestMapping(value = "/home", method = RequestMethod.GET)
+    public String index(){
+        return "index";
     }
 
 }

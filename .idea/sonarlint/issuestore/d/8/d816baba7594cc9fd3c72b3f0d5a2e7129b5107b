@@ -1,5 +1,5 @@
 
 ysquid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(×°“µ8³ à†Ç,
+ssquid:S1206q"PThis class overrides "equals()" and should therefore also override "hashCode()".(İ¢êÍıÿÿÿÿ8³ à†Ç,
 Ssquid:S2065"0Remove the "transient" modifier from this field.(¦Í“ùÿÿÿÿ8³ à†Ç,
 vsquid:ModifiersOrderCheck"EReorder the modifiers to comply with the Java Language Specification.(¦Í“ùÿÿÿÿ8³ à†Ç,
-ssquid:S1206q"PThis class overrides "equals()" and should therefore also override "hashCode()".(İ¢êÍıÿÿÿÿ8³ à†Ç,

@@ -1,11 +1,12 @@
 
 package ru.tsystem.javaschool.ordinaalena.DAO.impl;
 
+import org.springframework.stereotype.Repository;
 import ru.tsystem.javaschool.ordinaalena.DAO.api.ProductOrdersDAO;
 import ru.tsystem.javaschool.ordinaalena.entities.ProductOrders;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-
+@Repository
 public class ProductOrdersDAOImpl implements ProductOrdersDAO {
     @PersistenceContext
     private EntityManager entityManager;

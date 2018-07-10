@@ -61,7 +61,7 @@ public class ProductDAOImpl implements ProductDAO {
     }
 
     @Override
-    public Product getByName(String title) {
+    public Product getByTitle(String title) {
         return entityManager.createQuery(
                 "select product from Product as product where product.title=:title",
                 Product.class)
