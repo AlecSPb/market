@@ -23,7 +23,7 @@ public class CartController {
      * @param error     errors for validation
      * @return          jsp
      */
-    @RequestMapping(value = "/cart",method = RequestMethod.GET)
+    @RequestMapping(value = "/bucket",method = RequestMethod.GET)
     public String cartGet(Model model, String error){
         String customerEmail = securityService.findLoggedInEmail();
         OrdersDTO cart = cartService.getCustomerCart(customerEmail);
@@ -31,7 +31,7 @@ public class CartController {
             model.addAttribute("error", error);
         model.addAttribute("products", cart.getProductDTOs());
         model.addAttribute("productsSize", cart.getProductDTOs().size());
-        return "/cart";
+        return "/bucket";
     }
 
     /**
@@ -45,6 +45,6 @@ public class CartController {
             return "redirect:/bucket?error='No one is selected'";
         String customerEmail = securityService.findLoggedInEmail();
         cartService.deleteFromCart(customerEmail, selected);
-        return "redirect:/cart";
+        return "redirect:/bucket";
     }
 }

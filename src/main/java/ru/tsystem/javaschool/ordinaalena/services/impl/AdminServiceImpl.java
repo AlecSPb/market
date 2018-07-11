@@ -72,12 +72,12 @@ public class AdminServiceImpl implements AdminService {
         ordersDAO.merge(orders);
         return orders.getOrderStatus().toString();
     }
-    }
 
-   /* @Override
+/*
+    @Override
     public String changeProductStatus(int productId) {
         Product product = productDAO.find(productId, Product.class);
         productDAO.merge(product);
         return String.valueOf(product));
     }*/
-
+}

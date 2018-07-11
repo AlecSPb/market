@@ -16,33 +16,33 @@ public class CustomerDAOImpl  implements CustomerDAO {
 
 
     @Override
-    public void persist(Customer customer) {
+    public void persist(final Customer customer) {
         logger.info("persist new " + customer.getClass());
 
-        this.entityManager.persist(customer);
+        entityManager.persist(customer);
     }
 
     @Override
     public Customer find(int id, Class<Customer> className) {
         logger.info("find by id " + className + " id " + id);
-        return (Customer) this.entityManager.find(className, id);
+        return entityManager.find(className, id);
     }
 
     @Override
     public void remove(Customer customer) {
         logger.info("remove " + customer.getClass() + " id " + customer.getId());
-        this.entityManager.remove(entityManager.merge(customer));
+        entityManager.remove(entityManager.merge(customer));
     }
 
     @Override
     public void merge(Customer customer) {
         logger.info("merge " + customer.getClass() + " id " + customer.getId());
-        this.entityManager.merge(customer);
+        entityManager.merge(customer);
     }
     @Override
     public List<Customer> getAll(Class<Customer> className){
         logger.info("find all " + className);
-        return this.entityManager.
+        return entityManager.
                 createQuery("from "+className.getSimpleName(), className).
                 getResultList();
     }

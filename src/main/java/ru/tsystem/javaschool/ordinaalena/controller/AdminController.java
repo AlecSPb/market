@@ -59,7 +59,7 @@ public class AdminController {
      */
     @RequestMapping(value = "/addresses", method = RequestMethod.GET)
     public String getAddresses(Model model, String email){
-        logger.info("admin: " + securityService.findLoggedInEmail());
+       logger.info("admin: " + securityService.findLoggedInEmail());
         model.addAttribute("addresses",customerService.getCustomerAddresses(email));
         model.addAttribute("email",email);
         return "/addresses";

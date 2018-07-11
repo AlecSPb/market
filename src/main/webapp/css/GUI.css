@@ -1,0 +1,60 @@
+.bg__wrapper{
+    background: url(../img/background1.png) no-repeat center;
+    -webkit-background-size: cover;
+    background-size: cover;
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.container__wrapper{
+    width: 930px;
+    background: rgba(255, 255, 255, .8);
+    min-height: 100%;
+    margin: 0 auto;
+    z-index: 1;
+    padding: 0 30px;
+}
+
+.clearfix:after {
+    content: '';
+    display: table;
+    width: 100%;
+    clear: both;
+}
+
+a.link{
+    background: none;
+    color: inherit;
+    display: inline-block;
+    text-decoration: none;
+}
+a.link_default{
+    color: grey;
+    text-decoration: underline;
+    border: 1px solid grey;
+}
+a.link_contact:hover{
+    text-decoration: underline;
+}
+a.link_header{
+        color: #ff00cc;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: .3s;
+}
+a.link_header:hover{
+    background: #ff00cc;
+    color: #ffffff;
+    cursor: pointer;
+}
+a.link_product{
+    color: #ff00cc;
+}
+
+.error{
+    color: #ff00cc;
+}

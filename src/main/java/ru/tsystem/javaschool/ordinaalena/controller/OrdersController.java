@@ -49,7 +49,7 @@ public class OrdersController {
             return "redirect:/bucket?error='No one is selected'";
         OrdersDTO ordersDTO= new OrdersDTO();
         ordersDTO.setProductDtos(productService.getByTitles(selected));
-        model.addAttribute("orderDto", ordersDTO);
+        model.addAttribute("ordersDTO", ordersDTO);
         return "/makeOrder";
     }
 
@@ -97,7 +97,7 @@ public class OrdersController {
         ordersDTO.setAddress(orderAddress);
         ordersDTO.setId(null);
         model.addAttribute("paymentMethods", PaymentMethod.values());
-        model.addAttribute("orderDto", ordersDTO);
+        model.addAttribute("ordersDTO", ordersDTO);
         return "/confirm";
     }
 
@@ -113,7 +113,7 @@ public class OrdersController {
         if(PaymentMethod.valueOfOrNull(ordersDTO.getPaymentMethod())==null) {
             model.addAttribute("error","Способ оплаты не выбран!");
             model.addAttribute("paymentMethods", PaymentMethod.values());
-            model.addAttribute("orderDto", ordersDTO);
+            model.addAttribute("ordersDTO", ordersDTO);
             return "/confirm";
         }
         ordersService.makeNewOrder(ordersDTO);
@@ -122,7 +122,7 @@ public class OrdersController {
 //        mqService.ProduceMessage(orderDto.getId());
 
 
-        return "redirect:/cart";
+        return "redirect:/bucket";
     }
 
     /**

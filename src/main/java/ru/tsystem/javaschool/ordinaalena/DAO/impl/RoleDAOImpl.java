@@ -20,32 +20,32 @@ public class  RoleDAOImpl implements RoleDAO {
     public void persist(Role role) {
         logger.info("persist new " + role.getClass());
 
-        this.entityManager.persist(role);
+        entityManager.persist(role);
     }
 
 
     @Override
     public Role find(int id, Class<Role> className) {
         logger.info("find by id " + className + " id " + id);
-        return (Role) this.entityManager.find(className, id);
+        return entityManager.find(className, id);
     }
 
     @Override
     public void remove(Role role) {
         logger.info("remove " + role.getClass() + " id " + role.getId());
-        this.entityManager.remove(entityManager.merge(role));
+        entityManager.remove(entityManager.merge(role));
     }
 
     @Override
     public void merge(Role role) {
         logger.info("merge " + role.getClass() + " id " + role.getId());
-        this.entityManager.merge(role);
+        entityManager.merge(role);
     }
 
     @Override
     public List<Role> getAll(Class<Role> className) {
         logger.info("find all " + className);
-        return this.entityManager.
+        return entityManager.
                 createQuery("from "+className.getSimpleName(), className).
                 getResultList();
     }

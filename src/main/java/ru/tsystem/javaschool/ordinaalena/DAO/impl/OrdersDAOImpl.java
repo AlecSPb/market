@@ -18,32 +18,32 @@ public class OrdersDAOImpl implements OrdersDAO {
     @Override
     public void persist(Orders orders) {
         logger.info("persist new"+orders.getClass());
-        this.entityManager.persist(orders);
+        entityManager.persist(orders);
 
     }
 
     @Override
     public Orders find(int id, Class<Orders> className) {
         logger.info("find by id"+className+"id"+id);
-        return this.entityManager.find(className,id);
+        return entityManager.find(className,id);
     }
 
     @Override
     public void remove(Orders orders) {
         logger.info("remove " + orders.getClass() + " id " + orders.getId());
-        this.entityManager.remove(entityManager.merge(orders));
+        entityManager.remove(entityManager.merge(orders));
     }
 
     @Override
     public void merge(Orders orders) {
         logger.info("merge " + orders.getClass() + " id " +orders.getId());
-        this.entityManager.merge(orders);
+        entityManager.merge(orders);
     }
 
     @Override
     public List<Orders> getAll(Class<Orders> className) {
         logger.info("find all " + className);
-        return this.entityManager.
+        return entityManager.
                 createQuery("from "+className.getSimpleName(), className).
                 getResultList();
     }
@@ -75,7 +75,7 @@ public class OrdersDAOImpl implements OrdersDAO {
 
     @Override
     public long getProductCounts(int productId) {
-        return this.entityManager.createQuery("SELECT sum(prord.count)" +
+        return entityManager.createQuery("SELECT sum(prord.count)" +
                 "                          FROM ProductOrders as prord" +
                 "                          where prord.orders.id =" +
                 "                                (SELECT id FROM Orders as ord where" +
@@ -88,7 +88,7 @@ public class OrdersDAOImpl implements OrdersDAO {
 
     @Override
     public long getUserBuyingCounts(int customerId) {
-        return this.entityManager.createQuery("SELECT sum(prord.count)" +
+        return entityManager.createQuery("SELECT sum(prord.count)" +
                 "                          FROM ProductOrders as prord" +
                 "                          where prord.orders.id =" +
                 "                                (SELECT id FROM Orders as ord where" +

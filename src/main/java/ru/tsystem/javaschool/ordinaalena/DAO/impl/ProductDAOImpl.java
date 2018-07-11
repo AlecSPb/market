@@ -19,31 +19,31 @@ public class ProductDAOImpl implements ProductDAO {
     public void persist(Product product) {
         logger.info("persist new " + product.getClass());
 
-        this.entityManager.persist(product);
+        entityManager.persist(product);
     }
 
     @Override
     public Product find(int id, Class<Product> className) {
         logger.info("find by id " + className + " id " + id);
-        return (Product) this.entityManager.find(className, id);
+        return entityManager.find(className, id);
     }
 
     @Override
     public void remove(Product product) {
         logger.info("remove " + product.getClass() + " id " + product.getId());
-        this.entityManager.remove(entityManager.merge(product));
+        entityManager.remove(entityManager.merge(product));
     }
 
     @Override
     public void merge(Product product) {
         logger.info("merge " + product.getClass() + " id " + product.getId());
-        this.entityManager.merge(product);
+        entityManager.merge(product);
     }
 
     @Override
     public List<Product> getAll(Class<Product> className) {
         logger.info("find all " + className);
-        return this.entityManager.
+        return entityManager.
                 createQuery("from "+className.getSimpleName(), className).
                 getResultList();
     }
@@ -79,7 +79,7 @@ public class ProductDAOImpl implements ProductDAO {
 //??
     @Override
     public long getProductsCount(String[] categories) {
-        return  this.entityManager.createQuery("SELECT sum(product.count)" +
+        return  entityManager.createQuery("SELECT sum(product.count)" +
                 "                          FROM Product as product" +
                 "                          where product.category =:categories" , Long.class)
                 .setParameter("categories", categories).getSingleResult();

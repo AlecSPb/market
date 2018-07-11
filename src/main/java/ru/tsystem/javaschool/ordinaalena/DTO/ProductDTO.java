@@ -34,25 +34,24 @@ public class ProductDTO {
     }
 
     public ProductDTO(String title, Integer price, String category,
-                      Integer count, String description,ProductParameterDTO productParameterDto) {
+                      Integer count, String description,ProductParameterDTO productParameterDTO) {
         this.title = title;
         this.price = price;
         this.category = category;
         this.count = count;
         this.description = description;
-
-        this.productParameterDTO = productParameterDto;
+        this.productParameterDTO = productParameterDTO;
     }
 
     public ProductDTO(Integer id, String title, Integer price, String category,
-                      Integer count, String description, ProductParameterDTO productParameterDto) {
+                      Integer count, String description, ProductParameterDTO productParameterDTO) {
         this.id=id;
         this.title = title;
         this.price = price;
         this.category = category;
         this.count = count;
         this.description = description;
-        this.productParameterDTO = productParameterDto;
+        this.productParameterDTO = productParameterDTO;
     }
 
     public Integer getPrice() {

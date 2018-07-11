@@ -20,31 +20,31 @@ public class ProductParameterDAOImpl  implements ProductParameterDAO {
     public void persist(ProductParameter productParameter) {
         logger.info("persist new " + productParameter.getClass());
 
-        this.entityManager.persist(productParameter);
+        entityManager.persist(productParameter);
     }
 
     @Override
     public ProductParameter find(int id, Class<ProductParameter> className) {
         logger.info("find by id " + className + " id " + id);
-        return (ProductParameter) this.entityManager.find(className, id);
+        return entityManager.find(className, id);
     }
 
     @Override
     public void remove(ProductParameter productParameter) {
         logger.info("remove " + productParameter.getClass() + " id " + productParameter.getId());
-        this.entityManager.remove(entityManager.merge(productParameter));
+        entityManager.remove(entityManager.merge(productParameter));
     }
 
     @Override
     public void merge(ProductParameter productParameter) {
         logger.info("merge " + productParameter.getClass() + " id " + productParameter.getId());
-        this.entityManager.merge(productParameter);
+        entityManager.merge(productParameter);
     }
 
     @Override
     public List<ProductParameter> getAll(Class<ProductParameter> className) {
         logger.info("find all " + className);
-        return this.entityManager.
+        return entityManager.
                 createQuery("from "+className.getSimpleName(), className).
                 getResultList();
     }

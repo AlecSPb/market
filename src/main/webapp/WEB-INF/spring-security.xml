@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/security
+		http://www.springframework.org/schema/security/spring-security.xsd">
+
+    <http auto-config="true">
+        <intercept-url pattern="/bucket"
+                       access="isAuthenticated()"/>
+        <intercept-url pattern="/user/account"
+                       access="isAuthenticated()"/>
+        <intercept-url pattern="/user/change_details"
+                       access="isAuthenticated()"/>
+        <intercept-url pattern="/user/change_password"
+                       access="isAuthenticated()"/>
+        <intercept-url pattern="/user/add_address"
+                       access="isAuthenticated()"/>
+        <intercept-url pattern="/order/**"
+                       access="isAuthenticated()"/>
+        <intercept-url pattern="/admin/**"
+                       access="hasAnyRole('ROLE_ADMIN')"/>
+
+
+        <form-login login-processing-url="/user/login"
+                    login-page="/user/login" default-target-url="/home"
+                    authentication-failure-url="/user/login?error"
+                    username-parameter="email" password-parameter="password"/>
+
+        <logout logout-success-url="/user/login?logout"/>
+
+        <csrf disabled="true"/>
+    </http>
+
+    <authentication-manager alias="authenticationManager">
+        <authentication-provider user-service-ref="userDetailsServiceImpl">
+            <password-encoder ref="encoder"/>
+        </authentication-provider>
+    </authentication-manager>
+
+    <beans:bean id="userDetailsServiceImpl"
+                class="ru.tsystem.javaschool.ordinaalena.services.impl.CustomerDetailsServiceImpl"/>
+
+    <beans:bean id="encoder"
+                class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
+        <beans:constructor-arg name="strength" value="11"/>
+    </beans:bean>
+</beans:beans>

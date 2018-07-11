@@ -15,7 +15,7 @@ import ru.tsystem.javaschool.ordinaalena.entities.Role;
 
 import java.util.HashSet;
 import java.util.Set;
-@Service
+
 public class CustomerDetailsServiceImpl  implements UserDetailsService {
     @Autowired
     private CustomerDAO customerDAO;

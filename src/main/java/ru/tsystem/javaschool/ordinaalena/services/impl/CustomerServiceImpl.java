@@ -34,8 +34,8 @@ public class CustomerServiceImpl implements CustomerService {
     OrdersDAO ordersDAO;
     @Autowired
     AddressDAO addressDAO;
-   // @Autowired
-  //  BCryptPasswordEncoder encoder;
+    @Autowired
+    BCryptPasswordEncoder encoder;
     @Autowired
     Converter converter;
     private static final Logger logger = Logger.getLogger(CustomerServiceImpl.class);
@@ -45,15 +45,15 @@ public class CustomerServiceImpl implements CustomerService {
         logger.info("registration: " + dto.getEmail());
 
         Customer customer = converter.convertToEntity(dto);
-        Role role = roleDAO.getRoleByName("ROLE_USER");
+        Role role = roleDAO.getRoleByName("USER_ROLE");
         Set<Role> roleSet = new HashSet<>();
         roleSet.add(role);
         customer.setRoles(roleSet);
 
-        Orders order = new Orders();
-        order.setCustomer(customer);
-        order.setOrderStatus(OrderStatus.BUCKET);
-        ordersDAO.persist(order);
+        //Orders order = new Orders();
+        //order.setCustomer(customer);
+        //order.setOrderStatus(OrderStatus.BUCKET);
+        //ordersDAO.persist(order);
     }
 
     @Override
@@ -127,8 +127,8 @@ public class CustomerServiceImpl implements CustomerService {
         logger.info("change password. Email: " + email);
 
         Customer customer = customerDAO.getByEmail(email);
-     //  customer.setParole(encoder.encode(newParole));
-        customer.setParole(newParole);
+        customer.setParole(encoder.encode(newParole));
+       // customer.setParole(newParole);
         customerDAO.merge(customer);
     }
 }

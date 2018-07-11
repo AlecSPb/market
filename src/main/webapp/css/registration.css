@@ -1,0 +1,33 @@
+.registration__main{
+    text-align: center;
+}
+.registration__main h2{
+    color: #ff00cc;
+    margin-bottom: 10px;
+}
+
+
+.registration__wrapper{
+    display: inline-block;
+}
+.registration__wrapper input{
+    width: inherit;
+}
+.registration__wrapper dt{
+    text-align: left;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.registration__wrapper dd{
+    width: 250px;
+    margin: 0 0 15px 0;
+    padding: 0;
+}
+.registration__wrapper p {
+    text-align: left;
+    font-size: 10px;
+}
+
+.has-error span{
+    color: #ff00cc;
+}

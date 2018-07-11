@@ -17,7 +17,7 @@ public class MyController {
      */
     @RequestMapping(value = "/home", method = RequestMethod.GET)
     public String index(){
-        return "index";
+        return "index12";
     }
 
 }

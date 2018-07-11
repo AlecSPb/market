@@ -22,41 +22,41 @@ public class AddressDAOImpl implements AddressDAO {
 
         logger.info("persist new " + address.getClass());
 
-        this.entityManager.persist(address);
+        entityManager.persist(address);
     }
 
 
     @Override
     public void remove(final Address address) {
         logger.info("remove " + address.getClass() + " id " + address.getId());
-        this.entityManager.remove(entityManager.merge(address));
+        entityManager.remove(entityManager.merge(address));
     }
 
 
     @Override
     public Address find(int id, Class<Address> className) {
         logger.info("find by id " + className + " id " + id);
-        return (Address) this.entityManager.find(className, id);
+        return entityManager.find(className, id);
     }
 
 
     @Override
     public void merge(Address address){
         logger.info("merge " + address.getClass() + " id " + address.getId());
-        this.entityManager.merge(address);
+        entityManager.merge(address);
     }
 
     @Override
     public List<Address> getAll(Class<Address> className){
         logger.info("find all " + className);
-        return this.entityManager.
+        return entityManager.
                 createQuery("from "+className.getSimpleName(), className).
                 getResultList();
     }
 
     @Override
     public List<Address> getByClientId(int id) {
-        return this.entityManager.
+        return entityManager.
                 createQuery("from Address as adr where adr.customer.id=:id" ,Address.class).
                 setParameter("id", id).getResultList();
     }

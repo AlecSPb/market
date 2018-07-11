@@ -44,8 +44,8 @@ public class CustomerController {
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public String registration(@ModelAttribute("customer") CustomerDTO customerDTO,
                                BindingResult bindingResult, Model model) {
-       mainValidator.validateEmail(customerDTO, bindingResult);
-      mainValidator.validateParoleSet(customerDTO, bindingResult);
+      // mainValidator.validateEmail(customerDTO, bindingResult);
+     // mainValidator.validateParoleSet(customerDTO, bindingResult);
 
         if (bindingResult.hasErrors())
             return "/registration";
@@ -107,7 +107,7 @@ public class CustomerController {
      * @return                  redirect to account if success
      */
     @RequestMapping(value = "change_details", method = RequestMethod.POST)
-    public String setAccountDetails(@ModelAttribute("user") CustomerDTO customer,
+    public String setAccountDetails(@ModelAttribute("customer") CustomerDTO customer,
                                     BindingResult bindingResult) {
         mainValidator.validateCustomerDetails(customer, bindingResult);
 
@@ -124,9 +124,9 @@ public class CustomerController {
      * @param model     page model
      * @return          jsp
      */
-    @RequestMapping(value = "change_password", method = RequestMethod.GET)
+    @RequestMapping(value = "change_parole", method = RequestMethod.GET)
     public String ChangePassword(Model model) {
-        model.addAttribute("user", new CustomerDTO());
+        model.addAttribute("customer", new CustomerDTO());
         return "/changePassword";
     }
 
@@ -137,7 +137,7 @@ public class CustomerController {
      * @return                  redirect to account if success
      */
     @RequestMapping(value = "change_parole", method = RequestMethod.POST)
-    public String setChangedPassword(@ModelAttribute("user") CustomerDTO customer, BindingResult bindingResult) {
+    public String setChangedPassword(@ModelAttribute("customer") CustomerDTO customer, BindingResult bindingResult) {
         mainValidator.validateParoleSet(customer, bindingResult);
         if (bindingResult.hasErrors())
             return "/changeParole";

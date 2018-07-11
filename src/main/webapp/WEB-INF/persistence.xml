@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+    <persistence-unit name="persistenceUnit">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>ru.tsystem.javaschool.ordinaalena.entities.Customer</class>
+        <class>ru.tsystem.javaschool.ordinaalena.entities.Address</class>
+        <class>ru.tsystem.javaschool.ordinaalena.entities.Orders</class>
+        <class>ru.tsystem.javaschool.ordinaalena.entities.Product</class>
+        <class>ru.tsystem.javaschool.ordinaalena.entities.ProductOrders</class>
+        <class>ru.tsystem.javaschool.ordinaalena.entities.ProductParameter</class>
+        <class>ru.tsystem.javaschool.ordinaalena.entities.Role</class>
+        <properties>
+            <property name="hibernate.show_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+</persistence>

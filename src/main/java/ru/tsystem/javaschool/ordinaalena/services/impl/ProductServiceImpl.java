@@ -3,6 +3,7 @@ package ru.tsystem.javaschool.ordinaalena.services.impl;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 import ru.tsystem.javaschool.ordinaalena.DAO.api.ProductDAO;
 import ru.tsystem.javaschool.ordinaalena.DTO.ProductDTO;
@@ -100,6 +101,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    @Transactional
     public List<ProductDTO> getByTitles(String[] titles) {
         List<ProductDTO> productDTOS = new ArrayList<>();
         for(String title :  titles){
@@ -109,6 +111,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    @Transactional
     public void addProduct(ProductDTO productDTO, MultipartFile picture) {
         logger.info("name - " + productDTO.getTitle());
 
