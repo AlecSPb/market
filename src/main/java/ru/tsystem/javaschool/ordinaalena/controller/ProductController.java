@@ -5,24 +5,21 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import ru.tsystem.javaschool.ordinaalena.services.api.CartService;
-import ru.tsystem.javaschool.ordinaalena.services.api.PictureService;
+
 import ru.tsystem.javaschool.ordinaalena.services.api.ProductService;
-import ru.tsystem.javaschool.ordinaalena.services.api.SecurityService;
+
 
 @Controller
 public class ProductController {
-    @Autowired
-    SecurityService securityService;
+
+    private ProductService productService;
 
     @Autowired
-    CartService cartService;
+    public ProductController (ProductService productService) {
 
-    @Autowired
-    ProductService productService;
+        this.productService = productService;
+    }
 
-    @Autowired
-    PictureService pictureService;
 
     /**
      * Return page with all products

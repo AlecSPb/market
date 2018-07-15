@@ -16,7 +16,7 @@
     <div class="container__wrapper">
         <%@include file="header.jsp"%>
         <main class="registration__main">
-            <form action="${contextPath}/login" method='GET' class="registration__wrapper">
+            <form action="${contextPath}/user/login" method='POST' class="registration__wrapper">
                 <h2>Sign in</h2>
                 <dl class="dl_class ${error != null ? 'has-error' : ''}">
                     <dt>
@@ -33,7 +33,7 @@
                         Password
                     </dt>
                     <dd>
-                        <input type="parole" name="parole" id="parole"
+                        <input type="password" name="parole" id="parole"
                                 placeholder="Password*">
                         <p>Enter password.</p>
                     </dd>

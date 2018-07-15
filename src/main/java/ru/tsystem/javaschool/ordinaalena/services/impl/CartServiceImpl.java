@@ -21,17 +21,21 @@ import java.util.Set;
 
 @Service
 public class CartServiceImpl  implements CartService {
-    @Autowired
-    CustomerDAO customerDAO;
 
-    @Autowired
-    OrdersDAO ordersDAO;
+    private CustomerDAO customerDAO;
 
-    @Autowired
-    ProductDAO productDAO;
+    private OrdersDAO ordersDAO;
 
+    private ProductDAO productDAO;
+
+    private Converter converter;
     @Autowired
-    Converter converter;
+    public CartServiceImpl(CustomerDAO customerDAO, OrdersDAO ordersDAO, ProductDAO productDAO, Converter converter) {
+        this.customerDAO = customerDAO;
+        this.ordersDAO = ordersDAO;
+        this.productDAO = productDAO;
+        this.converter = converter;
+    }
 
     @Override
     @Transactional

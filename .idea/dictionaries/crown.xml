@@ -2,6 +2,7 @@
   <dictionary name="crown">
     <words>
       <w>firstname</w>
+      <w>isnotavailable</w>
       <w>transientparole</w>
     </words>
   </dictionary>

@@ -26,7 +26,7 @@
         <form:form  method='POST' modelAttribute="customer" class="registration__wrapper">
             <h2>Add address</h2>
             <dl class="dl_class">
-                <spring:bind path="secondname">
+                <spring:bind path="secondName">
                     <dt>
                         Second name
                     </dt>
@@ -54,7 +54,7 @@
                     </dt>
                     <dd>
                         <form:input type="text" path="phonenumber"
-                                    placeholder="phone number"/>
+                                    placeholder="phonenumber"/>
                             <form:errors path="phonenumber"/>
                         <p>Indicate phone number.</p>
                     </dd>

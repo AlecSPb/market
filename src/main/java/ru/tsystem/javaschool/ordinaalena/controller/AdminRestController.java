@@ -10,13 +10,18 @@ import ru.tsystem.javaschool.ordinaalena.services.api.AdminService;
 import ru.tsystem.javaschool.ordinaalena.services.api.SecurityService;
 
 @RestController
+@RequestMapping("/admin")
 public class AdminRestController {
-    @Autowired
-    AdminService adminService;
 
-    @Autowired
-    SecurityService securityService;
+    private AdminService adminService;
 
+
+    private SecurityService securityService;
+    @Autowired
+    public AdminRestController(AdminService adminService, SecurityService securityService) {
+        this.adminService = adminService;
+        this.securityService = securityService;
+    }
 
     private static final Logger logger = Logger.getLogger(AdminRestController.class);
 
@@ -25,7 +30,7 @@ public class AdminRestController {
      * @param ordersId   order id
      * @return          new status
      */
-    @RequestMapping(value = "/status/{ordersId}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/order/status/{ordersId}", method = RequestMethod.PUT)
     public String changeOrderStatus(@PathVariable Integer ordersId){
         logger.info("Change order status. OrderID: " + ordersId + ". Admin: " + securityService.findLoggedInEmail());
         return adminService.changeOrderStatus(ordersId);
@@ -36,9 +41,9 @@ public class AdminRestController {
      * @param productId      products id
      * @return               new status
      */
-   /* @RequestMapping(value = "/status/{productId}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/product/status/{productId}", method = RequestMethod.PUT)
     public String changeProductStatus(@PathVariable Integer productId){
         logger.info("Change product status. OrderID: " + productId + ". Admin: " + securityService.findLoggedInEmail());
         return adminService.changeProductStatus(productId);
-    }*/
+    }
 }

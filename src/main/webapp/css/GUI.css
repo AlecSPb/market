@@ -41,20 +41,20 @@ a.link_contact:hover{
     text-decoration: underline;
 }
 a.link_header{
-        color: #ff00cc;
+        color: #ff00ff;
     text-transform: uppercase;
     font-weight: bold;
     transition: .3s;
 }
 a.link_header:hover{
-    background: #ff00cc;
+    background: #ff00ff;
     color: #ffffff;
     cursor: pointer;
 }
 a.link_product{
-    color: #ff00cc;
+    color: #ff00ff;
 }
 
 .error{
-    color: #ff00cc;
+    color: #ff00ff;
 }

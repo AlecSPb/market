@@ -15,16 +15,21 @@ import ru.tsystem.javaschool.ordinaalena.services.api.SecurityService;
 import ru.tsystem.javaschool.ordinaalena.validation.MainValidator;
 
 @Controller
+@RequestMapping("/user")
 public class CustomerController {
-    @Autowired
+
     private CustomerService customerService;
 
-    @Autowired
     private SecurityService securityService;
 
-    @Autowired
     private MainValidator mainValidator;
 
+    @Autowired
+    public CustomerController(CustomerService customerService, SecurityService securityService, MainValidator mainValidator) {
+        this.customerService = customerService;
+        this.securityService = securityService;
+        this.mainValidator = mainValidator;
+    }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String getSignIn(Model model, String error, String logout) {
@@ -44,14 +49,12 @@ public class CustomerController {
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public String registration(@ModelAttribute("customer") CustomerDTO customerDTO,
                                BindingResult bindingResult, Model model) {
-      // mainValidator.validateEmail(customerDTO, bindingResult);
-     // mainValidator.validateParoleSet(customerDTO, bindingResult);
+//         mainValidator.validateEmail(customerDTO, bindingResult);
+        // mainValidator.validateParoleSet(customerDTO, bindingResult);
 
         if (bindingResult.hasErrors())
             return "/registration";
-
         customerService.registrationCustomer(customerDTO);
-
         securityService.autoLogin(customerDTO.getEmail(), customerDTO.getParole());
         return "redirect:/home";
     }
@@ -87,14 +90,14 @@ public class CustomerController {
 
         customerService.addCustomerAddress(customerEmail, address);
 
-        return "redirect:/account";
+        return "redirect:/user/account";
     }
     /**
      * return change account details page
      * @param model     page model
      * @return          jsp
      */
-    @RequestMapping(value = "change_details", method = RequestMethod.GET)
+    @RequestMapping(value = "/change_details", method = RequestMethod.GET)
     public String getAccountDetails(Model model) {
         model.addAttribute("customer", new CustomerDTO());
         return "/setAccountDetails";
@@ -106,7 +109,7 @@ public class CustomerController {
      * @param bindingResult     errors
      * @return                  redirect to account if success
      */
-    @RequestMapping(value = "change_details", method = RequestMethod.POST)
+    @RequestMapping(value = "/change_details", method = RequestMethod.POST)
     public String setAccountDetails(@ModelAttribute("customer") CustomerDTO customer,
                                     BindingResult bindingResult) {
         mainValidator.validateCustomerDetails(customer, bindingResult);
@@ -124,8 +127,8 @@ public class CustomerController {
      * @param model     page model
      * @return          jsp
      */
-    @RequestMapping(value = "change_parole", method = RequestMethod.GET)
-    public String ChangePassword(Model model) {
+    @RequestMapping(value = "/change_parole", method = RequestMethod.GET)
+    public String changePassword(Model model) {
         model.addAttribute("customer", new CustomerDTO());
         return "/changePassword";
     }
@@ -136,11 +139,11 @@ public class CustomerController {
      * @param bindingResult     errors
      * @return                  redirect to account if success
      */
-    @RequestMapping(value = "change_parole", method = RequestMethod.POST)
+    @RequestMapping(value = "/change_parole", method = RequestMethod.POST)
     public String setChangedPassword(@ModelAttribute("customer") CustomerDTO customer, BindingResult bindingResult) {
         mainValidator.validateParoleSet(customer, bindingResult);
         if (bindingResult.hasErrors())
-            return "/changeParole";
+            return "/changePassword";
 
         String loggedCustomerEmail = securityService.findLoggedInEmail();
         customerService.changeParole(loggedCustomerEmail, customer.getParole());

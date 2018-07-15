@@ -19,20 +19,20 @@
             <h2>Добавление продукта</h2>
             <form:form  enctype="multipart/form-data"
                         method="POST"
-                        action="${contextPath}/add_new_product"
+                        action="${contextPath}/admin/add_new_product"
                         modelAttribute="product">
                 <dl class="dl_class">
                     <dt>
-                        Название
+                        Title
                     </dt>
                     <dd>
                         <form:input type="text" path="title"
-                                    placeholder="Название"/>
+                                    placeholder="Title"/>
                         <form:errors path="title"/>
                         <p>Add title of product</p>
                     </dd>
                     <dt>
-                        Категория
+                        Category
                     </dt>
                     <dd>
                         <form:input type="text" path="category"
@@ -41,11 +41,20 @@
                         <p>Add Category</p>
                     </dd>
                     <dt>
-                        Цена
+                        Brand
+                    </dt>
+                    <dd>
+                        <form:input type="text" path="productParameterDTO.brand"
+                                    placeholder="Color"/>
+                        <form:errors path="productParameterDTO.brand"/>
+                        <p>Укажите цвет.</p>
+                    </dd>
+                    <dt>
+                        Price
                     </dt>
                     <dd>
                         <form:input type="text" path="price"
-                                    placeholder="Цена"/>
+                                    placeholder="Price"/>
                         <form:errors path="price"/>
                         <p>Add price</p>
                     </dd>

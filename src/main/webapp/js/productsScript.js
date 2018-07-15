@@ -132,7 +132,7 @@ function showPagesCount() {
 
 function showAllPagesCount() {
     $.ajax({
-        url: "http://localhost:8081/pagesCount",
+        url: "http://localhost:8080/pagesCount",
         type: "get",
         success: function (data) {
             removeAllPageButtons();
@@ -146,7 +146,7 @@ function showAllPagesCount() {
 function addToBucket(prodId) {
 
     $.ajax({
-        url: "http://localhost:8081/bucket/product  ",
+            url: "http://localhost:8081/bucket/product  ",
         type: "post",
         data: {
           prodId : prodId

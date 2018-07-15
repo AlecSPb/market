@@ -29,7 +29,7 @@
                         <c:forEach items="${categories}" var="category">
                             <li>
                                 <label>
-                                    <input type="checkbox" name="brand" value="${category}">
+                                    <input type="checkbox" name="category" value="${category}">
                                     <span class="menu__line">
                                         <span>${category}</span>
                                     </span>

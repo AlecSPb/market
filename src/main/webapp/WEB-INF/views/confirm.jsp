@@ -22,7 +22,7 @@
 <div class="container__wrapper">
     <%@include file="header.jsp"%>
     <main class="registration__main">
-        <form:form method="post" action="${contextPath}/order_confirm" modelAttribute="ordersDTO">
+        <form:form method="post" action="${contextPath}/order/order_confirm" modelAttribute="ordersDTO">
             <dl>
                 <dd>
                     Метод оплаты:

@@ -29,6 +29,7 @@
                             </dt>
                             <dd>${product.title}, ${product.productParameterDTO.weight}</dd>
                             <dd>Category: ${product.category}</dd>
+                            <dd>Brand: ${product.productParameterDTO.brand}</dd>
                             <dd>Color: ${product.productParameterDTO.color}</dd>
                         </dl>
                         <div class="products__description_text">

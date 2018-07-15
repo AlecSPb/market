@@ -22,23 +22,25 @@
     <main class="users__main">
         <div class="table__wrapper">
             <table border="1">
-                <caption>Статистика по продажам:</caption>
+                <caption>Sales statistic:</caption>
                 <tr>
                     <th>id</th>
-                    <th>Название</th>
-                    <th>Категория</th>
-                    <th>Цена</th>
-                    <th>Цвет</th>
-                    <th>размер</th>
-                    <th>Количество проданного товара:</th>
-                    <th>На сумму:</th>
+                    <th>Title</th>
+                    <th>Category</th>
+                    <th>Brand</th>
+                    <th>Price</th>
+                    <th>Color</th>
+                    <th>Weight</th>
+                    <th>Count of sales product:</th>
+                    <th>Total:</th>
                 </tr>
                 <c:forEach var="ord" items="${products}">
                     <tr>
                         <td>${ord.id}</td>
                         <td>${ord.title}</td>
                         <td>${ord.category}</td>
-                        <td>${ord.productParameterDTO}</td>
+                        <td>${ord.productParameterDTO.brand}</td>
+                        <td>${ord.price}</td>
                         <td>${ord.productParameterDTO.color}</td>
                         <td>${ord.productParameterDTO.weight}</td>
                         <td>${ord.count}</td>
@@ -49,21 +51,21 @@
         </div>
         <div class="table__wrapper">
             <table border="1">
-                <caption>Статистика по клиентам:</caption>
+                <caption>Client statistic:</caption>
                 <tr>
                     <th>id</th>
-                    <th>Почта</th>
-                    <th>Имя</th>
-                    <th>Фамилия</th>
-                    <th>Количество купленного товара:</th>
+                    <th>E-mail</th>
+                    <th>Name</th>
+                    <th>Second name</th>
+                    <th>Count of buying product:</th>
                 </tr>
-                <c:forEach var="user" items="${users}">
+                <c:forEach var="customer" items="${customer}">
                     <tr>
-                        <td>${user.id}</td>
-                        <td>${user.email}</td>
-                        <td>${user.firstName}</td>
-                        <td>${user.secondName}</td>
-                        <td>${user.phonenumber}</td>
+                        <td>${customer.id}</td>
+                        <td>${customer.email}</td>
+                        <td>${customer.firstName}</td>
+                        <td>${customer.secondName}</td>
+                        <td>${customer.phonenumber}</td>
                     </tr>
                 </c:forEach>
             </table>

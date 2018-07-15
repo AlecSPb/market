@@ -27,10 +27,12 @@
                     <th>id</th>
                     <th>Title</th>
                     <th>Category</th>
+                    <th>Brand</th>
                     <th>Price</th>
                     <th>Count</th>
                     <th>Color</th>
                     <th>Weight</th>
+                    <th>Not available</th>
                     <th>Change status</th>
                 </tr>
                 <c:forEach var="ord" items="${products}">
@@ -38,10 +40,12 @@
                         <td>${ord.id}</td>
                         <td>${ord.title}</td>
                         <td>${ord.category}</td>
+                        <td>${ord.productParameterDTO.brand}</td>
                         <td>${ord.price}</td>
                         <td>${ord.count}</td>
                         <td>${ord.productParameterDTO.color}</td>
                         <td>${ord.productParameterDTO.weight}</td>
+                        <td id="notavailable${ord.id}">${ord.notavailable}</td>
                         <td><a class="link link_header" onclick="changeStatus(${ord.id})">change</a></td>
                     </tr>
                 </c:forEach>

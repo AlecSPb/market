@@ -5,23 +5,23 @@
 
 <header class="header__wrapper">
     <div class="header__logo">
-        <a href="${contextPath}/home"></a>
+        <a href="${contextPath}/"></a>
     </div>
-    <div class="header__contacts">
+  <%--  <div class="header__contacts">
         <div class="contacts__item">
-            <a href="tel:88005553535" class="link link_contact">330-00-15</a>
+            <a href="mailto:mail@mail.ru" class="link link_contact">mail@mail.ru</a>
         </div>
         <div class="contacts__item">
-        <a href="mailto:mail@mail.ru" class="link link_contact">12340@mail.ru</a>
-    </div>
-    </div>
+            <a href="tel:88005553535" class="link link_contact">88005553535</a>
+        </div>
+    </div>--%>
     <c:if test="${pageContext.request.userPrincipal.name == null}">
         <ul class="header__authorization">
             <li>
-                <a href="${contextPath}/login" class="link link_header">Login</a>
+                <a href="${contextPath}/user/login" class="link link_header">Login</a>
             </li>
             <li>
-                <a href="${contextPath}/registration" class="link link_header">Registration</a>
+                <a href="${contextPath}/user/registration" class="link link_header">Registration</a>
             </li>
         </ul>
     </c:if>
@@ -34,7 +34,7 @@
                 <a href="${contextPath}/bucket" class="link link_header">Cart</a>
             </li>
             <li>
-                <a href="${contextPath}/account" class="link link_header">Аccount</a>
+                <a href="${contextPath}/user/account" class="link link_header">Аccount</a>
             </li>
             <li>
                 <a class="link link_header" onclick="document.forms['logoutForm'].submit()">Logout</a>
@@ -53,10 +53,9 @@
                 <a href="${contextPath}/bucket" class="link link_header">Cart</a>
             </li>
             <li>
-                <a href="${contextPath}/history" class="link link_header">Orders</a>
+                <a href="${contextPath}/order/history" class="link link_header">Orders</a>
             </li>
         </ul>
     </nav>
-
 
 </header>

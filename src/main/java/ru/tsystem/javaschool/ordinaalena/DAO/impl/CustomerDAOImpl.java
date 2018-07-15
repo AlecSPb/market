@@ -12,7 +12,7 @@ import java.util.List;
 public class CustomerDAOImpl  implements CustomerDAO {
     private static final Logger logger = Logger.getLogger(AddressDAOImpl.class);
     @PersistenceContext
-    EntityManager entityManager;
+     private EntityManager entityManager;
 
 
     @Override

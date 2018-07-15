@@ -38,6 +38,6 @@ public interface AdminService {
      * @param productId   ProductID.
      * @return          New product status.
      */
-  //  public String changeProductStatus(int productId);
+   public String changeProductStatus(int productId);
 
 }

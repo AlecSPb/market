@@ -8,8 +8,13 @@ import ru.tsystem.javaschool.ordinaalena.entities.ProductOrders;
 import ru.tsystem.javaschool.ordinaalena.services.api.ProductOrdersService;
 @Service
 public class ProductOrdersServiceImpl implements ProductOrdersService {
+
+    private ProductOrdersDAO productOrdersDAO;
     @Autowired
-    ProductOrdersDAO productOrdersDAO;
+    public ProductOrdersServiceImpl(ProductOrdersDAO productOrdersDAO) {
+        this.productOrdersDAO = productOrdersDAO;
+    }
+
     @Override
     @Transactional
     public int getCount(int productId, int ordersId) {

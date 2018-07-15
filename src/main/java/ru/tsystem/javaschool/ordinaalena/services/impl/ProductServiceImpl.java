@@ -18,12 +18,19 @@ import java.util.stream.Collectors;
 
 @Service
 public class ProductServiceImpl implements ProductService {
+
+    private ProductDAO productDAO;
+
+    private Converter converter;
+
+    private PictureService pictureService;
     @Autowired
-    ProductDAO productDAO;
-    @Autowired
-    Converter converter;
-    @Autowired
-    PictureService pictureService;
+    public ProductServiceImpl(ProductDAO productDAO, Converter converter, PictureService pictureService) {
+        this.productDAO = productDAO;
+        this.converter = converter;
+        this.pictureService = pictureService;
+    }
+
     private static final int PRODUCTS_ON_PAGE = 3;
 
     private static final Logger logger=Logger.getLogger(ProductServiceImpl.class);
@@ -56,15 +63,15 @@ public class ProductServiceImpl implements ProductService {
             return productDAO.getByCategories(categories);
 
     }
-    private List<ProductDTO> sortByPrice (List<ProductDTO> productDTOS){
-        productDTOS.sort((ProductDTO a, ProductDTO b) ->{
+    private List<ProductDTO> sortByPrice (List<ProductDTO> productDTOs){
+        productDTOs.sort((ProductDTO a, ProductDTO b) ->{
             if(a.getPrice()>b.getPrice())
                 return 1;
             if(a.getPrice()<b.getPrice())
                 return -1;
             return 0;
         });
-        return productDTOS;
+        return productDTOs;
     }
 
     private List<ProductDTO> sortByTitle(List<ProductDTO> productDTOS){

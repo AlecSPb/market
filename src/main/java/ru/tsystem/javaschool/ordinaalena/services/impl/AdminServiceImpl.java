@@ -21,21 +21,25 @@ import java.util.stream.Collectors;
 
 @Service
 public class AdminServiceImpl implements AdminService {
-    @Autowired
-    CustomerDAO customerDAO;
+
+    private CustomerDAO customerDAO;
+
+    private OrdersDAO ordersDAO;
+
+    private ProductDAO productDAO;
+
+    private OrdersService ordersService;
+
+    private Converter converter;
 
     @Autowired
-    OrdersDAO ordersDAO;
-
-    @Autowired
-    ProductDAO productDAO;
-
-    @Autowired
-    OrdersService ordersService;
-
-    @Autowired
-    Converter converter;
-
+ public AdminServiceImpl(CustomerDAO customerDAO, OrdersDAO ordersDAO, ProductDAO productDAO,OrdersService ordersService, Converter converter){
+     this.customerDAO=customerDAO;
+     this.ordersDAO=ordersDAO;
+     this.productDAO=productDAO;
+     this.ordersService=ordersService;
+     this.converter=converter;
+ }
 
     @Override
     @Transactional
@@ -73,11 +77,12 @@ public class AdminServiceImpl implements AdminService {
         return orders.getOrderStatus().toString();
     }
 
-/*
+
     @Override
     public String changeProductStatus(int productId) {
         Product product = productDAO.find(productId, Product.class);
+        product.setNotavailable(!product.isNotavailable());
         productDAO.merge(product);
-        return String.valueOf(product));
-    }*/
+        return String.valueOf(product.isNotavailable());
+    }
 }

@@ -7,7 +7,6 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.tsystem.javaschool.ordinaalena.DAO.api.CustomerDAO;
 import ru.tsystem.javaschool.ordinaalena.entities.Customer;
@@ -17,14 +16,18 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class CustomerDetailsServiceImpl  implements UserDetailsService {
-    @Autowired
+
     private CustomerDAO customerDAO;
+    @Autowired
+    public CustomerDetailsServiceImpl(CustomerDAO customerDAO) {
+        this.customerDAO = customerDAO;
+    }
 
     private static final Logger logger = Logger.getLogger(CustomerDetailsServiceImpl.class);
 
     @Override
     @Transactional(readOnly = true)
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String email)  {
 
         logger.info("email: " + email);
 

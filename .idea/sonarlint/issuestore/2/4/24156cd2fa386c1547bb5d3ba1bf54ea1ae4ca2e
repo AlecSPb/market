@@ -1,0 +1,6 @@
+
+isquid:CommentedOutCodeLine,"<This block of commented-out lines of code should be removed.(²üìæ8Ã¯æúÈ,
+msquid:S1192:"JDefine a constant instead of duplicating this literal "ordersDTO" 3 times.(œÕêèþÿÿÿÿ8Ì¡­ÛÈ,
+Msquid:S1068"/Remove this unused "cartService" private field.(ÓïøÙ8žŠãúÈ,
+isquid:S1192;"KDefine a constant instead of duplicating this literal "/makeOrder" 3 times.(ŸœÚ8Ã¯æúÈ,
+jsquid:CommentedOutCodeLine€"<This block of commented-out lines of code should be removed.(—ŠÒÅ8Ã¯æúÈ,

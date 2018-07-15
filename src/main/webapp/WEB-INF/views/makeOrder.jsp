@@ -24,7 +24,7 @@
             <div class="bucket__head">
                 <h2>Your Cart: </h2>
             </div>
-            <form:form method="post" action="${contextPath}/set_count" modelAttribute="ordersDTO">
+            <form:form method="post" action="${contextPath}/order/set_count" modelAttribute="ordersDTO">
                 <c:forEach var="product" items="${ordersDTO.productDTOs}" varStatus="ind">
                     <div class="bucket__item">
                         <div class="bucket__item_column">
@@ -38,6 +38,7 @@
                                             <dt>
                                                 <a class="link link_product">${product.title}</a>
                                             </dt>
+                                            <dd>Brand: ${product.productParameterDTO.brand}</dd>
                                             <dd>Weight: ${product.productParameterDTO.weight}</dd>
                                             <dd> Color: ${product.productParameterDTO.color}</dd>
                                             <dd> Price: ${product.price}</dd>
@@ -72,7 +73,7 @@
                         </div>
                         <div class="bucket__item_column">
                             <dl>
-                                <dt class="column__type">Choise</dt>
+                                <dt class="column__type">Choice</dt>
                                 <dd class="bucket__item_description">
                                     <label class="menu__line">
                                         <span>Count: </span>

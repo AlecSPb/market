@@ -18,7 +18,7 @@ public class Address {
     public void setId(int id){
         this.id = id;
     }
-    @ManyToOne
+    @ManyToOne (cascade = CascadeType.ALL)
     @JoinColumn(name = "customer_id")
     private Customer customer;
 

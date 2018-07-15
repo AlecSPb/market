@@ -2,6 +2,7 @@ package ru.tsystem.javaschool.ordinaalena.services.api;
 
 import ru.tsystem.javaschool.ordinaalena.DTO.AddressDTO;
 import ru.tsystem.javaschool.ordinaalena.DTO.CustomerDTO;
+import ru.tsystem.javaschool.ordinaalena.entities.Customer;
 
 import java.util.List;
 
@@ -10,7 +11,7 @@ public interface CustomerService {
      * Create new user.
      * @param dto  Customer.
      */
-    public void registrationCustomer(CustomerDTO dto );
+     public void registrationCustomer(CustomerDTO dto );
 
     /**
      * Get user by email.

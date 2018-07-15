@@ -28,21 +28,22 @@
                     <th>orders</th>
                     <th>addresses</th>
                 </tr>
-                <c:forEach var="customer" items="${users}">
+                <c:forEach var="customer" items="${customer}">
                     <tr>
                         <td>${customer.id}</td>
                         <td>${customer.email}</td>
                         <td>${customer.secondName}</td>
                         <td>${customer.firstName}</td>
                         <td>${customer.phonenumber}</td>
-                        <td><a href="${contextPath}/orders?email=${customer.email}">orders</a></td>
-                        <td><a href="${contextPath}/addresses?email=${customer.email}">addresses</a></td>
+                        <td><a href="${contextPath}/admin/orders?email=${customer.email}">orders</a></td>
+                        <td><a href="${contextPath}/admin/addresses?email=${customer.email}">addresses</a></td>
                     </tr>
                 </c:forEach>
             </table>
         </div>
     </main>
 </div>
+
 </body>
 </html>
 

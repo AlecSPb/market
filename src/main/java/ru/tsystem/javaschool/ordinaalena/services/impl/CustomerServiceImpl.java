@@ -1,6 +1,5 @@
 package ru.tsystem.javaschool.ordinaalena.services.impl;
 
-import constants.OrderStatus;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -15,7 +14,6 @@ import ru.tsystem.javaschool.ordinaalena.DTO.CustomerDTO;
 import ru.tsystem.javaschool.ordinaalena.converter.Converter;
 import ru.tsystem.javaschool.ordinaalena.entities.Address;
 import ru.tsystem.javaschool.ordinaalena.entities.Customer;
-import ru.tsystem.javaschool.ordinaalena.entities.Orders;
 import ru.tsystem.javaschool.ordinaalena.entities.Role;
 import ru.tsystem.javaschool.ordinaalena.services.api.CustomerService;
 
@@ -26,34 +24,47 @@ import java.util.stream.Collectors;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
-    @Autowired
-    CustomerDAO customerDAO;
-    @Autowired
-    RoleDAO roleDAO;
-    @Autowired
-    OrdersDAO ordersDAO;
-    @Autowired
-    AddressDAO addressDAO;
-    @Autowired
-    BCryptPasswordEncoder encoder;
-    @Autowired
-    Converter converter;
+
+    private CustomerDAO customerDAO;
+
+    private RoleDAO roleDAO;
+
+    private OrdersDAO ordersDAO;
+
+    private AddressDAO addressDAO;
+
+    private BCryptPasswordEncoder encoder;
+
+    private Converter converter;
+
     private static final Logger logger = Logger.getLogger(CustomerServiceImpl.class);
+
+    @Autowired
+    public CustomerServiceImpl(CustomerDAO customerDAO, RoleDAO roleDAO, OrdersDAO ordersDAO, AddressDAO addressDAO, BCryptPasswordEncoder encoder, Converter converter) {
+        this.customerDAO = customerDAO;
+        this.roleDAO = roleDAO;
+        this.ordersDAO = ordersDAO;
+        this.addressDAO = addressDAO;
+        this.encoder = encoder;
+        this.converter = converter;
+    }
+
     @Override
     @Transactional
     public void registrationCustomer(CustomerDTO dto) {
         logger.info("registration: " + dto.getEmail());
 
         Customer customer = converter.convertToEntity(dto);
-        Role role = roleDAO.getRoleByName("USER_ROLE");
+        Role role = roleDAO.getRoleByName("ROLE_USER");
         Set<Role> roleSet = new HashSet<>();
         roleSet.add(role);
         customer.setRoles(roleSet);
-
-        //Orders order = new Orders();
-        //order.setCustomer(customer);
-        //order.setOrderStatus(OrderStatus.BUCKET);
-        //ordersDAO.persist(order);
+        customerDAO.persist(customer);
+        //roleDAO.persist(role);
+       // Orders order = new Orders();
+       // order.setCustomer(customer);
+      //  order.setOrderStatus(OrderStatus.BUCKET);
+      //  ordersDAO.persist(order);
     }
 
     @Override
@@ -128,7 +139,6 @@ public class CustomerServiceImpl implements CustomerService {
 
         Customer customer = customerDAO.getByEmail(email);
         customer.setParole(encoder.encode(newParole));
-       // customer.setParole(newParole);
         customerDAO.merge(customer);
     }
 }

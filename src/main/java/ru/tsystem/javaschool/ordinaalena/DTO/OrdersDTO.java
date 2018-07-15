@@ -90,7 +90,7 @@ public class OrdersDTO {
         this.address = address;
     }
 
-    public void setProductDtos(List<ProductDTO> productDtOs) {
+    public void setProductDtos(List<ProductDTO> productDTOs) {
         this.productDTOs = productDTOs;
     }
 

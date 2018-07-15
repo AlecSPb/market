@@ -28,26 +28,31 @@ import java.util.Set;
 import java.util.stream.Collectors;
 @Service
 public class OrdersServiceImpl implements OrdersService {
-    @Autowired
-    CustomerDAO customerDAO;
+
+    private CustomerDAO customerDAO;
+
+    private OrdersDAO ordersDAO;
+
+    private ProductDAO productDAO;
+
+    private AddressDAO addressDAO;
+
+    private CartService cartService;
+
+    private ProductOrdersService productOrdersService;
 
     @Autowired
-    OrdersDAO ordersDAO;
+    public OrdersServiceImpl(CustomerDAO customerDAO, OrdersDAO ordersDAO, ProductDAO productDAO, AddressDAO addressDAO, CartService cartService, ProductOrdersService productOrdersService, Converter converter) {
+        this.customerDAO = customerDAO;
+        this.ordersDAO = ordersDAO;
+        this.productDAO = productDAO;
+        this.addressDAO = addressDAO;
+        this.cartService = cartService;
+        this.productOrdersService = productOrdersService;
+        this.converter = converter;
+    }
 
-    @Autowired
-    ProductDAO productDAO;
-
-    @Autowired
-    AddressDAO addressDAO;
-
-   @Autowired
-   CartService cartService;
-
-    @Autowired
-    ProductOrdersService productOrdersService;
-
-    @Autowired
-    Converter converter;
+    private Converter converter;
 
   //  @Autowired
     //MQProducerService producerService;
@@ -67,7 +72,7 @@ public class OrdersServiceImpl implements OrdersService {
         ordersDAO.persist(order);
 
         ordersDTO.setId(order.getId());
-       // setCounts(ordersDTO);
+       //setCounts(ordersDTO);
       //  decriminateProducts(ordersDTO);
 
         cartService.deleteFromCart(ordersDTO);

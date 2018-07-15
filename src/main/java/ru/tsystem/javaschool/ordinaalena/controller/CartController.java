@@ -10,12 +10,19 @@ import ru.tsystem.javaschool.ordinaalena.services.api.CartService;
 import ru.tsystem.javaschool.ordinaalena.services.api.SecurityService;
 
 @Controller
+@RequestMapping("/bucket")
 public class CartController {
-    @Autowired
+
     private CartService cartService;
 
-    @Autowired
     private SecurityService securityService;
+
+    @Autowired
+    public CartController(CartService cartService, SecurityService securityService) {
+        this.cartService = cartService;
+        this.securityService = securityService;
+    }
+
 
     /**
      * Return page with bucket.
@@ -23,7 +30,7 @@ public class CartController {
      * @param error     errors for validation
      * @return          jsp
      */
-    @RequestMapping(value = "/bucket",method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public String cartGet(Model model, String error){
         String customerEmail = securityService.findLoggedInEmail();
         OrdersDTO cart = cartService.getCustomerCart(customerEmail);

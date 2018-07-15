@@ -1,13 +1,14 @@
 package ru.tsystem.javaschool.ordinaalena.entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
 @Entity
 @Table(name = "product")
-public class Product {
+public class Product implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -42,6 +43,12 @@ public class Product {
 
     @Column
     private int count;
+
+
+
+
+    @Column(name = "notavailable")
+    private boolean notavailable;
 
     public Product(){}
 
@@ -83,7 +90,12 @@ public class Product {
         return description;
     }
 
-
+    public boolean isNotavailable() {
+        return notavailable;
+    }
+    public void setNotavailable(boolean notavailable) {
+        this.notavailable = notavailable;
+    }
     public void setPrice(int price) {
         this.price = price;
     }

@@ -1,6 +1,6 @@
 package ru.tsystem.javaschool.ordinaalena.controller;
 
-import org.apache.log4j.Logger;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -10,12 +10,18 @@ import ru.tsystem.javaschool.ordinaalena.services.api.CartService;
 import ru.tsystem.javaschool.ordinaalena.services.api.SecurityService;
 
 @RestController
-public class CartRestController {
-    @Autowired
-    SecurityService securityService;
+@RequestMapping(value = "/bucket")
+public class  CartRestController {
+
+    private SecurityService securityService;
+
+    private CartService cartService;
 
     @Autowired
-    CartService cartService;
+    public CartRestController(SecurityService securityService, CartService cartService) {
+        this.securityService = securityService;
+        this.cartService = cartService;
+    }
 
     /**
      * Add product to bucket

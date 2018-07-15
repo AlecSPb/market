@@ -5,26 +5,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import ru.tsystem.javaschool.ordinaalena.DTO.ProductDTO;
-import ru.tsystem.javaschool.ordinaalena.services.api.CartService;
-import ru.tsystem.javaschool.ordinaalena.services.api.PictureService;
+
 import ru.tsystem.javaschool.ordinaalena.services.api.ProductService;
-import ru.tsystem.javaschool.ordinaalena.services.api.SecurityService;
+
 
 import java.util.List;
 
 @RestController
 public class ProductRestController {
-    @Autowired
-    SecurityService securityService;
+
+    private ProductService productService;
 
     @Autowired
-    CartService cartService;
+    public ProductRestController(ProductService productService) {
 
-    @Autowired
-    ProductService productService;
-
-    @Autowired
-    PictureService puctureService;
+        this.productService = productService;
+    }
 
     /**
      * Get all products

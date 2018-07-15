@@ -31,7 +31,7 @@
                     <dd>
                         <input type="text" id="country"
                                placeholder="Country"/>
-                        <p>Укажите страну.</p>
+                        <p>Add country.</p>
                     </dd>
                     <dt>
                         Region
@@ -39,7 +39,7 @@
                     <dd>
                         <input type="text" id="region"
                                placeholder="Region" />
-                        <p>Укажите регион.</p>
+                        <p>Add region.</p>
                     </dd>
                     <dt>
                         City
@@ -47,7 +47,7 @@
                     <dd>
                         <input type="text" id="city"
                                placeholder="City"/>
-                        <p>Укажите город.</p>
+                        <p>Add city/</p>
                     </dd>
                     <dt>
                         Street
@@ -55,7 +55,7 @@
                     <dd>
                         <input type="text" id="street"
                                placeholder="Street"/>
-                        <p>Укажите улицу.</p>
+                        <p>Add street.</p>
                     </dd>
                     <dt>
                         Building
@@ -63,7 +63,7 @@
                     <dd>
                         <input type="text" id="building"
                                placeholder="Building"/>
-                        <p>Укажите номер здания.</p>
+                        <p>Add number of building.</p>
                     </dd>
                     <dt>
                         Apartment
@@ -71,7 +71,7 @@
                     <dd>
                         <input type="text" id="apartment"
                                placeholder="Apartment"/>
-                        <p>Укажите номер квартиры, если есть.</p>
+                        <p>Add number of apartment, if you have.</p>
                     </dd>
                     <dt>
                         Postcode
@@ -79,7 +79,7 @@
                     <dd>
                         <input type="text" id="postcode"
                                placeholder="Postcode"/>
-                        <p>Укажите почтовый индекс.</p>
+                        <p>Add postcode.</p>
                     </dd>
                 </dl>
                 <div class="account__change_links">
@@ -88,7 +88,7 @@
                     </a>
                 </div>
             </div>
-            <form:form action="${contextPath}/set_address" method="post" modelAttribute="orderAddress">
+            <form:form action="${contextPath}/order/set_address" method="post" modelAttribute="orderAddress">
             <h2>Адресса:</h2>
                 <div class="addresses_wrapper" id="currentAddresses">
                     <c:forEach var="address" items="${addresses}">

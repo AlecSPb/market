@@ -38,6 +38,7 @@
                                                 <dt>
                                                     <a class="link link_product" href="#">${product.title}</a>
                                                 </dt>
+                                                <dd>Brand: ${product.productParameterDTO.brand}</dd>
                                                 <dd>Weight: ${product.productParameterDTO.weight}</dd>
                                                 <dd> Color: ${product.productParameterDTO.color}</dd>
                                                 <dd> Price: ${product.price}</dd>

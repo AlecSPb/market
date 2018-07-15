@@ -25,6 +25,7 @@ public class ProductDTO {
     private Integer count;
 
     private String description;
+    private boolean notavailable;
 
 
 
@@ -34,26 +35,32 @@ public class ProductDTO {
     }
 
     public ProductDTO(String title, Integer price, String category,
-                      Integer count, String description,ProductParameterDTO productParameterDTO) {
+                      Integer count, String description,boolean notavailable,ProductParameterDTO productParameterDTO) {
         this.title = title;
         this.price = price;
         this.category = category;
         this.count = count;
         this.description = description;
+        this.notavailable=notavailable;
         this.productParameterDTO = productParameterDTO;
     }
 
     public ProductDTO(Integer id, String title, Integer price, String category,
-                      Integer count, String description, ProductParameterDTO productParameterDTO) {
+                      Integer count, String description,boolean notavailable, ProductParameterDTO productParameterDTO) {
         this.id=id;
         this.title = title;
         this.price = price;
         this.category = category;
         this.count = count;
         this.description = description;
+        this.notavailable=notavailable;
         this.productParameterDTO = productParameterDTO;
     }
 
+
+    public boolean isNotavailable() {
+        return notavailable;
+    }
     public Integer getPrice() {
         return price;
     }
@@ -100,6 +107,9 @@ public class ProductDTO {
         this.description = description;
     }
 
+    public void setNotavailable(boolean notavailable) {
+        this.notavailable = notavailable;
+    }
     public void setProductParameterDTO(ProductParameterDTO productParameterDTO) {
         this.productParameterDTO = productParameterDTO;
     }
@@ -110,7 +120,8 @@ public class ProductDTO {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ProductDTO that = (ProductDTO) o;
-        return  Objects.equals(title, that.title) &&
+        return notavailable == that.notavailable &&
+                Objects.equals(title, that.title) &&
                 Objects.equals(price, that.price) &&
                 Objects.equals(category, that.category) &&
                 Objects.equals(description, that.description) &&

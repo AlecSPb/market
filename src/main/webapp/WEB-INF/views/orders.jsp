@@ -44,7 +44,7 @@
                                 </p>
                             </c:forEach>
                         </td>
-                        <td><a class="link link_header" onclick="changeStatus(${ord.id})">change</a></td>
+                        <td><a class="link link_header" onclick="changeStatus(${ord.id})">Change</a></td>
 
                     </tr>
                 </c:forEach>

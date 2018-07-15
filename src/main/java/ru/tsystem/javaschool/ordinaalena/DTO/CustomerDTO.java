@@ -1,9 +1,10 @@
 package ru.tsystem.javaschool.ordinaalena.DTO;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
-public class CustomerDTO {
+public class CustomerDTO implements Serializable {
     private Integer id;
     public CustomerDTO(Integer id) {
         this.id = id;
@@ -20,7 +21,7 @@ public class CustomerDTO {
 
     private  String parole;
 
-    transient private String paroleConfirm;
+    transient private  String paroleConfirm;
 
     private  String firstName;
 

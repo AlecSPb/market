@@ -26,16 +26,16 @@
             <div class="account__change_links">
                 <ul>
                     <li>
-                        <a href="${contextPath}/users" class="link link_header">Customers</a>
+                        <a href="${contextPath}/admin/users" class="link link_header">Customers</a>
                     </li>
                     <li>
-                        <a href="${contextPath}/production" class="link link_header">Product</a>
+                        <a href="${contextPath}/admin/production" class="link link_header">Product</a>
                     </li>
                     <li>
-                        <a href="${contextPath}/add_new_product" class="link link_header">Add new product</a>
+                        <a href="${contextPath}/admin/add_new_product" class="link link_header">Add new product</a>
                     </li>
                     <li>
-                        <a href="${contextPath}/statistic" class="link link_header">Statistic</a>
+                        <a href="${contextPath}/admin/statistic" class="link link_header">Statistic</a>
                     </li>
                 </ul>
             </div>

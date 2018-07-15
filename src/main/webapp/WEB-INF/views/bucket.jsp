@@ -37,6 +37,7 @@
                                             <dt>
                                                 <a class="link link_product" href="#">${product.title}</a>
                                             </dt>
+                                            <dd>Brand: ${product.productParameterDTO.brand}</dd>
                                             <dd>Weight: ${product.productParameterDTO.weight}</dd>
                                             <dd>Color: ${product.productParameterDTO.color}</dd>
                                             <dd> Price: ${product.price}</dd>
@@ -80,8 +81,8 @@
                     </div>
                 </c:if>
                 <c:if test="${productsSize!=0}">
-                    <input type="submit" value="Delete" formaction="/delete" formmethod="get">
-                    <input type="submit" value="Order" formaction="/make_order" formmethod="get">
+                    <input type="submit" value="Delete" formaction="/bucket/delete" formmethod="get">
+                    <input type="submit" value="Order" formaction="/order/make_order" formmethod="get">
                 </c:if>
             </form>
         </div>

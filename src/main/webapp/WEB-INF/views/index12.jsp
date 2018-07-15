@@ -23,7 +23,7 @@
     <%@include file="header.jsp"%>
     <main>
         <div class="mycode__logo">
-            <a href="${contextPath}/home"></a>
+            <a href="${contextPath}/"></a>
         </div>
     </main>
     <footer>
@@ -31,6 +31,5 @@
     </footer>
 </div>
 </body>
-
 
 </html>

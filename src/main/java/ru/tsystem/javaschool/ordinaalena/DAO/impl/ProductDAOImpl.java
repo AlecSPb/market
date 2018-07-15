@@ -49,14 +49,15 @@ public class ProductDAOImpl implements ProductDAO {
     }
 
     @Override
-    public List<Product> getByCategory(String category) { return entityManager.createQuery("from Product as prod " +
-            "where prod.category=:category ", Product.class).
-            setParameter("category", category).getResultList();
+    public List<Product> getByCategory(String category) {
+        return entityManager.createQuery("from Product as prod " +
+                "where prod.category=:category AND notavailable=false ", Product.class).
+                setParameter("category", category).getResultList();
     }
 
     @Override
     public List<String> getCategories() {
-        return entityManager.createQuery("SELECT DISTINCT category FROM Product as prod ",
+        return entityManager.createQuery("SELECT DISTINCT category FROM Product as prod where prod.notavailable=false",
                 String.class).getResultList();
     }
 
@@ -73,7 +74,7 @@ public class ProductDAOImpl implements ProductDAO {
     //???
     public List<Product> getByCategories(String[] categories) {
         return entityManager.createQuery(
-                "select product from Product as product where product.category=:categories",
+                "select product from Product as product where product.category=:categories AND notavailable=false",
                 Product.class).setParameter("categories",categories).getResultList();
     }
 //??
@@ -81,14 +82,14 @@ public class ProductDAOImpl implements ProductDAO {
     public long getProductsCount(String[] categories) {
         return  entityManager.createQuery("SELECT sum(product.count)" +
                 "                          FROM Product as product" +
-                "                          where product.category =:categories" , Long.class)
+                "                          where product.category =:categories AND notavailable=false" , Long.class)
                 .setParameter("categories", categories).getSingleResult();
     }
 
     @Override
     public long getProductsCount() {
         return entityManager
-                .createQuery("select count(*) from Product as prod", Long.class)
+                .createQuery("select count(*) from Product as prod where prod.notavailable=false", Long.class)
                 .getSingleResult();
     }
 }

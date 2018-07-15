@@ -17,8 +17,14 @@ import java.util.stream.Collectors;
 
 @Component
 public class Converter {
-  // @Autowired
-  // private BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    @Autowired
+    public Converter(BCryptPasswordEncoder bCryptPasswordEncoder) {
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+    }
+
 
     private static final Logger logger = Logger.getLogger(Converter.class);
     /**
@@ -42,13 +48,13 @@ public class Converter {
                 phonenumber,roles);
     }
     public Customer convertToEntity (CustomerDTO customerDTO){
-       // logger.info("ProductDto ");
-        String email = customerDTO.getEmail();
-       // String parole = bCryptPasswordEncoder.encode(customerDTO.getParole());
-       String parole=customerDTO.getParole();
-        String firstName = customerDTO.getFirstName();
-        String secondName = customerDTO.getSecondName();
-        String phonenumber = customerDTO.getPhonenumber();
+         logger.info("ProductDto ");
+         String email = customerDTO.getEmail();
+         String parole = bCryptPasswordEncoder.encode(customerDTO.getParole());
+
+         String firstName = customerDTO.getFirstName();
+         String secondName = customerDTO.getSecondName();
+         String phonenumber = customerDTO.getPhonenumber();
 
         return new Customer(email, parole, firstName, secondName, phonenumber);
     }
@@ -119,9 +125,10 @@ public class Converter {
         String category =product.getCategory();
         int count = product.getCount();
         String description = product.getDescription();
+        boolean notavailable = product.isNotavailable();
         ProductParameterDTO productParameterDTO = this.convertToDTO(product.getParameter());
 
-        return new ProductDTO(id, title, price, category, count, description, productParameterDTO);
+        return new ProductDTO(id, title, price, category, count, description, notavailable,productParameterDTO);
     }
     public Product convertToEntity(ProductDTO productDTO){
         logger.info("ProductDto ");

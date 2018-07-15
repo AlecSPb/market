@@ -11,11 +11,16 @@ import org.springframework.stereotype.Service;
 import ru.tsystem.javaschool.ordinaalena.services.api.SecurityService;
 @Service
 public class SecurityServiceImpl  implements SecurityService {
-   @Autowired
-   private AuthenticationManager authenticationManager;
 
-    @Autowired
+    private AuthenticationManager authenticationManager;
+
+
     private UserDetailsService userDetailsServiceImpl;
+    @Autowired
+    public SecurityServiceImpl(AuthenticationManager authenticationManager, UserDetailsService userDetailsServiceImpl) {
+        this.authenticationManager = authenticationManager;
+        this.userDetailsServiceImpl = userDetailsServiceImpl;
+    }
 
     private static final Logger logger = Logger.getLogger(SecurityServiceImpl.class);
     /**
@@ -43,7 +48,7 @@ public class SecurityServiceImpl  implements SecurityService {
     @Override
     public void autoLogin(String email, String parole) {
 
-        logger.info("email: " + email.toString());
+        logger.info("email:" + email);
 
         UserDetails userDetails = userDetailsServiceImpl.loadUserByUsername(email);
         UsernamePasswordAuthenticationToken authenticationToken =

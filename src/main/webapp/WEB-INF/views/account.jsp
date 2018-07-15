@@ -23,7 +23,7 @@
     <main class="account__main">
         <div class="account__wrapper">
             <h2>Account</h2>
-            <form:form id="accountForm" method="post" modelAttribute="customer" action="${contextPath}/account">
+            <form:form id="accountForm" method="post" modelAttribute="customer" action="${contextPath}/user/account">
                 <dl>
                     <dt>
                         E-mail:
@@ -33,10 +33,16 @@
                                 ${customer.email}
                         </p>
                     </dd>
+
+                    <dl class="dl_class">
+                        <spring:bind path="secondName">
                     <dt>
                         Second Name:
                     </dt>
-                    <dd>
+                        <dd>
+                               <%-- <form:input type="text" path="secondName"
+                                            placeholder="Second name"/>
+                                <form:errors path="secondName"/>--%>
                         <p>
                             <c:if test="${customer.secondName==null}">
                                 Indicate second name
@@ -46,11 +52,15 @@
                             </c:if>
                         </p>
                     </dd>
-
+                        </spring:bind>
+                        <spring:bind path="firstName">
                     <dt>
                         Name:
                     </dt>
                     <dd>
+                        <%--<form:input type="text" path="firstName"
+                                    placeholder="Firstname"/>
+                        <form:errors path="firstName"/>--%>
                         <p>
                             <c:if test="${customer.firstName==null}">
                                 Indicate name
@@ -60,10 +70,15 @@
                             </c:if>
                         </p>
                     </dd>
+                        </spring:bind>
+                        <spring:bind path="phonenumber">
                     <dt>
                         Phone:
                     </dt>
                     <dd>
+                       <%-- <form:input type="text" path="phonenumber"
+                                    placeholder="Phone"/>
+                        <form:errors path="phonenumber"/>--%>
                         <p>
                             <c:if test="${customer.phonenumber==null}">
                                 Indicate phone
@@ -73,16 +88,17 @@
                             </c:if>
                         </p>
                     </dd>
+                        </spring:bind>
                 </dl>
             </form:form>
             <div class="account__change_links">
                 <ul>
                     <li>
-                        <a href="${contextPath}/change_details" class="link link_header">Edit</a>
+                        <a href="${contextPath}/user/change_details" class="link link_header">Edit</a>
                     </li>
 
                     <li>
-                        <a href="${contextPath}/change_password" class="link link_header">Change password</a>
+                        <a href="${contextPath}/user/change_parole" class="link link_header">Change password</a>
                     </li>
                 </ul>
             </div>
@@ -147,7 +163,7 @@
                 <h3>Address not specified</h3>
             </c:if>
             <div class="account__change_links">
-                        <a href="${contextPath}/add_address" class="link link_header">
+                        <a href="${contextPath}/user/add_address" class="link link_header">
                             Add address
                         </a>
             </div>

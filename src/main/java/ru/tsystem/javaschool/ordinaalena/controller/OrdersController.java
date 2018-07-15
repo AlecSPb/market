@@ -15,26 +15,32 @@ import ru.tsystem.javaschool.ordinaalena.services.api.*;
 import ru.tsystem.javaschool.ordinaalena.validation.MainValidator;
 
 @Controller
+@RequestMapping("/order")
 public class OrdersController {
-    @Autowired
-    ProductService productService;
+
+    private ProductService productService;
+
+    private CustomerService customerService;
+
+    private SecurityService securityService;
+
+    private CartService cartService;
+
+    private OrdersService ordersService;
+
+    private MainValidator validator;
 
     @Autowired
-    CustomerService customerService;
+    public OrdersController(ProductService productService, CustomerService customerService, SecurityService securityService, CartService cartService, OrdersService ordersService, MainValidator validator) {
+        this.productService = productService;
+        this.customerService = customerService;
+        this.securityService = securityService;
+        this.cartService = cartService;
+        this.ordersService = ordersService;
+        this.validator = validator;
+    }
 
-    @Autowired
-    SecurityService securityService;
-
-    @Autowired
-    CartService cartService;
-
-    @Autowired
-    OrdersService ordersService;
-
-    @Autowired
-    MainValidator validator;
-
-   // @Autowired
+    // @Autowired
   //  MQProducerService mqService;
 
     /**
@@ -68,7 +74,7 @@ public class OrdersController {
             return "/makeOrder";
         }
 
-        validator.validateCounts(ordersDTO, bindingResult);
+//        validator.validateCounts(ordersDTO, bindingResult);
         if (bindingResult.hasErrors()) {
             return "/makeOrder";
         }

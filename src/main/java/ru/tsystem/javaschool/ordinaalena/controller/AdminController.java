@@ -16,25 +16,30 @@ import ru.tsystem.javaschool.ordinaalena.services.api.*;
 import ru.tsystem.javaschool.ordinaalena.validation.MainValidator;
 
 @Controller
+@RequestMapping("/admin")
 public class AdminController {
 
-    @Autowired
-    AdminService adminService;
+    private AdminService adminService;
+
+    private OrdersService ordersService;
+
+    private CustomerService customerService;
+
+    private ProductService productService;
+
+    private SecurityService securityService;
+
+    private MainValidator validator;
 
     @Autowired
-    OrdersService ordersService;
-
-    @Autowired
-    CustomerService customerService;
-
-    @Autowired
-    ProductService productService;
-
-    @Autowired
-    SecurityService securityService;
-
-    @Autowired
-    MainValidator validator;
+    public AdminController(AdminService adminService, OrdersService ordersService, CustomerService customerService, ProductService productService, SecurityService securityService, MainValidator validator) {
+        this.adminService = adminService;
+        this.ordersService = ordersService;
+        this.customerService = customerService;
+        this.productService = productService;
+        this.securityService = securityService;
+        this.validator = validator;
+    }
 
     private static final Logger logger = Logger.getLogger(AdminController.class);
 
@@ -46,8 +51,8 @@ public class AdminController {
      */
     @RequestMapping(value = "/users", method = RequestMethod.GET)
     public String getUsers(Model model){
-        logger.info("admin: " + securityService.findLoggedInEmail());
-        model.addAttribute("users", adminService.getCustomers());
+        logger.info("admin:" + securityService.findLoggedInEmail());
+        model.addAttribute("customer", adminService.getCustomers());
         return "/users";
     }
 
@@ -59,7 +64,7 @@ public class AdminController {
      */
     @RequestMapping(value = "/addresses", method = RequestMethod.GET)
     public String getAddresses(Model model, String email){
-       logger.info("admin: " + securityService.findLoggedInEmail());
+       logger.info("admin:" + securityService.findLoggedInEmail());
         model.addAttribute("addresses",customerService.getCustomerAddresses(email));
         model.addAttribute("email",email);
         return "/addresses";
@@ -148,7 +153,7 @@ public class AdminController {
     public String getStatistic(Model model){
         logger.info("admin: " + securityService.findLoggedInEmail());
         model.addAttribute("products", ordersService.getAllBuyingCounts());
-        model.addAttribute("users", ordersService.getAllCustomersCounts());
+        model.addAttribute("customer", ordersService.getAllCustomersCounts());
         return "/statistic";
     }
 
