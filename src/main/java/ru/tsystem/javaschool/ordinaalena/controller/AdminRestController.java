@@ -27,14 +27,15 @@ public class AdminRestController {
 
     /**
      * Change order status
-     * @param ordersId   order id
+     * @param orderId   order id
      * @return          new status
      */
-    @RequestMapping(value = "/order/status/{ordersId}", method = RequestMethod.PUT)
-    public String changeOrderStatus(@PathVariable Integer ordersId){
-        logger.info("Change order status. OrderID: " + ordersId + ". Admin: " + securityService.findLoggedInEmail());
-        return adminService.changeOrderStatus(ordersId);
+    @RequestMapping(value = "/order/status/{orderId}", method = RequestMethod.PUT)
+    public String changeOrderStatus(@PathVariable Integer orderId){
+        logger.info("Change order status. OrderID: " + orderId + ". Admin: " + securityService.findLoggedInEmail());
+        return adminService.changeOrderStatus(orderId);
     }
+
 
     /**
      * Change product status

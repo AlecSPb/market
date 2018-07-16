@@ -66,25 +66,37 @@ public class OrdersServiceImpl implements OrdersService {
         logger.info("create new");
 
         ordersDTO.setOrderStatus(OrderStatus.UNDONE.toString());
-
-
-        Orders order = this.convertNewOrder(ordersDTO);
+        Orders order = converter.convertToEntity(ordersDTO);
+        order.setProducts(getProductSet(ordersDTO));
+        order.setCustomer(customerDAO.getByEmail(ordersDTO.getCustomerEmail()));
+        order.setAddress(addressDAO.find(ordersDTO.getAddress().getId(), Address.class));
         ordersDAO.persist(order);
-
         ordersDTO.setId(order.getId());
-       //setCounts(ordersDTO);
-      //  decriminateProducts(ordersDTO);
-
         cartService.deleteFromCart(ordersDTO);
-
+         setCounts(ordersDTO);
+         decriminateProducts(ordersDTO);}
       //  producerService.ProduceMessage(ordersDTO.getId());
-    }
-    private Orders convertNewOrder(OrdersDTO ordersDTO){
+
+/*    private Orders convertNewOrder(OrdersDTO ordersDTO){
         Orders order = converter.convertToEntity(ordersDTO);
         order.setProducts(getProductSet(ordersDTO));
         order.setCustomer(customerDAO.getByEmail(ordersDTO.getCustomerEmail()));
         order.setAddress(addressDAO.find(ordersDTO.getAddress().getId(), Address.class));
         return order;
+    }*/
+        private void setCounts(OrdersDTO dto) {
+    for (int i = 0; i < dto.getCounts().size(); i++) {
+        productOrdersService.setCount(dto.getProductDTOs().get(i).getId(),
+                dto.getId(), Integer.valueOf(dto.getCounts().get(i)));
+    }
+
+}
+    private void decriminateProducts(OrdersDTO dto) {
+        for (int i=0; i<dto.getCounts().size(); i++){
+            Product product = productDAO.getByTitle(dto.getProductDTOs().get(i).getTitle());
+            product.setCount(product.getCount()-Integer.valueOf(dto.getCounts().get(i)));
+            productDAO.merge(product);
+        }
     }
     private Set<Product> getProductSet(OrdersDTO ordersDTO){
         Set<Product> products = new HashSet<>();

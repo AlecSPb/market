@@ -146,7 +146,7 @@ function showAllPagesCount() {
 function addToBucket(prodId) {
 
     $.ajax({
-            url: "http://localhost:8081/bucket/product  ",
+            url: "http://localhost:8080/bucket/product  ",
         type: "post",
         data: {
           prodId : prodId

@@ -69,7 +69,7 @@ public class Converter {
             return null;
         logger.info("Address " + address.getId());
         Integer id = address.getId();
-        String postcode = Integer.toString(address.getPostcode());
+        int postcode = address.getPostcode();
         String country = address.getCountry();
         String region = address.getRegion();
         String city = address.getCity();
@@ -82,7 +82,7 @@ public class Converter {
     }
     public Address convertToEntity (AddressDTO addressDTO){
 
-        Integer postcode = Integer.valueOf(addressDTO.getPostcode());
+        int postcode =addressDTO.getPostcode();
         String country = addressDTO.getCountry();
         String region = addressDTO.getRegion();
         String city = addressDTO.getCity();
@@ -108,13 +108,14 @@ public class Converter {
     }
 
     public Orders convertToEntity (OrdersDTO ordersDTO){
-       // logger.info("ProductDto ");
+
         String paymentMethod = ordersDTO.getPaymentMethod();
         String orderStatus = ordersDTO.getOrderStatus();
         Address address = convertToEntity(ordersDTO.getAddress());
 
         return new Orders (PaymentMethod.valueOfOrNull(paymentMethod), OrderStatus.valueOf(orderStatus), address);
     }
+
     public ProductDTO convertToDTO (Product product){
 
         logger.info("Product " + product.getId());

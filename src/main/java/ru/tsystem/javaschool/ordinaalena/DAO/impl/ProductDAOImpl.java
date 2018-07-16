@@ -51,7 +51,7 @@ public class ProductDAOImpl implements ProductDAO {
     @Override
     public List<Product> getByCategory(String category) {
         return entityManager.createQuery("from Product as prod " +
-                "where prod.category=:category AND notavailable=false ", Product.class).
+                "where prod.category=:category AND notavailable=:false ", Product.class).
                 setParameter("category", category).getResultList();
     }
 
@@ -74,7 +74,7 @@ public class ProductDAOImpl implements ProductDAO {
     //???
     public List<Product> getByCategories(String[] categories) {
         return entityManager.createQuery(
-                "select product from Product as product where product.category=:categories AND notavailable=false",
+                "select product from Product as product where product.category=:categories AND notavailable=:false",
                 Product.class).setParameter("categories",categories).getResultList();
     }
 //??
@@ -82,7 +82,7 @@ public class ProductDAOImpl implements ProductDAO {
     public long getProductsCount(String[] categories) {
         return  entityManager.createQuery("SELECT sum(product.count)" +
                 "                          FROM Product as product" +
-                "                          where product.category =:categories AND notavailable=false" , Long.class)
+                "                          where product.category =:categories AND notavailable=:false" , Long.class)
                 .setParameter("categories", categories).getSingleResult();
     }
 

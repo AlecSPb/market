@@ -41,9 +41,9 @@ public class ProductServiceImpl implements ProductService {
                 stream().map(product -> converter.convertToDTO(product))
                 .collect(Collectors.toList());
         if(sortedByField!=null) {
-            if (sortedByField.equals("cost"))
+            if (sortedByField.equals("price"))
                 dtos = sortByPrice(dtos);
-            else if (sortedByField.equals("name"))
+            else if (sortedByField.equals("title"))
                 dtos = sortByTitle(dtos);
         }
 
@@ -57,12 +57,12 @@ public class ProductServiceImpl implements ProductService {
         return dtos.subList(startIndex, endIndex);
     }
     private List<Product> getProducts(String[] categories){
-        if(categories==null)
+      if(categories==null)
             return productDAO.getAll(Product.class);
-        else
-            return productDAO.getByCategories(categories);
+      else
+            return productDAO.getByCategories(categories);}
 
-    }
+
     private List<ProductDTO> sortByPrice (List<ProductDTO> productDTOs){
         productDTOs.sort((ProductDTO a, ProductDTO b) ->{
             if(a.getPrice()>b.getPrice())

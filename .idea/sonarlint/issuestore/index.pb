@@ -71,20 +71,8 @@ X
 (src/main/resources/validation.properties,e\2\e24a70df3a9ab35a6545d4dca6a3122222334dc5
 ]
 -src/main/webapp/fonts/fontawesome-webfont.svg,7\c\7c21d407a7a3095a300988d545fa23ecab8ef10b
-P
- src/main/webapp/scss/_mixin.scss,0\a\0a12f825fcab62ade25d538bd116798341d7db14
-U
-%src/main/webapp/scss/_responsive.scss,1\0\107ffb56c1b6a3220cd25bf0a5458eda2d1e4c5e
-V
-&src/main/webapp/scss/_theme_color.scss,c\0\c0daa5cb1d7f37ed7f3ea03e672b0357d7823434
-T
-$src/main/webapp/scss/_variables.scss,e\6\e69ccaada286cc3a356a011cf26c0a5616a8fe39
-O
-src/main/webapp/scss/style.scss,f\2\f2c9bb8a04091e85ff0e8669ebe753590bb69221
 O
 src/main/webapp/WEB-INF/web.xml,2\e\2e22b6edd746fa3dc40ad7276c87c8d87d72a392
-I
-src/main/webapp/style.css,b\5\b5ddf58625eb7ca70f6133d70f13d616e61eadd7
 :
 
 market.iml,1\d\1d4accc7b34f9323e207bf4885e4a6bc44e71eec
@@ -240,3 +228,7 @@ W
 'src/main/webapp/WEB-INF/spring-data.xml,4\2\4256d28b38bc42b7299b9bcad72f510e79b98381
 †
 Vsrc/main/java/ru/tsystem/javaschool/ordinaalena/controller/CustomerRestController.java,2\6\26ac5cc17452b000fddeaa9ae725a37d8ca25b88
+x
+Hsrc/main/java/ru/tsystem/javaschool/ordinaalena/validation/Patterns.java,9\c\9c0b05456f8541f1d2289f273070c1c8a0645298
+q
+Asrc/main/java/ru/tsystem/javaschool/ordinaalena/DTO/Register.java,d\4\d4e01c49ad35f0d30913976ab4c6da91e75f0d31

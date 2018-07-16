@@ -10,18 +10,18 @@
     <meta charset="UTF-8">
     <title>market-web</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/app.css">
-    <script src="http://code.jquery.com/jquery-3.3.1.js"
+  <%--  <script src="http://code.jquery.com/jquery-3.3.1.js"
             integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-            crossorigin="anonymous"></script>
+            crossorigin="anonymous"></script>--%>
     <%--<link rel="script" href="../../../js/productsScript.js"/>--%>
-    <script src="${contextPath}/js/makeOrder.js"></script>
+   <%-- <script src="${contextPath}/js/makeOrder.js"></script>--%>
 </head>
 <body>
 <div class="bg__wrapper"></div>
 <div class="container__wrapper">
     <%@include file="header.jsp"%>
     <main class="account__main">
-        <div class="addresses_wrapper">
+       <%-- <div class="addresses_wrapper"  id="currentAddresses${addresses}" >
             <div class="address__wrapper">
                 <h2>Add address</h2>
                 <dl class="dl_class">
@@ -83,13 +83,14 @@
                     </dd>
                 </dl>
                 <div class="account__change_links">
-                    <a onclick="addAddress()" class="link link_header">
+                    <a onclick="addAddress(${addresses})" class="link link_header">
                         Add address
                     </a>
                 </div>
-            </div>
+            </div>--%>
+
             <form:form action="${contextPath}/order/set_address" method="post" modelAttribute="orderAddress">
-            <h2>Адресса:</h2>
+            <h2>Adresses:</h2>
                 <div class="addresses_wrapper" id="currentAddresses">
                     <c:forEach var="address" items="${addresses}">
                         <div class="address__wrapper">

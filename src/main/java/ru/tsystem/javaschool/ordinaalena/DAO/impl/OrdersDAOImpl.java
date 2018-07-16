@@ -80,9 +80,9 @@ public class OrdersDAOImpl implements OrdersDAO {
                 "                          where prord.orders.id =" +
                 "                                (SELECT id FROM Orders as ord where" +
                 "                                  ord.id = prord.orders.id and" +
+                "                                  prord.productId.id = :prid and"+
                 "                                  ord.orderStatus = 'UNDONE' or" +
-                "                                  ord.orderStatus = 'DONE') AND" +
-                "                                prord.productId.id = :prid", Long.class)
+                "                                  ord.orderStatus = 'DONE')",Long.class)
                 .setParameter("prid", productId).getSingleResult();
     }
 

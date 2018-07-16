@@ -1,5 +1,6 @@
 package ru.tsystem.javaschool.ordinaalena.services.impl;
 
+import constants.OrderStatus;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -14,6 +15,7 @@ import ru.tsystem.javaschool.ordinaalena.DTO.CustomerDTO;
 import ru.tsystem.javaschool.ordinaalena.converter.Converter;
 import ru.tsystem.javaschool.ordinaalena.entities.Address;
 import ru.tsystem.javaschool.ordinaalena.entities.Customer;
+import ru.tsystem.javaschool.ordinaalena.entities.Orders;
 import ru.tsystem.javaschool.ordinaalena.entities.Role;
 import ru.tsystem.javaschool.ordinaalena.services.api.CustomerService;
 
@@ -60,11 +62,10 @@ public class CustomerServiceImpl implements CustomerService {
         roleSet.add(role);
         customer.setRoles(roleSet);
         customerDAO.persist(customer);
-        //roleDAO.persist(role);
-       // Orders order = new Orders();
-       // order.setCustomer(customer);
-      //  order.setOrderStatus(OrderStatus.BUCKET);
-      //  ordersDAO.persist(order);
+        Orders order = new Orders();
+        order.setCustomer(customer);
+        order.setOrderStatus(OrderStatus.BUCKET);
+        ordersDAO.persist(order);
     }
 
     @Override

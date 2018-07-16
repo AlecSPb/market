@@ -15,7 +15,7 @@ public class AddressDTO {
     public void setId(Integer id) {
         this.id = id;
     }
-    private String  postcode;
+    private int  postcode;
 
     private String country;
 
@@ -32,7 +32,7 @@ public class AddressDTO {
     public AddressDTO() {
     }
 
-    public AddressDTO(String postcode, String country, String region,
+    public AddressDTO(int postcode, String country, String region,
                       String city, String street, String building, String apartment) {
         this.postcode = postcode;
         this.country = country;
@@ -43,7 +43,7 @@ public class AddressDTO {
         this.street = street;
     }
 
-    public AddressDTO(Integer id, String postcode, String country, String region,
+    public AddressDTO(Integer id, int postcode, String country, String region,
                       String city, String street,String building, String apartment) {
 
         this.id=id;
@@ -56,7 +56,7 @@ public class AddressDTO {
         this.street = street;
     }
 
-    public String getPostcode() {
+    public int getPostcode() {
         return postcode;
     }
 
@@ -84,7 +84,7 @@ public class AddressDTO {
         return street;
     }
 
-    public void setPostcode(String postcode) {
+    public void setPostcode(int postcode) {
         this.postcode = postcode;
     }
 

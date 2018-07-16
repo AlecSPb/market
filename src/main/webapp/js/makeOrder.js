@@ -75,16 +75,16 @@ function getAddressHtml(address) {
 }
 
 function addAddress() {
-    let addressDto = getAddressDto();
+    let addressDTO = getAddressDto();
 
     $.ajax({
         url: "http://localhost:8080/addresses/",
         type: 'POST',
         contentType: "application/json",
-        data: JSON.stringify(addressDto),
+        data: JSON.stringify(addressDTO),
         success: function (data) {
-            addressDto.id = data;
-            $("#currentAddresses").append(getAddressHtml(addressDto))
+            addressDTO.id = data;
+            $("#currentAddresses").append(getAddressHtml(addressDTO))
         },
         error: function (error) {
             console.log(error);

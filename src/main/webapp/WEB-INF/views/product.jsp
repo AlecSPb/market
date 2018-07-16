@@ -18,7 +18,7 @@
     <hr>
     <main class="products__wrapper">
         <div class="items__wrapper">
-            <form method='GET', action="${contextPath}/product">
+            <form method='GET' action="${contextPath}/product">
                 <div class="products_item">
                     <div style="background-image: url(${contextPath}/img/products/${product.id}.jpg)"
                          class="items_img"></div>

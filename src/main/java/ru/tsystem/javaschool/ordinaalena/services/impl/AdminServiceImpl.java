@@ -57,6 +57,7 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
+    @Transactional
     public void changeOrdersStatus(int ordersId, OrderStatus status) {
         Orders orders = ordersDAO.find(ordersId, Orders.class);
         orders.setOrderStatus(status);
@@ -64,6 +65,7 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
+    @Transactional
     public String changeOrderStatus(int ordersId) {
         Orders orders = ordersDAO.find(ordersId, Orders.class);
 
@@ -72,13 +74,13 @@ public class AdminServiceImpl implements AdminService {
             orders.setOrderStatus(OrderStatus.DONE);
         else if(status.equals(OrderStatus.DONE))
             orders.setOrderStatus(OrderStatus.UNDONE);
-
         ordersDAO.merge(orders);
         return orders.getOrderStatus().toString();
     }
 
 
     @Override
+    @Transactional
     public String changeProductStatus(int productId) {
         Product product = productDAO.find(productId, Product.class);
         product.setNotavailable(!product.isNotavailable());

@@ -36,15 +36,15 @@
                         <td>${ord.id}</td>
                         <td>${ord.address.id}</td>
                         <td>${ord.paymentMethod}</td>
-                        <td id="ordersId_${ord.id}">${ord.orderStatus}</td>
+                        <td id="orderId_${ord.id}">${ord.orderStatus}</td>
                         <td>
                             <c:forEach items="${ord.productDTOs}" var="product" varStatus="ind">
                                 <p>
-                                    ${product.title}(${ord.counts[ind.count-1]})
+                                        ${product.title}(${ord.counts[ind.count-1]})
                                 </p>
                             </c:forEach>
                         </td>
-                        <td><a class="link link_header" onclick="changeStatus(${ord.id})">Change</a></td>
+                        <td><a class="link link_header" onclick="changeStatus(${ord.id})">change</a></td>
 
                     </tr>
                 </c:forEach>
