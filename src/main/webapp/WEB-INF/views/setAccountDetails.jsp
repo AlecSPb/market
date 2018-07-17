@@ -50,7 +50,7 @@
                 </spring:bind>
                 <spring:bind path="phonenumber">
                     <dt>
-                        Phone number
+                        Phone
                     </dt>
                     <dd>
                         <form:input type="text" path="phonenumber"

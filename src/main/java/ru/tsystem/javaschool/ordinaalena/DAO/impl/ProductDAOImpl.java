@@ -6,6 +6,8 @@ import ru.tsystem.javaschool.ordinaalena.DAO.api.ProductDAO;
 import ru.tsystem.javaschool.ordinaalena.entities.Product;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.*;
 import java.util.List;
 
 @Repository
@@ -51,7 +53,7 @@ public class ProductDAOImpl implements ProductDAO {
     @Override
     public List<Product> getByCategory(String category) {
         return entityManager.createQuery("from Product as prod " +
-                "where prod.category=:category AND notavailable=:false ", Product.class).
+                "where prod.category=:category AND notavailable=false ", Product.class).
                 setParameter("category", category).getResultList();
     }
 
@@ -73,17 +75,71 @@ public class ProductDAOImpl implements ProductDAO {
     @Override
     //???
     public List<Product> getByCategories(String[] categories) {
-        return entityManager.createQuery(
-                "select product from Product as product where product.category=:categories AND notavailable=:false",
-                Product.class).setParameter("categories",categories).getResultList();
+        //WELCOME TO THE HELL
+
+        //init all for criteria
+        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Product> criteriaQuery = criteriaBuilder
+                .createQuery(Product.class);
+        ParameterExpression parameters[] = new ParameterExpression[categories.length];
+        Predicate predicate[] = new Predicate[categories.length];
+        Root<Product> root = criteriaQuery.from(Product.class);
+
+        //make all predicates for criteria
+        for (int i=0; i<predicate.length; i++){
+            parameters[i] = criteriaBuilder.parameter(String.class);
+            predicate[i] = criteriaBuilder.equal(root.get("category"), parameters[i]);
+        }
+
+        //make criteria query
+        criteriaQuery.select(root)
+                .where(criteriaBuilder.
+                        and(criteriaBuilder
+                                .or(predicate),criteriaBuilder.equal(root.get("notavailable"), false)));
+
+        //Convert criteriaHell to query
+        TypedQuery<Product> query = entityManager.createQuery(criteriaQuery);
+
+        //set all params
+        for (int i=0; i<predicate.length; i++) {
+            query.setParameter(parameters[i], categories[i]);
+        }
+
+        //find resultList
+        return query.getResultList();
     }
 //??
     @Override
     public long getProductsCount(String[] categories) {
-        return  entityManager.createQuery("SELECT sum(product.count)" +
-                "                          FROM Product as product" +
-                "                          where product.category =:categories AND notavailable=:false" , Long.class)
-                .setParameter("categories", categories).getSingleResult();
+        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Long> criteriaQuery = criteriaBuilder
+                .createQuery(Long.class);
+        ParameterExpression parameters[] = new ParameterExpression[categories.length];
+        Predicate predicate[] = new Predicate[categories.length];
+        Root<Product> root = criteriaQuery.from(Product.class);
+
+        //make all predicates for criteria
+        for (int i=0; i<predicate.length; i++){
+            parameters[i] = criteriaBuilder.parameter(String.class);
+            predicate[i] = criteriaBuilder.equal(root.get("category"), parameters[i]);
+        }
+
+        //make criteria query
+        criteriaQuery.select(criteriaBuilder.count(root))
+                .where(criteriaBuilder.
+                        and(criteriaBuilder
+                                .or(predicate),criteriaBuilder.equal(root.get("notavailable"), false)));
+
+        //Convert criteriaHell to query
+        TypedQuery<Long> query = entityManager.createQuery(criteriaQuery);
+
+        //set all params
+        for (int i=0; i<predicate.length; i++) {
+            query.setParameter(parameters[i], categories[i]);
+        }
+
+        //find resultList
+        return query.getSingleResult();
     }
 
     @Override

@@ -12,7 +12,7 @@
 
 .container__wrapper{
     width: 930px;
-    background: rgba(61, 61, 61, 0.8);
+    background: rgba(255, 255, 255, 0.8);
     min-height: 100%;
     margin: 0 auto;
     z-index: 1;
@@ -41,24 +41,24 @@ a.link_contact:hover{
     text-decoration: underline;
 }
 a.link_header{
-        color: #ff00ff;
+        color: #FF40E1;
     text-transform: uppercase;
     font-weight: bold;
     transition: .3s;
 }
 a.link_header:hover{
-    background: #ff00ff;
+    background: #FF40E1;
     color: #ffffff;
     cursor: pointer;
 }
 a.link_product{
-    color: #ff00ff;
+    color: #FF40E1;
 }
 
 .error{
-    color: #ff00ff;
+    color: #FF40E1;
 }
 .mytitle{
-    color: #ff00ff;
+    color:#FF40E1;
     font-size: medium;
 }

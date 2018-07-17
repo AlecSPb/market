@@ -8,6 +8,8 @@ import ru.tsystem.javaschool.ordinaalena.DAO.api.OrdersDAO;
 import ru.tsystem.javaschool.ordinaalena.entities.Orders;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceException;
+import javax.persistence.Query;
 import java.util.List;
 
 @Repository
@@ -77,7 +79,7 @@ public class OrdersDAOImpl implements OrdersDAO {
     public long getProductCounts(int productId) {
         return entityManager.createQuery("SELECT sum(prord.count)" +
                 "                          FROM ProductOrders as prord" +
-                "                          where prord.orders.id =" +
+                "                          where prord.orders.id IN" +
                 "                                (SELECT id FROM Orders as ord where" +
                 "                                  ord.id = prord.orders.id and" +
                 "                                  prord.productId.id = :prid and"+
@@ -90,7 +92,7 @@ public class OrdersDAOImpl implements OrdersDAO {
     public long getUserBuyingCounts(int customerId) {
         return entityManager.createQuery("SELECT sum(prord.count)" +
                 "                          FROM ProductOrders as prord" +
-                "                          where prord.orders.id =" +
+                "                          where prord.orders.id IN" +
                 "                                (SELECT id FROM Orders as ord where" +
                 "                                  ord.id = prord.orders.id and" +
                 "                                  ord.customer.id = :customerId and" +
@@ -98,5 +100,18 @@ public class OrdersDAOImpl implements OrdersDAO {
                 "                                   ord.orderStatus = 'DONE') ", Long.class)
                 .setParameter("customerId", customerId)
                 .getSingleResult();
+    }
+
+    //add
+    @Override
+    @SuppressWarnings("unchecked")
+    public List<Orders> findOrdersByCustomerId(int customerId) {
+
+        return entityManager.createQuery("SELECT c FROM Orders c WHERE c.customer.id= :customerId")
+
+                    .setParameter("customerId", customerId).getResultList();
+
+
+
     }
 }

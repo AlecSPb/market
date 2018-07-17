@@ -90,7 +90,7 @@
             </div>--%>
 
             <form:form action="${contextPath}/order/set_address" method="post" modelAttribute="orderAddress">
-            <h2>Adresses:</h2>
+            <h2>Addresses:</h2>
                 <div class="addresses_wrapper" id="currentAddresses">
                     <c:forEach var="address" items="${addresses}">
                         <div class="address__wrapper">
@@ -144,7 +144,7 @@
                                         <form:radiobutton name="address"
                                                           value="${address.id}"
                                                     path="id"/>
-                                        <span >Choose address</span>
+                                        <span >Select address</span>
                                     </label>
                                 </dd>
                             </dl>
@@ -158,7 +158,7 @@
                 </c:if>
 
                 <div>
-                    <input type="submit" value="OK">
+                    <input type="submit" value="Checkout">
                 </div>
                 </form:form>
         </div>

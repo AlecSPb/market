@@ -49,7 +49,7 @@
                         </div>
                         <div class="bucket__item_column">
                             <dl>
-                                <dt class="column__type">Price of item</dt>
+                                <dt class="column__type">Amount</dt>
                                 <dd class="bucket__item_description">
                                     <p>${product.price} $.</p>
                                 </dd>
@@ -65,7 +65,7 @@
                         </div>
                         <div class="bucket__item_column">
                             <dl>
-                                <dt class="column__type">Available</dt>
+                                <dt class="column__type">Quantity</dt>
                                 <dd class="bucket__item_description">
                                     <p>${product.count}</p>
                                 </dd>
@@ -73,10 +73,10 @@
                         </div>
                         <div class="bucket__item_column">
                             <dl>
-                                <dt class="column__type">Choice</dt>
+                                <dt class="column__type">Select</dt>
                                 <dd class="bucket__item_description">
                                     <label class="menu__line">
-                                        <span>Count: </span>
+                                        <span>Quantity: </span>
                                         <form:input type="text" name="counts" path="counts"/>
                                     </label>
                                 </dd>

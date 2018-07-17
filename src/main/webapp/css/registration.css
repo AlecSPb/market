@@ -2,7 +2,7 @@
     text-align: center;
 }
 .registration__main h2{
-    color: #ff00cc;
+    color:#FF40E1;
     margin-bottom: 10px;
 }
 
@@ -29,5 +29,5 @@
 }
 
 .has-error span{
-    color: #ff00cc;
+    color: #FF40E1;
 }

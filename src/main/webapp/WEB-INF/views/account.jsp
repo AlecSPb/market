@@ -40,9 +40,6 @@
                         Second Name:
                     </dt>
                         <dd>
-                               <%-- <form:input type="text" path="secondName"
-                                            placeholder="Second name"/>
-                                <form:errors path="secondName"/>--%>
                         <p>
                             <c:if test="${customer.secondName==null}">
                                 Indicate second name
@@ -58,9 +55,7 @@
                         Name:
                     </dt>
                     <dd>
-                        <%--<form:input type="text" path="firstName"
-                                    placeholder="Firstname"/>
-                        <form:errors path="firstName"/>--%>
+
                         <p>
                             <c:if test="${customer.firstName==null}">
                                 Indicate name
@@ -76,9 +71,7 @@
                         Phone:
                     </dt>
                     <dd>
-                       <%-- <form:input type="text" path="phonenumber"
-                                    placeholder="Phone"/>
-                        <form:errors path="phonenumber"/>--%>
+
                         <p>
                             <c:if test="${customer.phonenumber==null}">
                                 Indicate phone
@@ -104,7 +97,7 @@
             </div>
         </div>
         <div class="addresses_wrapper">
-            <h2>Адресса:</h2>
+            <h2>Addresses:</h2>
             <c:if test="${addresses!=null}">
                     <c:forEach var="address" items="${addresses}">
                         <div id="address${address.id}" class="address__wrapper">

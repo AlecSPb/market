@@ -26,10 +26,8 @@
             <a href="${contextPath}/"></a>
         </div>
     </main>
-    <footer>
-
-    </footer>
 </div>
+
 </body>
 
 </html>

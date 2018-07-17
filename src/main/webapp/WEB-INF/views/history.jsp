@@ -21,10 +21,10 @@
     <main>
         <div class="bucket__wrapper">
             <div class="bucket__head">
-                <h2>История заказов: </h2>
+                <h2>History of orders: </h2>
             </div>
                 <c:forEach var="order" items="${orders}">
-                    <p>Заказ:</p>
+                    <p>Order:</p>
                     <c:forEach var="product" items="${order.productDTOs}" varStatus="index" >
                         <div class="bucket__item">
                             <div class="bucket__item_column">
@@ -49,7 +49,7 @@
                             </div>
                             <div class="bucket__item_column">
                                 <dl>
-                                    <dt class="column__type">price of item</dt>
+                                    <dt class="column__type">Amount</dt>
                                     <dd class="bucket__item_description">
                                         <p>${product.price} $.</p>
                                     </dd>

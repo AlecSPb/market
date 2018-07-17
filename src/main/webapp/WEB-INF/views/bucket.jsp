@@ -40,7 +40,7 @@
                                             <dd>Brand: ${product.productParameterDTO.brand}</dd>
                                             <dd>Weight: ${product.productParameterDTO.weight}</dd>
                                             <dd>Color: ${product.productParameterDTO.color}</dd>
-                                            <dd> Price: ${product.price}</dd>
+                                            <dd> Amount: ${product.price}</dd>
                                         </dl>
                                     </div>
                                 </dd>
@@ -48,7 +48,7 @@
                         </div>
                         <div class="bucket__item_column">
                             <dl>
-                                <dt class="column__type">Price of items</dt>
+                                <dt class="column__type">Amount</dt>
                                 <dd class="bucket__item_description">
                                     <p>${product.price} $.</p>
                                 </dd>
@@ -64,11 +64,11 @@
                         </div>
                         <div class="bucket__item_column">
                             <dl>
-                                <dt class="column__type">Choice</dt>
+                                <dt class="column__type">Select</dt>
                                 <dd class="bucket__item_description">
                                     <label class="menu__line">
                                         <input type="checkbox" name="selected" value="${product.title}">
-                                        <span>choose</span>
+                                        <span>Select</span>
                                     </label>
                                 </dd>
                             </dl>
@@ -77,7 +77,7 @@
                 </c:forEach>
                 <c:if test="${error!=null}">
                     <div class="error">
-                        <span>Не выбран ни один товар!</span>
+                        <span>No products selected!</span>
                     </div>
                 </c:if>
                 <c:if test="${productsSize!=0}">

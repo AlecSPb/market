@@ -46,7 +46,7 @@
                         <td>${ord.productParameterDTO.color}</td>
                         <td>${ord.productParameterDTO.weight}</td>
                         <td id="hidden${ord.id}">${ord.notavailable}</td>
-                        <td><a class="link link_header" onclick="changeStatus(${ord.id})">change</a></td>
+                        <td><a class="link link_header" onclick="changeStatus(${ord.id})">Change</a></td>
                     </tr>
                 </c:forEach>
             </table>

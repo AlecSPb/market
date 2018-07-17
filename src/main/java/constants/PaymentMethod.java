@@ -1,9 +1,9 @@
 package constants;
 
 public enum PaymentMethod {
-    ONLINE("Оплата картой онлайн"),
-    OFFLINE("Оплата картой при получении"),
-    OFFLINE_CASH("Оплата картой при получении");
+    ONLINE("Card online"),
+    OFFLINE("Card offline"),
+    OFFLINE_CASH("Cash");
 
     private final String description;
 

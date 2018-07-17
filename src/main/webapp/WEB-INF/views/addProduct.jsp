@@ -16,7 +16,7 @@
     <%@include file="header.jsp"%>
     <main class="registration__main">
         <div class="registration__wrapper">
-            <h2>Добавление продукта</h2>
+            <h2>Add new product</h2>
             <form:form  enctype="multipart/form-data"
                         method="POST"
                         action="${contextPath}/admin/add_new_product"
@@ -45,9 +45,9 @@
                     </dt>
                     <dd>
                         <form:input type="text" path="productParameterDTO.brand"
-                                    placeholder="Color"/>
+                                    placeholder="Brand"/>
                         <form:errors path="productParameterDTO.brand"/>
-                        <p>Укажите цвет.</p>
+                        <p>Add brand.</p>
                     </dd>
                     <dt>
                         Price
@@ -65,7 +65,7 @@
                         <form:input type="text" path="count"
                                     placeholder="Count"/>
                         <form:errors path="count"/>
-                        <p>Add count</p>
+                        <p>Add count.</p>
                     </dd>
                     <dt>
                         Description
@@ -83,7 +83,7 @@
                         <form:input type="text" path="productParameterDTO.color"
                                     placeholder="Color"/>
                         <form:errors path="productParameterDTO.color"/>
-                        <p>Укажите цвет.</p>
+                        <p>Add color.</p>
                     </dd>
                     <dt>
                        Weight
@@ -96,7 +96,7 @@
                     </dd>
                 </dl>
                 File to upload: <input type="file" name="picture">
-                <input type="submit" value="Upload">
+                <input type="submit" value="Add product">
             </form:form>
         </div>
     </main>

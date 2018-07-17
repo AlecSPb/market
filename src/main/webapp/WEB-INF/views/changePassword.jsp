@@ -23,7 +23,7 @@
     <%@include file="header.jsp"%>
     <main class="registration__main">
         <form:form  method='POST' modelAttribute="customer" class="registration__wrapper">
-            <h2>Changed password</h2>
+            <h2>Change password</h2>
             <dl class="dl_class">
                 <spring:bind path="parole">
                     <dt>
@@ -42,13 +42,13 @@
                     </dt>
                     <dd>
                         <form:input type="parole" path="paroleConfirm"
-                                    placeholder="Подтвердите новый пароль"/>
+                                    placeholder="Confirm new password/"/>
                         <form:errors path="paroleConfirm"/>
-                        <p>Повторите новый пароль. Пароли должны совпасть.</p>
+                        <p>Repeat new password. Passwords must match!</p>
                     </dd>
                 </spring:bind>
             </dl>
-            <input type='submit' value='Changed password'>
+            <input type='submit' value='Change password'>
         </form:form>
     </main>
 </div>
