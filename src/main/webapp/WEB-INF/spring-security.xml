@@ -39,6 +39,7 @@
             <password-encoder ref="encoder"/>
         </authentication-provider>
     </authentication-manager>
+    <beans:bean class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler"/>
 
     <beans:bean id="userDetailsServiceImpl"
                 class="ru.tsystem.javaschool.ordinaalena.services.impl.CustomerDetailsServiceImpl"/>

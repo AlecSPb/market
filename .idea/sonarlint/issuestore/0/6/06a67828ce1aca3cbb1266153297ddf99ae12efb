@@ -1,5 +1,5 @@
 
 €squid:S4165-"bRemove this useless assignment; "dtos" already holds the assigned value along all execution paths.(ßŸ°8ñ¬’Ê,
+„squid:S4144"`Update this method so that its implementation is not identical to "getProductsCount" on line 89.(·¾ÊÔùÿÿÿÿ8ñ¬’Ê,
 squid:S4165/"bRemove this useless assignment; "dtos" already holds the assigned value along all execution paths.(ğüåA8ñ¬’Ê,
-„squid:S4144„"`Update this method so that its implementation is not identical to "getProductsCount" on line 89.(·¾ÊÔùÿÿÿÿ8ñ¬’Ê,
 asquid:UnusedPrivateMethodY"5Remove this unused private "getProductsCount" method.(ò²î–8ñ¬’Ê,

@@ -1,3 +1,4 @@
 
-ssquid:S1206m"PThis class overrides "equals()" and should therefore also override "hashCode()".(Ý¢êÍýÿÿÿÿ8Ì¡­ÛÈ,
 ysquid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(×°“µ8Ì¡­ÛÈ,
+ssquid:S1206w"PThis class overrides "equals()" and should therefore also override "hashCode()".(Ý¢êÍýÿÿÿÿ8Ì¡­ÛÈ,
+esquid:S001070"AConstructor has 8 parameters, which is greater than 7 authorized.(¬€þ“úÿÿÿÿ8¹¯‘¨Ê,

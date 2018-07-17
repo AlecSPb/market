@@ -34,10 +34,8 @@ function getProductHtml(product){
         "<div class=\"products__description\">"+
         "<dl>"+
         "<dt>"+
-        "<a class=\"link link_product\"" +
-        "href=\"http://localhost:8080/product?productName=" + product.title + "\">"+
-        product.title+
-        "</a>"+
+        "<div class =\"mytitle\">"+product.title+
+        "</div>"+
         "</dt>"+
         "<dd>" + product.category + ", " + product.productParameterDTO.weight + "</dd>"+
         "</dl>"+

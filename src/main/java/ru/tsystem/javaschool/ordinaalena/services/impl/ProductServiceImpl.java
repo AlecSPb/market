@@ -100,9 +100,6 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public ProductDTO getByTitle(String title) {
         Product product;
-        if(title == null) {
-            throw new NullPointerException("Name is null.");
-        }
         product = productDAO.getByTitle(title);
         return converter.convertToDTO(product);
     }

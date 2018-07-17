@@ -1,2 +1,2 @@
 
-Ğ%squid:RedundantThrowsDeclarationCheck"’Remove the declaration of thrown exception 'org.springframework.security.core.userdetails.UsernameNotFoundException' which is a runtime exception.(°Ô¦üıÿÿÿÿ8Ì¡­ÛÈ,
+”squid:UselessImportCheck	"dRemove this unused import 'org.springframework.security.core.userdetails.UsernameNotFoundException'.(Í£Ö¶ùÿÿÿÿ8¾İ¡Ê,

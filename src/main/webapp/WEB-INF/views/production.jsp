@@ -45,7 +45,7 @@
                         <td>${ord.count}</td>
                         <td>${ord.productParameterDTO.color}</td>
                         <td>${ord.productParameterDTO.weight}</td>
-                        <td id="notavailable${ord.id}">${ord.notavailable}</td>
+                        <td id="hidden${ord.id}">${ord.notavailable}</td>
                         <td><a class="link link_header" onclick="changeStatus(${ord.id})">change</a></td>
                     </tr>
                 </c:forEach>

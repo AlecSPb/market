@@ -40,7 +40,7 @@
                     <input type="submit"
                            class="link link_header"
                            value="Show"
-                           onclick="return makeItWork()">
+                           onclick="makeItWork()">
                 </div>
                 <div class="items__wrapper">
                     <div class="products__sorting">
@@ -61,6 +61,10 @@
                                 </label>
                             </li>
                         </ul>
+                        <input type="submit"
+                               class="link link_header"
+                               value="Sort"
+                               onclick="showProducts()">
                     </div>
                     <div id="products">
                         <script>

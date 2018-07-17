@@ -9,7 +9,7 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>Market web</name>
+    <name>Hard Candy</name>
     <url>http://maven.apache.org</url>
 
     <properties>
@@ -178,7 +178,11 @@
             <version>${spring-framework.version}</version>
             <scope>test</scope>
         </dependency>
-
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-taglibs</artifactId>
+            <version>5.0.6.RELEASE</version>
+        </dependency>
         <!--Commons-->
         <dependency>
             <groupId>commons-pool</groupId>

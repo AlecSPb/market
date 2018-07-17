@@ -41,11 +41,8 @@ public class Product implements Serializable {
     @JoinColumn(name = "parameter_id", unique = true)
     private ProductParameter parameter;
 
-    @Column
+    @Column (name = "count")
     private int count;
-
-
-
 
     @Column(name = "notavailable")
     private boolean notavailable;

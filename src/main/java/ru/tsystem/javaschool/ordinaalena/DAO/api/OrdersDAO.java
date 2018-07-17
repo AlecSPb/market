@@ -18,4 +18,5 @@ public interface OrdersDAO {
     public long getProductCounts(int productId);
 
     public long getUserBuyingCounts(int customerId);
+    public List<Orders> findOrdersByCustomerId(int customerId);
 }

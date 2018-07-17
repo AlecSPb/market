@@ -1,5 +1,5 @@
 
-„squid:S4165"iRemove this useless assignment; "productDTOs" already holds the assigned value along all execution paths.(›Ùè+8´ à†Ç,
-Nsquid:S1172"2Remove this unused method parameter "productDtos".(¸Ü©˜8´ à†Ç,
-wsquid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(×°“µ8´ à†Ç,
-qsquid:S1206"PThis class overrides "equals()" and should therefore also override "hashCode()".(Ý¢êÍýÿÿÿÿ8´ à†Ç,
+†squid:S4165'"iRemove this useless assignment; "productDTOs" already holds the assigned value along all execution paths.(›Ùè+8´ à†Ç,
+Psquid:S1172""2Remove this unused method parameter "productDtos".(¸Ü©˜8´ à†Ç,
+ysquid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(×°“µ8´ à†Ç,
+ssquid:S1206j"PThis class overrides "equals()" and should therefore also override "hashCode()".(Ý¢êÍýÿÿÿÿ8´ à†Ç,

@@ -152,20 +152,21 @@ public class OrdersServiceImpl implements OrdersService {
     }
 
     @Override
-    @Transactional
+
     public List<ProductDTO> getAllBuyingCounts() {
         List<ProductDTO> products = productDAO
                 .getAll(Product.class)
                 .stream().map(product -> converter.convertToDTO(product))
                 .collect(Collectors.toList());
 
-        Long count;
+        Long count=null;
 
         for(ProductDTO product: products){
             count = ordersDAO.getProductCounts(product.getId());
             product.setCount(count.intValue());
 
-        }
+    }
+
 
         return products;
     }
@@ -177,14 +178,14 @@ public class OrdersServiceImpl implements OrdersService {
                 .stream().map(customer-> converter.convertToDTO(customer))
                 .collect(Collectors.toList());
 
-        Long count;
+        Long count=null;
 
         for(CustomerDTO customer: customerDTOS){
             count = ordersDAO.getProductCounts(customer.getId());
             customer.setPhonenumber(count.toString());
-
-        }
+    }
 
         return customerDTOS;
     }
+
 }
