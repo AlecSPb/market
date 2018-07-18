@@ -1,6 +1,6 @@
 package ru.tsystem.javaschool.ordinaalena.services.impl;
 
-import constants.OrderStatus;
+import ru.tsystem.javaschool.ordinaalena.constants.OrderStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

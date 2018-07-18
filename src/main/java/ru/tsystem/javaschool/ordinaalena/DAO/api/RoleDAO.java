@@ -10,5 +10,5 @@ public interface RoleDAO {
     void remove(Role  role);
     void merge(   Role role);
     List<Role > getAll(Class<Role > className);
-    public Role getRoleByName(String roleName);
+    Role getRoleByName(String roleName);
 }

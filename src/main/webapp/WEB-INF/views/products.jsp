@@ -38,7 +38,7 @@
                         </c:forEach>
                     </ul>
                     <input type="submit"
-                           class="link link_header"
+                           class="btn1"
                            value="Show"
                            onclick="makeItWork()">
                 </div>
@@ -62,7 +62,7 @@
                             </li>
                         </ul>
                         <input type="submit"
-                               class="link link_header"
+                               class="btn1"
                                value="Sort"
                                onclick="showProducts()">
                     </div>

@@ -12,10 +12,10 @@ public interface CustomerDAO {
     void remove(final Customer model);
 
     void merge(Customer customer);
-    public List<Customer> getAll(Class<Customer> className);
 
-    public Customer getByEmail(String email);
+    List<Customer> getAll(Class<Customer> className);
 
+    Customer getByEmail(String email);
 
-    public int getCustomerIdByEmail(String email);
+    int getCustomerIdByEmail(String email);
 }

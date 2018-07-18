@@ -10,12 +10,12 @@ public class Patterns {
         }
 
         public static boolean namePattern(String name){
-            Pattern pattern = Pattern.compile("([a-zа-яёА-ЯЁ0-9\\s\\.-]{2,32})", Pattern.CASE_INSENSITIVE);
+            Pattern pattern = Pattern.compile("([a-zа-яёА-ЯЁ0-9\\s\\.-]{1,32})", Pattern.CASE_INSENSITIVE);
             return match(pattern,name);
         }
 
         public static boolean localityPattern(String locality){
-            Pattern pattern = Pattern.compile("([a-zа-яёА-ЯЁ\\s\\.-]{4,32})", Pattern.CASE_INSENSITIVE);
+            Pattern pattern = Pattern.compile("([a-zа-яёА-ЯЁ\\s\\.-]{1,32})", Pattern.CASE_INSENSITIVE);
             return match(pattern,locality);
         }
 
@@ -25,7 +25,7 @@ public class Patterns {
         }
 
         public static boolean parolePattern(String parole){
-            Pattern pattern = Pattern.compile("([a-z0-9_-]{2,32})", Pattern.CASE_INSENSITIVE);
+            Pattern pattern = Pattern.compile("([a-z0-9_-]{1,32})", Pattern.CASE_INSENSITIVE);
             return match(pattern, parole);
         }
 
@@ -35,11 +35,11 @@ public class Patterns {
         }
 
         public static boolean addressIndexPattern(String index){
-            Pattern pattern = Pattern.compile("([0-9]{6})");
+            Pattern pattern = Pattern.compile("([0-9])");
             return match(pattern, index);
         }
         public static boolean phonenumberPattern(String phone){
-            Pattern pattern = Pattern.compile("([0-9]{11})");
+            Pattern pattern = Pattern.compile("([0-9])");
             return match(pattern, phone);
         }
 

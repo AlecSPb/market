@@ -1,15 +1,13 @@
 
 package ru.tsystem.javaschool.ordinaalena.DAO.impl;
 
-import constants.OrderStatus;
+import ru.tsystem.javaschool.ordinaalena.constants.OrderStatus;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Repository;
 import ru.tsystem.javaschool.ordinaalena.DAO.api.OrdersDAO;
 import ru.tsystem.javaschool.ordinaalena.entities.Orders;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.PersistenceException;
-import javax.persistence.Query;
 import java.util.List;
 
 @Repository
@@ -102,7 +100,6 @@ public class OrdersDAOImpl implements OrdersDAO {
                 .getSingleResult();
     }
 
-    //add
     @Override
     @SuppressWarnings("unchecked")
     public List<Orders> findOrdersByCustomerId(int customerId) {

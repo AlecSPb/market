@@ -1,7 +1,7 @@
 package ru.tsystem.javaschool.ordinaalena.converter;
 
-import constants.OrderStatus;
-import constants.PaymentMethod;
+import ru.tsystem.javaschool.ordinaalena.constants.OrderStatus;
+import ru.tsystem.javaschool.ordinaalena.constants.PaymentMethod;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -48,7 +48,6 @@ public class Converter {
                 phonenumber,roles);
     }
     public Customer convertToEntity (CustomerDTO customerDTO){
-         logger.info("ProductDto ");
          String email = customerDTO.getEmail();
          String parole = bCryptPasswordEncoder.encode(customerDTO.getParole());
 
@@ -69,7 +68,7 @@ public class Converter {
             return null;
         logger.info("Address " + address.getId());
         Integer id = address.getId();
-        int postcode = address.getPostcode();
+        String postcode =Integer.toString( address.getPostcode());
         String country = address.getCountry();
         String region = address.getRegion();
         String city = address.getCity();
@@ -82,7 +81,7 @@ public class Converter {
     }
     public Address convertToEntity (AddressDTO addressDTO){
 
-        int postcode =addressDTO.getPostcode();
+        int postcode =Integer.parseInt(addressDTO.getPostcode());
         String country = addressDTO.getCountry();
         String region = addressDTO.getRegion();
         String city = addressDTO.getCity();
@@ -117,9 +116,7 @@ public class Converter {
     }
 
     public ProductDTO convertToDTO (Product product){
-
         logger.info("Product " + product.getId());
-
         Integer id = product.getId();
         String title = product.getTitle();
         int price = product.getPrice();
@@ -153,7 +150,7 @@ public class Converter {
         return new ProductParameterDTO(id, brand, color, weight);
     }
     public ProductParameter convertToEntity (ProductParameterDTO productParameterDTO){
-       // logger.info("ProductDto ");
+
         String brand = productParameterDTO.getBrand();
         String color = productParameterDTO.getColor();
         Integer weight = productParameterDTO.getWeight();

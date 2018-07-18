@@ -15,7 +15,7 @@ public class MyController {
     /**
      * @return home page
      */
-    @RequestMapping(value = "/home", method = RequestMethod.GET)
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(){
         return "index12";
     }

@@ -1,6 +1,6 @@
 package ru.tsystem.javaschool.ordinaalena.services.api;
 
-import constants.OrderStatus;
+import ru.tsystem.javaschool.ordinaalena.constants.OrderStatus;
 import ru.tsystem.javaschool.ordinaalena.DTO.CustomerDTO;
 import ru.tsystem.javaschool.ordinaalena.DTO.ProductDTO;
 

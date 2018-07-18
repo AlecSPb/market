@@ -10,13 +10,10 @@ public interface OrdersDAO {
     void remove(final Orders orders);
     void merge(Orders orders);
     List<Orders> getAll(Class<Orders> className);
-    public Orders getClientBucket(int clientId);
-    public List<Orders> getClientOrders(int clientId);
-
-    public List<Orders> ordersWithAddresses(int addressId);
-
-    public long getProductCounts(int productId);
-
-    public long getUserBuyingCounts(int customerId);
-    public List<Orders> findOrdersByCustomerId(int customerId);
+    Orders getClientBucket(int clientId);
+    List<Orders> getClientOrders(int clientId);
+    List<Orders> ordersWithAddresses(int addressId);
+    long getProductCounts(int productId);
+    long getUserBuyingCounts(int customerId);
+    List<Orders> findOrdersByCustomerId(int customerId);
 }

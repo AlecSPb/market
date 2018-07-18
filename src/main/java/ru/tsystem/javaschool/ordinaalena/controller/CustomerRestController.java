@@ -12,9 +12,6 @@ import ru.tsystem.javaschool.ordinaalena.validation.MainValidator;
 @RequestMapping("/user")
 public class CustomerRestController {
 
-
-    private OrdersService ordersService;
-
     private CustomerService customerService;
 
     private SecurityService securityService;
@@ -22,8 +19,7 @@ public class CustomerRestController {
     private MainValidator validator;
 
     @Autowired
-    public CustomerRestController(OrdersService ordersService, CustomerService customerService, SecurityService securityService, MainValidator validator) {
-        this.ordersService = ordersService;
+    public CustomerRestController( CustomerService customerService, SecurityService securityService, MainValidator validator) {
         this.customerService = customerService;
         this.securityService = securityService;
         this.validator = validator;

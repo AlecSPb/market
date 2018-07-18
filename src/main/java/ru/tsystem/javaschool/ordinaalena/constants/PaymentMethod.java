@@ -1,4 +1,4 @@
-package constants;
+package ru.tsystem.javaschool.ordinaalena.constants;
 
 public enum PaymentMethod {
     ONLINE("Card online"),

@@ -49,8 +49,8 @@ public class CustomerController {
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public String registration(@ModelAttribute("customer") CustomerDTO customerDTO,
                                BindingResult bindingResult, Model model) {
-//         mainValidator.validateEmail(customerDTO, bindingResult);
-        // mainValidator.validateParoleSet(customerDTO, bindingResult);
+        mainValidator.validateEmail(customerDTO, bindingResult);
+        mainValidator.validateParoleSet(customerDTO, bindingResult);
 
         if (bindingResult.hasErrors())
             return "/registration";
@@ -62,12 +62,11 @@ public class CustomerController {
     @RequestMapping(value = "/account", method = RequestMethod.GET)
     public String account(Model model) {
         String loggedCustomerEmail = securityService.findLoggedInEmail();
-        //need to persist some out message if cant to remove address!
-
         model.addAttribute("customer", customerService.getCustomer(loggedCustomerEmail));
         model.addAttribute("addresses", customerService.getCustomerAddresses(loggedCustomerEmail));
         return "/account";
     }
+
     @RequestMapping(value = "/add_address", method = RequestMethod.GET)
     public String addAddress(Model model) {
         model.addAttribute("address", new AddressDTO());

@@ -11,15 +11,10 @@ public interface ProductDAO {
     void remove(Product product);
     void merge(   Product product);
     List<Product> getAll(Class<Product> className);
-    public List<Product> getByCategory(String category);
-
-    public List<String> getCategories();
-
-    public Product getByTitle(String title);
-
-    public List<Product> getByCategories(String[] categories);
-
-    public long getProductsCount(String[] categories);
-
-    public long getProductsCount();
+    List<Product> getByCategory(String category);
+    List<String> getCategories();
+    Product getByTitle(String title);
+    List<Product> getByCategories(String[] categories);
+    long getProductsCount(String[] categories);
+    long getProductsCount();
 }

@@ -65,8 +65,8 @@ public class MainValidatorImpl implements MainValidator{
             errors.rejectValue("building", "Invalid.address.building");
         if(!Patterns.homePattern(addressDTO.getApartment()))
             errors.rejectValue("apartment", "Invalid.address.apartment");
-       // if(!Patterns.addressIndexPattern(addressDTO.getPostcode()))
-        //    errors.rejectValue("postcode", "Invalid.address.postcode");
+        if(!Patterns.addressIndexPattern(addressDTO.getPostcode()))
+            errors.rejectValue("postcode", "Invalid.address.postcode");
     }
 
     @Override

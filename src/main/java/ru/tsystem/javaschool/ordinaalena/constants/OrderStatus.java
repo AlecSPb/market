@@ -1,4 +1,4 @@
-package constants;
+package ru.tsystem.javaschool.ordinaalena.constants;
 
 import java.util.ArrayList;
 import java.util.Arrays;

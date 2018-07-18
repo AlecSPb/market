@@ -43,9 +43,18 @@ public class AdminController {
 
     private static final Logger logger = Logger.getLogger(AdminController.class);
 
+    /**
+     * Administration controller's method which return admin page.
+     * @return      jsp.
+     */
+    @RequestMapping(method = RequestMethod.GET)
+    public String getAdminPage(){
+        logger.info("admin: " + securityService.findLoggedInEmail());
+        return "/admin";
+    }
 
     /**
-     * Administration controller's method which return page with all users.
+     * Administration controller's method which return page with all customers.
      * @param model page model.
      * @return      jsp.
      */
@@ -57,7 +66,7 @@ public class AdminController {
     }
 
     /**
-     * Administration controller's method which page with user's addresses.
+     * Administration controller's method which page with customer's addresses.
      * @param model page model.
      * @param email user email.
      * @return      jsp.
@@ -71,7 +80,7 @@ public class AdminController {
     }
 
     /**
-     * Administration controller's method which page with user's orders.
+     * Administration controller's method which page with customer's orders.
      * @param model page model.
      * @param email user email.
      * @return      jsp.
@@ -122,15 +131,6 @@ public class AdminController {
         return "redirect:/products";
     }
 
-    /**
-     * Administration controller's method which return admin page.
-     * @return      jsp.
-     */
-    @RequestMapping(method = RequestMethod.GET)
-    public String getAdminPage(){
-        logger.info("admin: " + securityService.findLoggedInEmail());
-        return "/admin";
-    }
 
     /**
      * Administration controller's method which return page with all products.

@@ -1,7 +1,7 @@
 package ru.tsystem.javaschool.ordinaalena.entities;
 
-import constants.OrderStatus;
-import constants.PaymentMethod;
+import ru.tsystem.javaschool.ordinaalena.constants.OrderStatus;
+import ru.tsystem.javaschool.ordinaalena.constants.PaymentMethod;
 
 import javax.persistence.*;
 import java.io.Serializable;
