@@ -49,14 +49,12 @@ public class CustomerController {
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public String registration(@ModelAttribute("customer") CustomerDTO customerDTO,
                                BindingResult bindingResult, Model model) {
-        mainValidator.validateEmail(customerDTO, bindingResult);
-        mainValidator.validateParoleSet(customerDTO, bindingResult);
 
         if (bindingResult.hasErrors())
             return "/registration";
         customerService.registrationCustomer(customerDTO);
         securityService.autoLogin(customerDTO.getEmail(), customerDTO.getParole());
-        return "redirect:/home";
+        return "redirect:/";
     }
 
     @RequestMapping(value = "/account", method = RequestMethod.GET)
@@ -118,7 +116,7 @@ public class CustomerController {
 
         String loggedUserEmail = securityService.findLoggedInEmail();
         customerService.setCustomerDifferents(loggedUserEmail, customer);
-        return "redirect:/account";
+        return "redirect:/user/account";
     }
 
     /**
@@ -146,6 +144,6 @@ public class CustomerController {
 
         String loggedCustomerEmail = securityService.findLoggedInEmail();
         customerService.changeParole(loggedCustomerEmail, customer.getParole());
-        return "redirect:/account";
+        return "redirect:/user/account";
     }
 }

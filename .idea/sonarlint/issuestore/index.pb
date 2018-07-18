@@ -3,10 +3,6 @@ j
 :.idea/dataSources/e9f3ce4a-6cc5-49c3-8726-b60eb13bddcd.xml,5\e\5e5810ae7f34d13c9de1a39c3a84df874cef700c
 L
 .idea/dictionaries/crown.xml,d\a\dac3705bb448207c7332c2b250340b5ee2466d03
-X
-(src/main/java/constants/OrderStatus.java,2\8\28c180bc57eae897acdb2593f8260dfa8afd85ea
-Z
-*src/main/java/constants/PaymentMethod.java,c\c\cc243fc4daa9a9bc44760b33d9773a8cf55ef783
 |
 Lsrc/main/java/ru/tsystem/javaschool/ordinaalena/controller/MyController.java,4\4\44043dde2636e757500eacf55fa599ef192b6b39
 w
@@ -232,3 +228,19 @@ x
 Hsrc/main/java/ru/tsystem/javaschool/ordinaalena/validation/Patterns.java,9\c\9c0b05456f8541f1d2289f273070c1c8a0645298
 q
 Asrc/main/java/ru/tsystem/javaschool/ordinaalena/DTO/Register.java,d\4\d4e01c49ad35f0d30913976ab4c6da91e75f0d31
+z
+Jsrc/main/java/ru/tsystem/javaschool/ordinaalena/constants/OrderStatus.java,2\3\2357a48a4202228b5ec44d0f45f9877aee82e057
+|
+Lsrc/main/java/ru/tsystem/javaschool/ordinaalena/constants/PaymentMethod.java,7\1\7127d1ec8171aed7ed71445668a4fc4261dece93
+€
+Psrc/test/ru/tsystem/javaschool/ordinaalena/testimpl/CustomerServiceImplTest.java,e\7\e709c77c1ac84ef3da7bc09bdc88d88fa9208878
+}
+Msrc/test/ru/tsystem/javaschool/ordinaalena/testimpl/AdminServiceImplTest.java,c\a\ca2516753de45843eef38b759f98b760167732ee
+C
+src/test/spring.xml,2\d\2d922deab760011de5f421ef2661f9e87c6155d7
+q
+Asrc/test/ru/tsystem/javaschool/ordinaalena/testimpl/DataTest.java,c\3\c32cd4044e6511d20a0bf3050a0350ee4e8620de
+~
+Nsrc/test/ru/tsystem/javaschool/ordinaalena/testimpl/OrdersServiceImplTest.java,4\a\4adcf6661609eb2f2049844ff24fb96790560082
+|
+Lsrc/test/ru/tsystem/javaschool/ordinaalena/testimpl/CartServiceImplTest.java,e\9\e9bc5d23ab0b0cbe7b1388b54a9e2f8e0c911d6a

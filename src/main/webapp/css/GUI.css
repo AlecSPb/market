@@ -11,7 +11,7 @@
 }
 
 .container__wrapper{
-    width: 930px;
+    width: auto;
     background: rgba(255, 255, 255, 0.8);
     min-height: 100%;
     margin: 0 auto;
@@ -41,25 +41,25 @@ a.link_contact:hover{
     text-decoration: underline;
 }
 a.link_header{
-        color: #FF40E1;
+        color: #FF1493;
     text-transform: uppercase;
     font-weight: bold;
     transition: .3s;
 }
 a.link_header:hover{
-    background: #FF40E1;
+    background: #FF1493;
     color: #ffffff;
     cursor: pointer;
 }
 a.link_product{
-    color: #FF40E1;
+    color:#FF1493;
 }
 
 .error{
-    color: #FF40E1;
+    color:#FF1493;
 }
 .mytitle{
-    color:#FF40E1;
+    color:#FF1493;
     font-size: medium;
 }
 a.btn1 {

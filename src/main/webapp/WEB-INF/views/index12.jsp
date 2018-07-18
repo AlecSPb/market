@@ -21,10 +21,23 @@
 <div class="bg__wrapper"></div>
 <div class="container__wrapper">
     <%@include file="header.jsp"%>
+     <div class="account__wrapper">
+    <h2>Welcome to the online store HardCandy!</h2>
+    <p>
+        A place where you can buy cosmetics Sleek MakeUP, Essence, CATRICE, NYX, l Techniques, Makeup Revolution and many other famous brands.</p>
+
+    <p>We appreciate you and your choice. We will try to do our best so that you can make the desired purchase as comfortable as possible!</p>
+
+    <p>
+        HardCandy - a new positive and comfortable online store, and we will try to make you not only convenient, but also profitable!</h2>
+    </p>
+</div>>
+
     <main>
         <div class="mycode__logo">
             <a href="${contextPath}/"></a>
         </div>
+
     </main>
 </div>
 

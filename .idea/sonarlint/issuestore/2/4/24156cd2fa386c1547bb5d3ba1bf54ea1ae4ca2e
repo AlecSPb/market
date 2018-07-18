@@ -1,10 +1,2 @@
 
-osquid:CommentedOutCodeLineò"<This block of commented-out lines of code should be removed.(‘À“ºùÿÿÿÿ8Æì÷¡Ê,
-isquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(—ŠÒÅ8«öõ›Ê,
-Msquid:S1068"/Remove this unused "cartService" private field.(ÓïøÙ8«öõ›Ê,
-isquid:S1192:"KDefine a constant instead of duplicating this literal "/makeOrder" 3 times.(ŸœÚ8ìÊÿ¡Ê,
-jsquid:CommentedOutCodeLine”"<This block of commented-out lines of code should be removed.(²üìæ8«öõ›Ê,
-osquid:CommentedOutCodeLineÝ"<This block of commented-out lines of code should be removed.(Èç¯Äþÿÿÿÿ8Æì÷¡Ê,
-osquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÔÜæ”øÿÿÿÿ8Æì÷¡Ê,
-jsquid:CommentedOutCodeLineÇ"<This block of commented-out lines of code should be removed.(Œœ„Ð8Æì÷¡Ê,
-osquid:CommentedOutCodeLine®"<This block of commented-out lines of code should be removed.(Ð’„Õùÿÿÿÿ8Æì÷¡Ê,
+gsquid:S1192"KDefine a constant instead of duplicating this literal "/makeOrder" 3 times.(ŸœÚ8ìÊÿ¡Ê,

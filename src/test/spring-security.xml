@@ -25,7 +25,7 @@
 
 
         <form-login login-processing-url="/user/login"
-                    login-page="/user/login" default-target-url="/"
+                    login-page="/user/login" default-target-url="/home"
                     authentication-failure-url="/user/login?error"
                     username-parameter="email" password-parameter="parole"/>
 

@@ -13,20 +13,21 @@ import static org.junit.Assert.*;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath*:spring.xml")
 public class AdminServiceImplTest {
-    private AdminService adminService;
-    private ProductDAO productDAO;
     @Autowired
-    public AdminServiceImplTest(AdminService adminService, ProductDAO productDAO) {
-        this.adminService = adminService;
-        this.productDAO = productDAO;
+    private AdminService adminService;
+    @Autowired
+    private ProductDAO productDAO;
+
+    public AdminServiceImplTest() {
+
     }
 
     @Test
     public void changeProductStatusTest(){
-        Product productBefore=productDAO.find(2,Product.class);
+        Product productBefore=productDAO.find(8,Product.class);
         boolean notavailable=productBefore.isNotavailable();
         adminService.changeProductStatus(productBefore.getId());
-        Product productAfter=productDAO.find(2,Product.class);
+        Product productAfter=productDAO.find(8,Product.class);
         assertEquals(!notavailable,productAfter.isNotavailable());
     }
 

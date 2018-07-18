@@ -74,7 +74,6 @@ public class ProductDAOImpl implements ProductDAO {
 
     @Override
     public List<Product> getByCategories(String[] categories) {
-        //init all for criteria
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         CriteriaQuery<Product> criteriaQuery = criteriaBuilder
                 .createQuery(Product.class);
@@ -82,27 +81,24 @@ public class ProductDAOImpl implements ProductDAO {
         Predicate predicate[] = new Predicate[categories.length];
         Root<Product> root = criteriaQuery.from(Product.class);
 
-        //make all predicates for criteria
         for (int i=0; i<predicate.length; i++){
             parameters[i] = criteriaBuilder.parameter(String.class);
             predicate[i] = criteriaBuilder.equal(root.get("category"), parameters[i]);
         }
 
-        //make criteria query
         criteriaQuery.select(root)
                 .where(criteriaBuilder.
                         and(criteriaBuilder
                                 .or(predicate),criteriaBuilder.equal(root.get("notavailable"), false)));
 
-        //Convert criteriaHell to query
+
         TypedQuery<Product> query = entityManager.createQuery(criteriaQuery);
 
-        //set all params
+
         for (int i=0; i<predicate.length; i++) {
             query.setParameter(parameters[i], categories[i]);
         }
 
-        //find resultList
         return query.getResultList();
     }
     @Override

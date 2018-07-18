@@ -52,7 +52,7 @@
     <nav class="header__menu">
         <ul class="menu__wrapper">
             <li>
-                <a href="${contextPath}/home" class="link link_header">Home</a>
+                <a href="${contextPath}/" class="link link_header">Home</a>
             </li>
             <li>
                 <a href="${contextPath}/products" class="link link_header">Product</a>

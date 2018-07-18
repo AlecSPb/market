@@ -17,12 +17,12 @@ import static org.junit.Assert.*;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:/spring.xml"})
 public class CustomerServiceImplTest {
-
+    @Autowired
     private CustomerService customerService;
 
-    @Autowired
-    public CustomerServiceImplTest(CustomerService customerService) {
-        this.customerService = customerService;
+
+    public CustomerServiceImplTest() {
+
     }
     @Test
     public void getCustomer(){

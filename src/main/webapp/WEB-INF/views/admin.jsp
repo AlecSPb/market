@@ -22,7 +22,6 @@
     <%@include file="header.jsp"%>
     <main class="account__main">
         <div class="account__wrapper">
-            <h2>Admin:</h2>
             <div class="account__change_links">
                 <ul>
                     <li>

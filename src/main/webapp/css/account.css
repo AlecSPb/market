@@ -1,5 +1,5 @@
 .account__main dt{
-    color:#A60068;
+    color:#FF1493;
     font-size: 18px;
     text-transform: uppercase;
 }
@@ -8,7 +8,7 @@
     padding-bottom: 10px;
 }
 .account__main h2{
-    color: #A60068;
+    color: #FF1493;
 }
 
 .account__wrapper{

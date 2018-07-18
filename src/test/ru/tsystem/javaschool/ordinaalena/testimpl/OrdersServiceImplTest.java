@@ -18,14 +18,15 @@ import static ru.tsystem.javaschool.ordinaalena.testimpl.DataTest.EMAIL;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath*:spring.xml")
 public class OrdersServiceImplTest {
-    private CartService cartService;
-    private OrdersService ordersService;
-    private CustomerService customerService;
     @Autowired
-    public OrdersServiceImplTest(CartService cartService, OrdersService ordersService, CustomerService customerService) {
-        this.cartService = cartService;
-        this.ordersService = ordersService;
-        this.customerService = customerService;
+    private CartService cartService;
+    @Autowired
+    private OrdersService ordersService;
+    @Autowired
+    private CustomerService customerService;
+
+    public OrdersServiceImplTest() {
+
     }
 
     @Test
@@ -34,7 +35,7 @@ public class OrdersServiceImplTest {
         ordersDTOBefore.setCustomerEmail(EMAIL);
         ordersDTOBefore.setPaymentMethod("OFFLINE_CASH");
         ordersDTOBefore.setAddress(customerService.getCustomerAddresses(EMAIL).get(0));
-        cartService.addToCart(EMAIL,1);
+        cartService.addToCart(EMAIL,8);
         ordersDTOBefore.setProductDtos(cartService.getCustomerCart(EMAIL).getProductDTOs());
         List<String> counts=new ArrayList<>();
         counts.add("1");
