@@ -35,7 +35,7 @@ UNIQUE INDEX `E-mail_UNIQUE` (`email` ASC),
 UNIQUE INDEX `id_UNIQUE` (`id` ASC),
 UNIQUE INDEX `phonenumber_UNIQUE` (`phonenumber` ASC))
 ENGINE = InnoDB
-AUTO_INCREMENT = 25
+AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = latin1;
 
 
@@ -61,7 +61,7 @@ REFERENCES `eshopdatabase`.`customer` (`id`)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION)
 ENGINE = InnoDB
-AUTO_INCREMENT = 18
+AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = latin1;
 
 
@@ -74,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `eshopdatabase`.`role` (
 PRIMARY KEY (`id`),
 UNIQUE INDEX `id_UNIQUE` (`id` ASC))
 ENGINE = InnoDB
-AUTO_INCREMENT = 3
+AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = latin1;
 
 
@@ -124,7 +124,7 @@ REFERENCES `eshopdatabase`.`customer` (`id`)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION)
 ENGINE = InnoDB
-AUTO_INCREMENT = 15
+AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = latin1;
 
 
@@ -139,7 +139,7 @@ CREATE TABLE IF NOT EXISTS `eshopdatabase`.`product_parameter` (
 PRIMARY KEY (`id`),
 INDEX `parameterproductparameter_idx` (`color` ASC))
 ENGINE = InnoDB
-AUTO_INCREMENT = 11
+AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = latin1;
 
 
@@ -163,7 +163,7 @@ REFERENCES `eshopdatabase`.`product_parameter` (`id`)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION)
 ENGINE = InnoDB
-AUTO_INCREMENT = 11
+AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = latin1;
 
 
