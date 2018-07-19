@@ -244,3 +244,15 @@ Asrc/test/ru/tsystem/javaschool/ordinaalena/testimpl/DataTest.java,c\3\c32cd404
 Nsrc/test/ru/tsystem/javaschool/ordinaalena/testimpl/OrdersServiceImplTest.java,4\a\4adcf6661609eb2f2049844ff24fb96790560082
 |
 Lsrc/test/ru/tsystem/javaschool/ordinaalena/testimpl/CartServiceImplTest.java,e\9\e9bc5d23ab0b0cbe7b1388b54a9e2f8e0c911d6a
+H
+src/test/spring-data.xml,1\9\19d9feefe663383d5010d94b1968b3221712f8fa
+G
+src/test/spring-mvc.xml,9\8\98587a919098a45af4f4a5d00788540e866267a5
+O
+src/main/resources/insertDB.sql,3\c\3cd99aa7907e29077811dcab21bc096da8ad3c86
+O
+src/main/resources/database.sql,2\8\280bfde53a23db2632f22528c5eaa53f88203985
+L
+src/test/spring-security.xml,2\4\24f0e57d583f6ef687da60814bca35d23b5438f6
+X
+(src/main/webapp/WEB-INF/views/footer.jsp,9\a\9a549875954782aadfd152200a74f49acf667acb

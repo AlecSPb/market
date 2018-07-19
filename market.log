@@ -1,0 +1,26 @@
+01:39:37,806  INFO main internal.util.LogHelper:logPersistenceUnitInformation:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+01:39:38,491  INFO main org.hibernate.Version:logVersion:45 - HHH000412: Hibernate Core {5.2.15.Final}
+01:39:38,496  INFO main hibernate.cfg.Environment:<clinit>:213 - HHH000206: hibernate.properties not found
+01:39:38,951  INFO main annotations.common.Version:<clinit>:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+01:39:41,032  INFO main hibernate.dialect.Dialect:<init>:157 - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+01:39:41,077  WARN main hibernate.dialect.H2Dialect:<init>:103 - HHH000431: Unable to determine H2 database version, certain features may not work
+01:39:42,722  WARN main hibernate.mapping.RootClass:checkCompositeIdentifier:285 - HHH000038: Composite-id class does not override equals(): ru.tsystem.javaschool.ordinaalena.entities.ProductOrders
+01:39:42,722  WARN main hibernate.mapping.RootClass:checkCompositeIdentifier:288 - HHH000039: Composite-id class does not override hashCode(): ru.tsystem.javaschool.ordinaalena.entities.ProductOrders
+01:39:43,622  INFO main internal.util.Version:<clinit>:21 - HV000001: Hibernate Validator 6.0.8.Final
+01:39:49,266  INFO main DAO.impl.AddressDAOImpl:find:29 - find by id class ru.tsystem.javaschool.ordinaalena.entities.Product id 8
+01:39:49,826  INFO main DAO.impl.AddressDAOImpl:find:29 - find by id class ru.tsystem.javaschool.ordinaalena.entities.Product id 8
+01:39:49,831  INFO main DAO.impl.AddressDAOImpl:merge:41 - merge class ru.tsystem.javaschool.ordinaalena.entities.Product id 8
+01:39:50,006  INFO main DAO.impl.AddressDAOImpl:find:29 - find by id class ru.tsystem.javaschool.ordinaalena.entities.Product id 8
+01:39:50,091  INFO main DAO.impl.AddressDAOImpl:find:29 - find by id class ru.tsystem.javaschool.ordinaalena.entities.Product id 8
+01:39:50,396  INFO main hql.internal.QueryTranslatorFactoryInitiator:initiateService:47 - HHH000397: Using ASTQueryTranslatorFactory
+01:39:51,561  INFO main internal.util.LogHelper:logPersistenceUnitInformation:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+01:39:51,646  INFO main hibernate.dialect.Dialect:<init>:157 - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+01:39:51,651  WARN main hibernate.dialect.H2Dialect:<init>:103 - HHH000431: Unable to determine H2 database version, certain features may not work
+01:39:51,721  WARN main hibernate.mapping.RootClass:checkCompositeIdentifier:285 - HHH000038: Composite-id class does not override equals(): ru.tsystem.javaschool.ordinaalena.entities.ProductOrders
+01:39:51,721  WARN main hibernate.mapping.RootClass:checkCompositeIdentifier:288 - HHH000039: Composite-id class does not override hashCode(): ru.tsystem.javaschool.ordinaalena.entities.ProductOrders
+01:39:52,841  INFO main hql.internal.QueryTranslatorFactoryInitiator:initiateService:47 - HHH000397: Using ASTQueryTranslatorFactory
+01:39:52,966  INFO main ordinaalena.converter.Converter:convertToEntity:92 - Address 

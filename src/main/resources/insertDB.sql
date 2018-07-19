@@ -8,6 +8,10 @@ INSERT INTO customer (email, parole, firstname, secondname,phonenumber)
 VALUES ('katya@mail.ru',
         '$2a$11$ChjmrLIeQzGEMBxAxA2F7.xDUz1KFN3jWC9SzTRz6NDchpVXWHw9.',
         'Ekaterina', 'Ivanova','89111111111');
+
+INSERT INTO role(role_name) VALUES ('ROLE_USER');
+INSERT INTO role(role_name) VALUES ('ROLE_ADMIN');
+
 INSERT INTO customer_roles(customer_id, role_id) VALUES (1,2);
 INSERT INTO customer_roles(customer_id, role_id) VALUES (2, 1);
 
@@ -27,3 +31,5 @@ INSERT INTO product_parameter (brand, color, weight)
 VALUES ('NYX', 'Cheekies', 5);
 INSERT INTO product_parameter (brand, color, weight)
 VALUES ('NYX', 'Prague', 4);
+INSERT INTO role(role_name) VALUES ('ROLE_USER');
+INSERT INTO role(role_name) VALUES ('ROLE_ADMIN');
