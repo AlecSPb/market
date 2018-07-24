@@ -30,9 +30,8 @@
                         Password*
                     </dt>
                     <dd>
-                        <form:input type="parole" path="parole"
+                        <form:input type="password" path="parole"
                                     placeholder="New password"/>
-                        <form:errors path="parole"/>
                         <p>Add new parole.</p>
                     </dd>
                 </spring:bind>
@@ -41,13 +40,17 @@
                         Repeat password*
                     </dt>
                     <dd>
-                        <form:input type="parole" path="paroleConfirm"
+                        <form:input type="password" path="paroleConfirm"
                                     placeholder="Confirm new password/"/>
-                        <form:errors path="paroleConfirm"/>
                         <p>Repeat new password. Passwords must match!</p>
                     </dd>
                 </spring:bind>
             </dl>
+            <c:if test="${error!=null}">
+                <div class="error">
+                    <span>${error}</span>
+                </div>
+            </c:if>
             <input type='submit' value='Change password'>
         </form:form>
     </main>

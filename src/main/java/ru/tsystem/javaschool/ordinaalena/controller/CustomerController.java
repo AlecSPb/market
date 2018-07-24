@@ -49,9 +49,14 @@ public class CustomerController {
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public String registration(@ModelAttribute("customer") CustomerDTO customerDTO,
                                BindingResult bindingResult, Model model) {
-
-        if (bindingResult.hasErrors())
-            return "/registration";
+        mainValidator.validateEmail(customerDTO,bindingResult);
+        if (bindingResult.hasErrors()){
+                model.addAttribute("error","Email is incorrected");
+            return "/registration";}
+        mainValidator.validateParoleSet(customerDTO,bindingResult);
+        if (bindingResult.hasErrors()){
+            model.addAttribute("error","Passwords must match!");
+            return "/registration";}
         customerService.registrationCustomer(customerDTO);
         securityService.autoLogin(customerDTO.getEmail(), customerDTO.getParole());
         return "redirect:/";
@@ -137,10 +142,11 @@ public class CustomerController {
      * @return                  redirect to account if success
      */
     @RequestMapping(value = "/change_parole", method = RequestMethod.POST)
-    public String setChangedPassword(@ModelAttribute("customer") CustomerDTO customer, BindingResult bindingResult) {
+    public String setChangedPassword(@ModelAttribute("customer") CustomerDTO customer, BindingResult bindingResult,Model model) {
         mainValidator.validateParoleSet(customer, bindingResult);
-        if (bindingResult.hasErrors())
-            return "/changePassword";
+        if (bindingResult.hasErrors()){
+            model.addAttribute("error","Passwords must match!");
+            return "/changePassword";}
 
         String loggedCustomerEmail = securityService.findLoggedInEmail();
         customerService.changeParole(loggedCustomerEmail, customer.getParole());

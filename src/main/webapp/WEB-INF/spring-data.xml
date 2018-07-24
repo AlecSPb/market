@@ -23,7 +23,6 @@
     </bean>
 
 
-    <!--Поставщик данных - hibernate-->
 
     <bean id="transactionManager"
           class="org.springframework.orm.jpa.JpaTransactionManager">
@@ -34,14 +33,14 @@
     <!-- EntityManagerFactory -->
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource" ref="dataSource" />
-        <!--Поставщик данных - hibernate-->
+        <!--hibernate-->
         <property name="jpaVendorAdapter">
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
         </property>
-        <!--поиск сущностей в этом пакете-->
+
         <property name="packagesToScan"
                   value="ru.tsystem.javaschool.ordinaalena"/>
-        <!--детали конфигурации поставщика постоянства (hibernate) -->
+
         <property name="jpaProperties">
             <props>
                 <prop key="hibernate.dialect">

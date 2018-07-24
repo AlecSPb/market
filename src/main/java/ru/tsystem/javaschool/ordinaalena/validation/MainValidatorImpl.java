@@ -29,8 +29,8 @@ public class MainValidatorImpl implements MainValidator{
     public void validateEmail(CustomerDTO customerDTO, Errors errors) {
         if(!Patterns.emailPattern(customerDTO.getEmail()))
             errors.rejectValue("email", "Invalid.registration.email");
-        if(customerService.getCustomer(customerDTO.getEmail())!=null)
-            errors.rejectValue("email", "Duplicate.userForm.username");
+       /* if(customerService.getCustomer(customerDTO.getEmail())!=null)
+            errors.rejectValue("email", "Duplicate.userForm.username");*/
     }
 
     @Override

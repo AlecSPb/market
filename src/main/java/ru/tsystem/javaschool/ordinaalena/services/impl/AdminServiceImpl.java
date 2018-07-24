@@ -14,7 +14,6 @@ import ru.tsystem.javaschool.ordinaalena.entities.Customer;
 import ru.tsystem.javaschool.ordinaalena.entities.Orders;
 import ru.tsystem.javaschool.ordinaalena.entities.Product;
 import ru.tsystem.javaschool.ordinaalena.services.api.AdminService;
-import ru.tsystem.javaschool.ordinaalena.services.api.OrdersService;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -28,16 +27,13 @@ public class AdminServiceImpl implements AdminService {
 
     private ProductDAO productDAO;
 
-    private OrdersService ordersService;
-
     private Converter converter;
 
     @Autowired
- public AdminServiceImpl(CustomerDAO customerDAO, OrdersDAO ordersDAO, ProductDAO productDAO,OrdersService ordersService, Converter converter){
+ public AdminServiceImpl(CustomerDAO customerDAO, OrdersDAO ordersDAO, ProductDAO productDAO, Converter converter){
      this.customerDAO=customerDAO;
      this.ordersDAO=ordersDAO;
      this.productDAO=productDAO;
-     this.ordersService=ordersService;
      this.converter=converter;
  }
 

@@ -39,7 +39,7 @@ public class Role {
         this.name = roleName;
     }
 
-    public void setUsers(Set<Customer> customers) {
+    public void setCustomers(Set<Customer> customers) {
         this.customers = customers;
     }
 

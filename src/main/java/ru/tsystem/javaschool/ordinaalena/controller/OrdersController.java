@@ -67,15 +67,18 @@ public class OrdersController {
 
         validator.validateNumbers(ordersDTO.getCounts(), bindingResult);
         if(bindingResult.hasErrors()) {
+            model.addAttribute("error","Enter the quantity");
             return "/makeOrder";
         }
 
         validator.validateCounts(ordersDTO, bindingResult);
         if (bindingResult.hasErrors()) {
-            return "/makeOrder";
+            model.addAttribute("error","Such quantity is not available!");
+           return "/makeOrder";
         }
 
         ordersDTO.setCustomerEmail(securityService.findLoggedInEmail());
+
         model.addAttribute("addresses", customerService.getCustomerAddresses(ordersDTO.getCustomerEmail()));
         model.addAttribute("orderAddress", new AddressDTO());
         return "/setAddress";
@@ -90,7 +93,7 @@ public class OrdersController {
     @RequestMapping(value = "/set_address", method = RequestMethod.POST)
     public String setAddresses(AddressDTO orderAddress, Model model, OrdersDTO ordersDTO){
         if(orderAddress.getId()==null) {
-            model.addAttribute("error","Адресс не выбран!");
+            model.addAttribute("error","Select address!");
             model.addAttribute("addresses", customerService.getCustomerAddresses(ordersDTO.getCustomerEmail()));
             model.addAttribute("orderAddress", new AddressDTO());
             return "/setAddress";
@@ -116,7 +119,7 @@ public class OrdersController {
             model.addAttribute("error","Payment method don't selected!");
             model.addAttribute("paymentMethods", PaymentMethod.values());
             model.addAttribute("orderDto", ordersDTO);
-            return "order/confirm";
+            return "/confirm";
         }
         ordersService.makeNewOrder(ordersDTO);
 

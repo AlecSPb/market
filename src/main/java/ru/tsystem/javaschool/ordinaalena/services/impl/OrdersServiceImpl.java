@@ -54,8 +54,6 @@ public class OrdersServiceImpl implements OrdersService {
 
     private Converter converter;
 
-  //  @Autowired
-    //MQProducerService producerService;
 
     private static final Logger logger = Logger.getLogger(OrdersServiceImpl.class);
 
@@ -75,15 +73,7 @@ public class OrdersServiceImpl implements OrdersService {
         cartService.deleteFromCart(ordersDTO);
          setCounts(ordersDTO);
          decriminateProducts(ordersDTO);}
-      //  producerService.ProduceMessage(ordersDTO.getId());
 
-/*    private Orders convertNewOrder(OrdersDTO ordersDTO){
-        Orders order = converter.convertToEntity(ordersDTO);
-        order.setProducts(getProductSet(ordersDTO));
-        order.setCustomer(customerDAO.getByEmail(ordersDTO.getCustomerEmail()));
-        order.setAddress(addressDAO.find(ordersDTO.getAddress().getId(), Address.class));
-        return order;
-    }*/
         private void setCounts(OrdersDTO dto) {
     for (int i = 0; i < dto.getCounts().size(); i++) {
         productOrdersService.setCount(dto.getProductDTOs().get(i).getId(),
@@ -159,7 +149,7 @@ public class OrdersServiceImpl implements OrdersService {
                 .stream().map(product -> converter.convertToDTO(product))
                 .collect(Collectors.toList());
 
-        Long count=null;
+        Long count;
 
         for(ProductDTO product: products){
             count = ordersDAO.getProductCounts(product.getId());
@@ -178,7 +168,7 @@ public class OrdersServiceImpl implements OrdersService {
                 .stream().map(customer-> converter.convertToDTO(customer))
                 .collect(Collectors.toList());
 
-        Long count=null;
+        Long count;
 
         for(CustomerDTO customer: customerDTOS){
             count = ordersDAO.getProductCounts(customer.getId());

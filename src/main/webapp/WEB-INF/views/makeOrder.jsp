@@ -84,9 +84,11 @@
                         </div>
                     </div>
                 </c:forEach>
+                <c:if test="${error!=null}">
                 <div class="error">
-                    <form:errors path="counts"/>
+                    <span>${error}</span>
                 </div>
+                </c:if>
                 <input type="submit" value="add address">
             </form:form>
         </div>

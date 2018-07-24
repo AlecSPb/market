@@ -5,7 +5,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ru.tsystem.javaschool.ordinaalena.DTO.AddressDTO;
 import ru.tsystem.javaschool.ordinaalena.services.api.CustomerService;
-import ru.tsystem.javaschool.ordinaalena.services.api.OrdersService;
 import ru.tsystem.javaschool.ordinaalena.services.api.SecurityService;
 import ru.tsystem.javaschool.ordinaalena.validation.MainValidator;
 @RestController

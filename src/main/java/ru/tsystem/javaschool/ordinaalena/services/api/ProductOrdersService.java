@@ -7,7 +7,7 @@ public interface ProductOrdersService {
      * @param ordersId   Order id.
      * @return          Product's count.
      */
-    public int getCount(int productId, int ordersId);
+    int getCount(int productId, int ordersId);
 
     /**
      * Set count to the same product in same order.
@@ -15,5 +15,5 @@ public interface ProductOrdersService {
      * @param ordersId   Order id.
      * @param count     Count.
      */
-    public void setCount(int productId, int ordersId, int count);
+     void setCount(int productId, int ordersId, int count);
 }

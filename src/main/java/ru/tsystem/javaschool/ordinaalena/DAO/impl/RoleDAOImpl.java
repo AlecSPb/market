@@ -14,7 +14,7 @@ import java.util.List;
 public class  RoleDAOImpl implements RoleDAO {
     private static final Logger logger=Logger.getLogger(RoleDAOImpl.class);
     @PersistenceContext
-    EntityManager entityManager;
+    private EntityManager entityManager;
 
     @Override
     public void persist(Role role) {

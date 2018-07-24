@@ -13,7 +13,7 @@ public interface OrdersService {
      *
      * @param ordersDTO  Order.
      */
-    public void makeNewOrder(OrdersDTO ordersDTO);
+     void makeNewOrder(OrdersDTO ordersDTO);
 
     /**
      * Get all user's orders.
@@ -21,20 +21,17 @@ public interface OrdersService {
      * @param email User's email.
      * @return List with orders.
      */
-    public List<OrdersDTO> getCustomerOrders(String email);
+     List<OrdersDTO> getCustomerOrders(String email);
 
-    public List<OrdersDTO> getAll();
+     List<OrdersDTO> getAll();
 
-    public OrdersDTO getOrder(int orderId);
-
-    /**
-     * Return statistic about sold products
-     * @return
-     */
-    public List<ProductDTO> getAllBuyingCounts();
+     OrdersDTO getOrder(int orderId);
 
 
-    public List<CustomerDTO>  getAllCustomersCounts();
+     List<ProductDTO> getAllBuyingCounts();
+
+
+     List<CustomerDTO>  getAllCustomersCounts();
 
 
 }

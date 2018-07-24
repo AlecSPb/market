@@ -13,7 +13,7 @@ import java.util.List;
 public class ProductParameterDAOImpl  implements ProductParameterDAO {
     private static final Logger logger=Logger.getLogger(ProductParameterDAOImpl.class);
     @PersistenceContext
-    EntityManager entityManager;
+     private EntityManager entityManager;
 
 
     @Override
