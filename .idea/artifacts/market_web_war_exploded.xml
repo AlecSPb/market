@@ -1,0 +1,76 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="market-web:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/market_web_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="market-web" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.springframework:spring-context:5.0.4.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aop:5.0.4.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-core:5.0.4.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jcl:5.0.4.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-expression:5.0.4.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context-support:5.0.4.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-beans:5.0.4.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:5.0.4.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-web:5.0.4.RELEASE" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.9.4" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.9.0" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.9.4" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-core:5.0.3.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-web:5.0.3.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-config:5.0.3.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-tx:5.0.4.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-orm:5.0.4.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:5.0.4.RELEASE" />
+          <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.34" />
+          <element id="library" level="project" name="Maven: org.hibernate:hibernate-entitymanager:5.2.15.Final" />
+          <element id="library" level="project" name="Maven: org.jboss.logging:jboss-logging:3.3.1.Final" />
+          <element id="library" level="project" name="Maven: dom4j:dom4j:1.6.1" />
+          <element id="library" level="project" name="Maven: org.hibernate.common:hibernate-commons-annotations:5.0.1.Final" />
+          <element id="library" level="project" name="Maven: org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final" />
+          <element id="library" level="project" name="Maven: org.javassist:javassist:3.22.0-GA" />
+          <element id="library" level="project" name="Maven: net.bytebuddy:byte-buddy:1.6.14" />
+          <element id="library" level="project" name="Maven: org.jboss.spec.javax.transaction:jboss-transaction-api_1.2_spec:1.0.1.Final" />
+          <element id="library" level="project" name="Maven: org.hibernate:hibernate-core:5.2.15.Final" />
+          <element id="library" level="project" name="Maven: antlr:antlr:2.7.7" />
+          <element id="library" level="project" name="Maven: org.jboss:jandex:2.0.3.Final" />
+          <element id="library" level="project" name="Maven: com.fasterxml:classmate:1.3.0" />
+          <element id="library" level="project" name="Maven: org.hibernate.validator:hibernate-validator:6.0.8.Final" />
+          <element id="library" level="project" name="Maven: javax.validation:validation-api:2.0.1.Final" />
+          <element id="library" level="project" name="Maven: javax.xml.bind:jaxb-api:2.3.0" />
+          <element id="library" level="project" name="Maven: com.sun.xml.bind:jaxb-impl:2.3.0" />
+          <element id="library" level="project" name="Maven: org.glassfish.jaxb:jaxb-runtime:2.3.0" />
+          <element id="library" level="project" name="Maven: org.glassfish.jaxb:jaxb-core:2.3.0" />
+          <element id="library" level="project" name="Maven: org.glassfish.jaxb:txw2:2.3.0" />
+          <element id="library" level="project" name="Maven: com.sun.istack:istack-commons-runtime:3.0.5" />
+          <element id="library" level="project" name="Maven: org.jvnet.staxex:stax-ex:1.7.8" />
+          <element id="library" level="project" name="Maven: com.sun.xml.fastinfoset:FastInfoset:1.2.13" />
+          <element id="library" level="project" name="Maven: javax.activation:activation:1.1.1" />
+          <element id="library" level="project" name="Maven: junit:junit:4.12" />
+          <element id="library" level="project" name="Maven: org.hamcrest:hamcrest-core:1.3" />
+          <element id="library" level="project" name="Maven: log4j:log4j:1.2.17" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-test:5.0.4.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-taglibs:5.0.6.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-acl:5.0.6.RELEASE" />
+          <element id="library" level="project" name="Maven: commons-pool:commons-pool:1.6" />
+          <element id="library" level="project" name="Maven: commons-collections:commons-collections:3.2.1" />
+          <element id="library" level="project" name="Maven: commons-dbcp:commons-dbcp:1.4" />
+          <element id="library" level="project" name="Maven: commons-fileupload:commons-fileupload:1.3.3" />
+          <element id="library" level="project" name="Maven: commons-io:commons-io:2.4" />
+          <element id="library" level="project" name="Maven: org.apache.activemq:activemq-broker:5.13.3" />
+          <element id="library" level="project" name="Maven: org.apache.activemq:activemq-client:5.13.3" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.13" />
+          <element id="library" level="project" name="Maven: org.apache.geronimo.specs:geronimo-jms_1.1_spec:1.1.1" />
+          <element id="library" level="project" name="Maven: org.fusesource.hawtbuf:hawtbuf:1.11" />
+          <element id="library" level="project" name="Maven: org.apache.geronimo.specs:geronimo-j2ee-management_1.1_spec:1.0.1" />
+          <element id="library" level="project" name="Maven: org.apache.activemq:activemq-openwire-legacy:5.13.3" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="market-web/web/Web" />
+    </root>
+  </artifact>
+</component>
