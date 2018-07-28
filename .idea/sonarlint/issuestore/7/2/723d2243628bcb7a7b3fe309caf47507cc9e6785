@@ -1,3 +1,5 @@
 
-gsquid:S1192."IDefine a constant instead of duplicating this literal "customer" 4 times.(Œûñª8©Õ¨öÊ,
-tsquid:S1192Z"WDefine a constant instead of duplicating this literal "redirect:/user/account" 3 times.(Ä…ş>8¬…÷Ê,
+qsquid:S1192/"NDefine a constant instead of duplicating this literal "/registration" 3 times.(Ù¾ŒÓøÿÿÿÿ8ŒŞğÌ,
+isquid:S1192%"FDefine a constant instead of duplicating this literal "error" 4 times.(áÄÑ¥ûÿÿÿÿ8ŒŞğÌ,
+tsquid:S1192_"WDefine a constant instead of duplicating this literal "redirect:/user/account" 3 times.(Ä…ş>8ŒŞğÌ,
+gsquid:S1192."IDefine a constant instead of duplicating this literal "customer" 4 times.(Œûñª8ŒŞğÌ,
