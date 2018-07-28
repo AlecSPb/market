@@ -148,7 +148,8 @@ function addToBucket(prodId) {
         type: "post",
         data: {
           prodId : prodId
-        },
+        }
     })
 
 }
+

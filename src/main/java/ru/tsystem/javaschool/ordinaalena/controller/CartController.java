@@ -6,7 +6,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import ru.tsystem.javaschool.ordinaalena.DTO.OrdersDTO;
+import ru.tsystem.javaschool.ordinaalena.entities.Product;
 import ru.tsystem.javaschool.ordinaalena.services.api.CartService;
+import ru.tsystem.javaschool.ordinaalena.services.api.ProductService;
 import ru.tsystem.javaschool.ordinaalena.services.api.SecurityService;
 
 @Controller
@@ -16,11 +18,13 @@ public class CartController {
     private CartService cartService;
 
     private SecurityService securityService;
+    private ProductService productService;
 
     @Autowired
-    public CartController(CartService cartService, SecurityService securityService) {
+    public CartController(CartService cartService, SecurityService securityService,ProductService productService) {
         this.cartService = cartService;
         this.securityService = securityService;
+        this.productService=productService;
     }
 
 
@@ -38,7 +42,26 @@ public class CartController {
             model.addAttribute("error", error);
         model.addAttribute("products", cart.getProductDTOs());
         model.addAttribute("productsSize", cart.getProductDTOs().size());
+
         return "/bucket";
+     /*   Product product = productService.findProductById(Long.parseLong(id), false);
+        Object bag = request.getSession().getAttribute("bag");
+        if (bag == null) {
+            ArrayList<BagProductDto> bagProducts = new ArrayList<>();
+            bagService.addToBag(product.getId(),
+                    Integer.parseInt(amount),
+                    Long.parseLong(sizeId),
+                    Long.parseLong(product.getPrice()),
+                    bagProducts);
+            request.getSession().setAttribute("bag", bagProducts);
+        } else {
+            bagService.addToBag(product.getId(),
+                    Integer.parseInt(amount),
+                    Long.parseLong(sizeId),
+                    Long.parseLong(product.getPrice()),
+                    (List<BagProductDto>) bag);
+        }
+        return "redirect:/catalog/" + id;*/
     }
 
     /**

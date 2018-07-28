@@ -19,4 +19,11 @@ public interface MainValidator extends Validator {
     void validateProduct(ProductDTO productDTO, Errors errors);
     void validateCounts(OrdersDTO ordersDTO, Errors errors);
     void validateFile(MultipartFile file, Errors errors);
+    void validateCountry (AddressDTO addressDTO,Errors errors);
+    void validateRegion(AddressDTO addressDTO,Errors errors);
+    void validateCity(AddressDTO addressDTO,Errors errors);
+    void validateStreet(AddressDTO addressDTO,Errors errors);
+    void validateBuilding(AddressDTO addressDTO,Errors errors);
+    void validateApartment(AddressDTO addressDTO,Errors errors);
+    void validatePostcode (AddressDTO addressDTO,Errors errors);
 }

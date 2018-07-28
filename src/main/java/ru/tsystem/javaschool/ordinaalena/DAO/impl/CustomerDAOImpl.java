@@ -3,6 +3,8 @@ import org.apache.log4j.Logger;
 import org.springframework.stereotype.Repository;
 import ru.tsystem.javaschool.ordinaalena.DAO.api.CustomerDAO;
 import ru.tsystem.javaschool.ordinaalena.entities.Customer;
+import ru.tsystem.javaschool.ordinaalena.entities.Orders;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -58,5 +60,11 @@ public class CustomerDAOImpl  implements CustomerDAO {
     public int getCustomerIdByEmail(String email) {
         return entityManager.createQuery("select id from Customer as user where user.email=:email",
                 Integer.class).setParameter("email", email).getSingleResult();
+    }
+@Override
+    public List<Customer> getTopCustomers(){
+        return entityManager.
+                createQuery("select customer from Orders as o group by o.customer order by count(o.id) desc ",
+                        Customer.class).getResultList();
     }
 }

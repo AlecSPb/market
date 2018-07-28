@@ -82,12 +82,35 @@ public class CustomerController {
      * @return              redirect to account if success
      */
     @RequestMapping(value = "/add_address", method = RequestMethod.POST)
-    public String addAddress(@ModelAttribute("address") AddressDTO address, BindingResult bindingResult) {
-        mainValidator.validateAddress(address, bindingResult);
-
-        if (bindingResult.hasErrors())
-            return "/addAddress";
-
+    public String addAddress(@ModelAttribute("address") AddressDTO address, Model model, BindingResult bindingResult) {
+        mainValidator.validateCountry(address, bindingResult);
+        if (bindingResult.hasErrors()){
+            model.addAttribute("error","Country is incorrect!");
+            return "/addAddress";}
+        mainValidator.validateRegion(address, bindingResult);
+        if (bindingResult.hasErrors()){
+            model.addAttribute("error","Region is incorrect!");
+            return "/addAddress";}
+        mainValidator.validateCity(address, bindingResult);
+        if (bindingResult.hasErrors()){
+            model.addAttribute("error","City is incorrect!");
+            return "/addAddress";}
+        mainValidator.validateStreet(address, bindingResult);
+        if (bindingResult.hasErrors()){
+            model.addAttribute("error","Street is incorrect!");
+            return "/addAddress";}
+        mainValidator.validateBuilding(address, bindingResult);
+        if (bindingResult.hasErrors()){
+            model.addAttribute("error","Building is incorrect!");
+            return "/addAddress";}
+        mainValidator.validateApartment(address, bindingResult);
+        if (bindingResult.hasErrors()){
+            model.addAttribute("error","Apartment is incorrect!");
+            return "/addAddress";}
+        mainValidator.validatePostcode(address, bindingResult);
+        if (bindingResult.hasErrors()){
+            model.addAttribute("error","Postcode is incorrect!");
+            return "/addAddress";}
         String customerEmail = securityService.findLoggedInEmail();
 
         customerService.addCustomerAddress(customerEmail, address);
@@ -112,12 +135,15 @@ public class CustomerController {
      * @return                  redirect to account if success
      */
     @RequestMapping(value = "/change_details", method = RequestMethod.POST)
-    public String setAccountDetails(@ModelAttribute("customer") CustomerDTO customer,
+    public String setAccountDetails(@ModelAttribute("customer") CustomerDTO customer,Model model,
                                     BindingResult bindingResult) {
         mainValidator.validateCustomerDetails(customer, bindingResult);
 
-        if (bindingResult.hasErrors())
+        if (bindingResult.hasErrors()){
+            model.addAttribute("error","Details is incorrect");
             return "/setAccountDetails";
+        }
+
 
         String loggedUserEmail = securityService.findLoggedInEmail();
         customerService.setCustomerDifferents(loggedUserEmail, customer);

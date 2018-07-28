@@ -20,8 +20,38 @@
 <div class="container__wrapper">
     <%@include file="header.jsp"%>
     <main class="users__main">
-        <div class="table__wrapper">
-            <table border="1">
+        <div >
+            <table >
+                <caption>Top products</caption>
+                <tr>
+                    <th>Title</th>
+                </tr>
+                <c:forEach var="topprod" items="${topProduct}">
+                    <tr>
+                        <td>${topprod.title}</td>
+                    </tr>
+                </c:forEach>
+            </table>
+        </div>
+                <div>
+                    <table >
+                <caption>Top customers</caption>
+                <tr>
+                    <th>id</th>
+                    <th>Name</th>
+                    <th>Second name</th>
+                </tr>
+                <c:forEach var="topcust" items="${topCustomer}">
+                    <tr>
+                            <td>${topcust.id}</td>
+                    <td>${topcust.firstName}</td>
+                    <td>${topcust.secondName}</td>
+                    </tr>
+                </c:forEach>
+                    </table>
+                </div>
+        <div>
+            <table >
                 <caption>Sales statistic:</caption>
                 <tr>
                     <th>id</th>
@@ -49,8 +79,8 @@
                 </c:forEach>
             </table>
         </div>
-        <div class="table__wrapper">
-            <table border="1">
+        <div >
+            <table>
                 <caption>Client statistic:</caption>
                 <tr>
                     <th>id</th>

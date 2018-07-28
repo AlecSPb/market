@@ -17,4 +17,5 @@ public interface ProductDAO {
     List<Product> getByCategories(String[] categories);
     long getProductsCount(String[] categories);
     long getProductsCount();
-}
+    List<Product> getTopProducts();
+    }

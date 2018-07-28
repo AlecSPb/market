@@ -142,7 +142,7 @@ public class OrdersServiceImpl implements OrdersService {
     }
 
     @Override
-
+    @Transactional
     public List<ProductDTO> getAllBuyingCounts() {
         List<ProductDTO> products = productDAO
                 .getAll(Product.class)
@@ -178,4 +178,21 @@ public class OrdersServiceImpl implements OrdersService {
         return customerDTOS;
     }
 
+    @Override
+    @Transactional
+    public List<ProductDTO> findTopProduct() {
+        List<ProductDTO> productDTOs = productDAO.getTopProducts()
+                .stream().map(product -> converter.convertToDTO(product))
+                .collect(Collectors.toList());
+
+        return productDTOs;
+    }
+    @Override
+    @Transactional
+    public List <CustomerDTO> findTopCustomer(){
+        List <CustomerDTO> customerDTOs=customerDAO.getTopCustomers()
+                .stream().map(customer -> converter.convertToDTO(customer))
+                .collect(Collectors.toList());
+        return customerDTOs;
+    }
 }

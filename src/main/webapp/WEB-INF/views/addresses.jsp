@@ -17,7 +17,7 @@
     <%@include file="header.jsp"%>
     <main class="users__main">
         <div class="users__wrapper">
-            <table border="1">
+            <table>
                 <caption>${email}'s Addresses:</caption>
                 <tr>
                     <th>id</th>

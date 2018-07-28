@@ -4,6 +4,8 @@ import org.apache.log4j.Logger;
 import org.springframework.stereotype.Repository;
 import ru.tsystem.javaschool.ordinaalena.DAO.api.ProductDAO;
 import ru.tsystem.javaschool.ordinaalena.entities.Product;
+import ru.tsystem.javaschool.ordinaalena.entities.ProductOrders;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
@@ -139,5 +141,11 @@ public class ProductDAOImpl implements ProductDAO {
         return entityManager
                 .createQuery("select count(*) from Product as prod where prod.notavailable=false", Long.class)
                 .getSingleResult();
+    }
+    @Override
+    public List<Product> getTopProducts(){
+        return entityManager.
+                createQuery("select productId from ProductOrders as po group by po.productId order by count(po.orders) desc ",
+                        Product.class).getResultList();
     }
 }

@@ -18,4 +18,5 @@ public interface CustomerDAO {
     Customer getByEmail(String email);
 
     int getCustomerIdByEmail(String email);
+    List<Customer> getTopCustomers();
 }

@@ -35,7 +35,7 @@ public class Patterns {
         }
 
         public static boolean addressIndexPattern(String index){
-            Pattern pattern = Pattern.compile("([0-9]{1,6})");
+            Pattern pattern = Pattern.compile("([0-9]{6})");
             return match(pattern, index);
         }
         public static boolean phonenumberPattern(String phone){

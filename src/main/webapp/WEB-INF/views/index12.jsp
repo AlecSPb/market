@@ -31,7 +31,7 @@
     <p>
         HardCandy - a new positive and comfortable online store, and we will try to make you not only convenient, but also profitable!</h2>
     </p>
-</div>>
+</div>
 
     <main>
         <div class="mycode__logo">

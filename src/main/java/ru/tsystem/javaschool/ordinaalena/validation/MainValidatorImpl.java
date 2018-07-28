@@ -68,6 +68,41 @@ public class MainValidatorImpl implements MainValidator{
         if(!Patterns.addressIndexPattern(addressDTO.getPostcode()))
             errors.rejectValue("postcode", "Invalid.address.postcode");
     }
+    @Override
+    public void validateCountry (AddressDTO addressDTO,Errors errors){
+    if(!Patterns.localityPattern(addressDTO.getCountry()))
+        errors.rejectValue("country", "Invalid.address.country");
+    }
+    @Override
+    public void validateRegion(AddressDTO addressDTO,Errors errors){
+        if(!Patterns.localityPattern(addressDTO.getRegion()))
+            errors.rejectValue("region", "Invalid.address.region");
+    }
+    @Override
+    public void validateCity(AddressDTO addressDTO,Errors errors){
+        if(!Patterns.localityPattern(addressDTO.getCity()))
+            errors.rejectValue("region", "Invalid.address.region");
+    }
+    @Override
+    public void validateStreet(AddressDTO addressDTO,Errors errors){
+        if(!Patterns.localityPattern(addressDTO.getStreet()))
+            errors.rejectValue("region", "Invalid.address.region");
+    }
+    @Override
+    public void validateBuilding(AddressDTO addressDTO,Errors errors){
+        if(!Patterns.homePattern(addressDTO.getBuilding()))
+            errors.rejectValue("building", "Invalid.address.building");
+    }
+    @Override
+    public void validateApartment(AddressDTO addressDTO,Errors errors){
+        if(!Patterns.homePattern(addressDTO.getApartment()))
+            errors.rejectValue("apartment", "Invalid.address.apartment");
+    }
+    @Override
+    public void validatePostcode (AddressDTO addressDTO,Errors errors) {
+        if(!Patterns.addressIndexPattern(addressDTO.getPostcode()))
+            errors.rejectValue("postcode", "Invalid.address.postcode");
+    }
 
     @Override
     public void validateNumbers(List<String> numbers, Errors errors) {

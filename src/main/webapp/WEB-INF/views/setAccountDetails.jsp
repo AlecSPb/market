@@ -24,7 +24,7 @@
     <%@include file="header.jsp"%>
     <main class="registration__main">
         <form:form  method='POST' modelAttribute="customer" class="registration__wrapper">
-            <h2>Add address</h2>
+            <h2>Change account</h2>
             <dl class="dl_class">
                 <spring:bind path="secondName">
                     <dt>
@@ -33,7 +33,6 @@
                     <dd>
                         <form:input type="text" path="secondName"
                                     placeholder="Second name"/>
-                            <form:errors path="secondName"/>
                         <p>Indicate second name.</p>
                     </dd>
                 </spring:bind>
@@ -44,7 +43,6 @@
                     <dd>
                         <form:input type="text" path="firstName"
                                     placeholder="Name"/>
-                            <form:errors path="firstName"/>
                         <p>Indicate name.</p>
                     </dd>
                 </spring:bind>
@@ -54,13 +52,17 @@
                     </dt>
                     <dd>
                         <form:input type="text" path="phonenumber"
-                                    placeholder="phonenumber"/>
-                            <form:errors path="phonenumber"/>
+                                    placeholder="Phone"/>
                         <p>Indicate phone number.</p>
                     </dd>
                 </spring:bind>
             </dl>
-            <input type='submit' value='Add'>
+            <c:if test="${error!=null}">
+                <div class="error">
+                    <span>${error}</span>
+                </div>
+            </c:if>
+            <input type='submit' value='CHANGE'>
         </form:form>
     </main>
 </div>
