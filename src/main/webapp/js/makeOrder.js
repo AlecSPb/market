@@ -78,7 +78,7 @@ function addAddress() {
     let addressDTO = getAddressDto();
 
     $.ajax({
-        url: "http://localhost:8080/addresses/",
+        url: "http://localhost:8081/addresses/",
         type: 'POST',
         contentType: "application/json",
         data: JSON.stringify(addressDTO),

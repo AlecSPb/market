@@ -78,7 +78,7 @@ function showProducts(page) {
 
     removeAllProducts();
     $.ajax({
-        url: "http://localhost:8080/productsRest",
+        url: "http://localhost:8081/productsRest",
         type: "get",
         data: makeData(checkBoxesData(), radioData(), page),
         success: function (data) {
@@ -93,7 +93,7 @@ function showProducts(page) {
 function showAllProducts() {
 
     $.ajax({
-        url: "http://localhost:8080/productsRest",
+        url: "http://localhost:8081/productsRest",
         type: "get",
         data: makeData(checkBoxesData()),
         success: function (data) {
@@ -116,7 +116,7 @@ function getPageButtonHtml(num){
 
 function showPagesCount() {
     $.ajax({
-        url: "http://localhost:8080/pagesCount",
+        url: "http://localhost:8081/pagesCount",
         type: "get",
         data: makeData(checkBoxesData()),
         success: function (data) {
@@ -130,7 +130,7 @@ function showPagesCount() {
 
 function showAllPagesCount() {
     $.ajax({
-        url: "http://localhost:8080/pagesCount",
+        url: "http://localhost:8081/pagesCount",
         type: "get",
         success: function (data) {
             removeAllPageButtons();
@@ -144,7 +144,7 @@ function showAllPagesCount() {
 function addToBucket(prodId) {
 
     $.ajax({
-            url: "http://localhost:8080/bucket/product  ",
+            url: "http://localhost:8081/bucket/product  ",
         type: "post",
         data: {
           prodId : prodId

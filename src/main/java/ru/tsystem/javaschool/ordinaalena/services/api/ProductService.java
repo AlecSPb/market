@@ -2,6 +2,7 @@ package ru.tsystem.javaschool.ordinaalena.services.api;
 
 import org.springframework.web.multipart.MultipartFile;
 import ru.tsystem.javaschool.ordinaalena.DTO.ProductDTO;
+import ru.tsystem.javaschool.ordinaalena.entities.Product;
 
 import java.util.List;
 
@@ -46,5 +47,10 @@ public interface ProductService {
      * @return  table size.
      */
      long getPagesCount(String[] categories);
+     List<ProductDTO> findTopProduct();
+     List<Product> getTops();
+     List<ProductDTO> convertProductsToProductsDTO(List<Product> products);
 
-}
+    }
+
+

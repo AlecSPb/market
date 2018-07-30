@@ -32,7 +32,6 @@ public interface OrdersService {
 
 
      List<CustomerDTO>  getAllCustomersCounts();
-     List<ProductDTO> findTopProduct();
      List <CustomerDTO> findTopCustomer();
 
 

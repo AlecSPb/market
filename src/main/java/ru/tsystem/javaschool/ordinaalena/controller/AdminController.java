@@ -154,7 +154,7 @@ public class AdminController {
         logger.info("admin: " + securityService.findLoggedInEmail());
         model.addAttribute("products", ordersService.getAllBuyingCounts());
         model.addAttribute("customer", ordersService.getAllCustomersCounts());
-        model.addAttribute("topProduct",ordersService.findTopProduct());
+        model.addAttribute("topProduct",productService.findTopProduct());
         model.addAttribute("topCustomer",ordersService.findTopCustomer());
         return "/statistic";
     }

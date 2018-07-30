@@ -2,6 +2,7 @@ package ru.tsystem.javaschool.ordinaalena.services.impl;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -12,6 +13,7 @@ import ru.tsystem.javaschool.ordinaalena.entities.Product;
 import ru.tsystem.javaschool.ordinaalena.services.api.PictureService;
 import ru.tsystem.javaschool.ordinaalena.services.api.ProductService;
 
+import javax.jms.TextMessage;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -24,12 +26,24 @@ public class ProductServiceImpl implements ProductService {
     private Converter converter;
 
     private PictureService pictureService;
+    private final JmsTemplate jmsTemplate;
+    private List<Product> tops = new ArrayList<>();
+
+    public List<Product> getTops() {
+        return tops;
+    }
+
+    public void setTops(List<Product> tops) {
+        this.tops = tops;
+    }
+
 
     @Autowired
-    public ProductServiceImpl(ProductDAO productDAO, Converter converter, PictureService pictureService) {
+    public ProductServiceImpl(ProductDAO productDAO, Converter converter, PictureService pictureService, JmsTemplate jmsTemplate) {
         this.productDAO = productDAO;
         this.converter = converter;
         this.pictureService = pictureService;
+        this.jmsTemplate = jmsTemplate;
     }
 
     private static final int PRODUCTS_ON_PAGE = 4;
@@ -138,5 +152,29 @@ public class ProductServiceImpl implements ProductService {
         if (categories == null)
             return productDAO.getProductsCount();
         return productDAO.getProductsCount(categories);
+    }
+    @Override
+    @Transactional
+    public List<ProductDTO> findTopProduct() {
+        List<ProductDTO> productDTOs = productDAO.getTopProducts()
+                .stream().map(product -> converter.convertToDTO(product))
+                .collect(Collectors.toList());
+
+        return productDTOs;
+    }
+    @Override
+    public List<ProductDTO> convertProductsToProductsDTO(List<Product> products) {
+        List<ProductDTO> resultList = new ArrayList<>();
+        for (Product product : products) {
+            resultList.add(converter.convertToDTO(product));
+        }
+        return resultList;
+    }
+    private void sendMessage() {
+        jmsTemplate.send("advertising.stand", session -> {
+            TextMessage msg = session.createTextMessage();
+            msg.setText("update");
+            return msg;
+        });
     }
 }

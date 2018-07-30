@@ -41,6 +41,8 @@ public class OrdersServiceImpl implements OrdersService {
 
     private ProductOrdersService productOrdersService;
 
+
+
     @Autowired
     public OrdersServiceImpl(CustomerDAO customerDAO, OrdersDAO ordersDAO, ProductDAO productDAO, AddressDAO addressDAO, CartService cartService, ProductOrdersService productOrdersService, Converter converter) {
         this.customerDAO = customerDAO;
@@ -178,15 +180,7 @@ public class OrdersServiceImpl implements OrdersService {
         return customerDTOS;
     }
 
-    @Override
-    @Transactional
-    public List<ProductDTO> findTopProduct() {
-        List<ProductDTO> productDTOs = productDAO.getTopProducts()
-                .stream().map(product -> converter.convertToDTO(product))
-                .collect(Collectors.toList());
 
-        return productDTOs;
-    }
     @Override
     @Transactional
     public List <CustomerDTO> findTopCustomer(){

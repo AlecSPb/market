@@ -1,5 +1,5 @@
 function changeStatus(orderId){
-    const path = "http://localhost:8080/admin/order/status/";
+    const path = "http://localhost:8081/admin/order/status/";
     $.ajax({
         url: path + orderId,
         type: "put",
