@@ -170,6 +170,33 @@ public class ProductServiceImpl implements ProductService {
         }
         return resultList;
     }
+    @Override
+    public void sendUpdateMessageToJmsServer() {
+        sendMessage();
+    }
+    /**
+     * Method checks if top is changed.
+     *
+     * @return true if is changed and false if not.
+     */
+    @Override
+    @Transactional
+    public void updateTopIfItHaveChanged() {
+        if (tops.isEmpty()) {
+            tops = productDAO.getTopProducts();
+            sendMessage();
+        } else {
+            List<Product> foundProducts = productDAO.getTopProducts();
+            for (int i = 0; i < 10; i++) {
+                if (tops.get(i).getId() != foundProducts.get(i).getId()) {
+                    tops = productDAO.getTopProducts();
+                    sendMessage();
+                    break;
+                }
+            }
+        }
+    }
+
     private void sendMessage() {
         jmsTemplate.send("advertising.stand", session -> {
             TextMessage msg = session.createTextMessage();

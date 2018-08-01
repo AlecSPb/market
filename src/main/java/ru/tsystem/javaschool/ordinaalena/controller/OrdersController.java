@@ -1,5 +1,7 @@
 package ru.tsystem.javaschool.ordinaalena.controller;
 
+import org.apache.log4j.Logger;
+import org.springframework.jms.JmsException;
 import ru.tsystem.javaschool.ordinaalena.constants.PaymentMethod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,6 +31,7 @@ public class OrdersController {
     private OrdersService ordersService;
 
     private MainValidator validator;
+    private static final Logger logger = Logger.getLogger(OrdersController.class);
 
     @Autowired
     public OrdersController(ProductService productService, CustomerService customerService, SecurityService securityService, OrdersService ordersService, MainValidator validator) {
@@ -124,7 +127,14 @@ public class OrdersController {
         ordersService.makeNewOrder(ordersDTO);
 
         status.setComplete();
-
+        try {
+            productService.sendUpdateMessageToJmsServer();
+            //log
+            logger.info("System has sent message to ActiveMQ.");
+        } catch (JmsException e) {
+            //log
+            logger.info("System has tried to send message to ActiveMQ server, but something was wrong.", e);
+        }
 
 
         return "redirect:/bucket";

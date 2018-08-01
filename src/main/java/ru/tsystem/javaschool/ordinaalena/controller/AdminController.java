@@ -2,6 +2,7 @@ package ru.tsystem.javaschool.ordinaalena.controller;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jms.JmsException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -128,6 +129,14 @@ public class AdminController {
         }
 
         productService.addProduct(productDTO, picture);
+        try {
+            productService.sendUpdateMessageToJmsServer();
+            //log
+            logger.info("System has sent message to ActiveMQ.");
+        } catch (JmsException e) {
+            //log
+            logger.info("System has tried to send message to ActiveMQ server, but something was wrong.", e);
+        }
         return "redirect:/products";
     }
 

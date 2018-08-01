@@ -50,7 +50,18 @@ public interface ProductService {
      List<ProductDTO> findTopProduct();
      List<Product> getTops();
      List<ProductDTO> convertProductsToProductsDTO(List<Product> products);
+     void sendUpdateMessageToJmsServer();
+    /**
+     * Method checks if top is changed.
+     *
+     * @return true if is changed and false if not.
+     */
 
-    }
+     void updateTopIfItHaveChanged();
+
+
+
+
+}
 
 
