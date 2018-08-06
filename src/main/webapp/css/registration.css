@@ -10,7 +10,8 @@
 .registration__wrapper{
     display: inline-block;
 }
-.registration__wrapper input{
+.registration__wrapper input[type="text"],
+.registration__wrapper input[type="password"]{
     width: inherit;
     border: 1px solid #cc1b6c;
     border-radius: 3px;

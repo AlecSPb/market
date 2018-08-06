@@ -64,10 +64,7 @@
                 <a href="${contextPath}/order/history" class="link link_header">Orders</a>
             </li>
         </ul>
-        <link rel="stylesheet" href="${contextPath}/css/bootstrap.min.css">
-        <script src="${contextPath}/js/jquery-2.2.3.min.js"></script>
-        <script src="${contextPath}/js/bootstrap.min.js"></script>
-        <script src="${contextPath}/js/jquery.mycart.js"></script>
+
     </nav>
 
 </header>

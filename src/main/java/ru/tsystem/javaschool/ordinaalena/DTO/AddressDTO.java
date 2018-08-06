@@ -126,4 +126,17 @@ public class AddressDTO {
                 Objects.equals(apartment, that.apartment);
     }
 
+    @Override
+    public String toString() {
+        return "AddressDTO{" +
+                "id=" + id +
+                ", postcode='" + postcode + '\'' +
+                ", country='" + country + '\'' +
+                ", region='" + region + '\'' +
+                ", city='" + city + '\'' +
+                ", street='" + street + '\'' +
+                ", building='" + building + '\'' +
+                ", apartment='" + apartment + '\'' +
+                '}';
+    }
 }

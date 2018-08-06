@@ -39,7 +39,7 @@
                     </dd>
                 </dl>
                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-               <input  type='submit' value='SIGN IN'>
+               <input  class="button19" type='submit' value='SIGN IN'>
             </form>
         </main>
     </div>

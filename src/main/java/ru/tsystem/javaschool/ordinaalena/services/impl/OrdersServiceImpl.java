@@ -1,5 +1,8 @@
 package ru.tsystem.javaschool.ordinaalena.services.impl;
 
+import org.springframework.mail.MailSender;
+import org.springframework.mail.SimpleMailMessage;
+import ru.tsystem.javaschool.ordinaalena.DTO.AddressDTO;
 import ru.tsystem.javaschool.ordinaalena.constants.OrderStatus;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,8 +43,8 @@ public class OrdersServiceImpl implements OrdersService {
     private CartService cartService;
 
     private ProductOrdersService productOrdersService;
-
-
+    @Autowired
+    private MailSender mailSender;
 
     @Autowired
     public OrdersServiceImpl(CustomerDAO customerDAO, OrdersDAO ordersDAO, ProductDAO productDAO, AddressDAO addressDAO, CartService cartService, ProductOrdersService productOrdersService, Converter converter) {
@@ -188,5 +191,32 @@ public class OrdersServiceImpl implements OrdersService {
                 .stream().map(customer -> converter.convertToDTO(customer))
                 .collect(Collectors.toList());
         return customerDTOs;
+    }
+    @Override
+    public void sendMessage(OrdersDTO orders, CustomerDTO customer, List<ProductDTO> cart,
+                            AddressDTO address, String source, String target, String title) {
+        SimpleMailMessage msg = new SimpleMailMessage();
+
+        StringBuilder products = new StringBuilder();
+        int counter = 0;
+        for (ProductDTO productDto : cart) {
+            products.append(++counter).append(") ")
+                    .append(productDto.getTitle()).append(" - ")
+                    .append(productOrdersService.getCount(productDto.getId(),orders.getId())).append(" items.").append(" Price - $")
+                    .append(productDto.getPrice()).append(".").append(System.lineSeparator());
+        }
+
+        String message = "Hi, " + customer.getFirstName() + "!" + System.lineSeparator()
+                + "Your order[ID=" + orders.getId() + "] is confirmed." + System.lineSeparator()
+                + "List of products: " + System.lineSeparator()
+                + products.toString() + System.lineSeparator()
+                + "Delivery address: " + address.toString() + System.lineSeparator() + System.lineSeparator()
+                + "Thank you for choosing us!";
+
+        msg.setFrom(source);
+        msg.setTo(target);
+        msg.setSubject(title);
+        msg.setText(message);
+        mailSender.send(msg);
     }
 }

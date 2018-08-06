@@ -29,7 +29,8 @@
                         <c:forEach items="${categories}" var="category">
                             <li>
                                 <label>
-                                    <input type="checkbox" name="brand" value="${category}">
+                                    <input class="checkbox" type="checkbox"  name="brand" value="${category}">
+                                    <span class="checkbox-custom"></span>
                                     <span class="menu__line">
                                         <span>${category}</span>
                                     </span>
@@ -50,13 +51,15 @@
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio" name="sortedBy" value="price" title="Price">
+                                    <input class="radio" type="radio" name="sortedBy" value="price" title="Price">
+                                    <span class="radio-custom"></span>
                                     <span class="menu__line">price</span>
                                 </label>
                             </li>
                             <li>
                                 <label>
-                                    <input type="radio" name="sortedBy" value="title" title="Title">
+                                    <input class ="radio" type="radio" name="sortedBy" value="title" title="Title">
+                                    <span class="radio-custom"></span>
                                     <span class="menu__line">title</span>
                                 </label>
                             </li>

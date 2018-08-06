@@ -15,6 +15,7 @@ import org.springframework.web.bind.support.SessionStatus;
 import ru.tsystem.javaschool.ordinaalena.DTO.AddressDTO;
 import ru.tsystem.javaschool.ordinaalena.DTO.OrdersDTO;
 import ru.tsystem.javaschool.ordinaalena.services.api.*;
+import ru.tsystem.javaschool.ordinaalena.services.impl.MailConfig;
 import ru.tsystem.javaschool.ordinaalena.validation.MainValidator;
 
 @Controller
@@ -31,6 +32,7 @@ public class OrdersController {
     private OrdersService ordersService;
 
     private MainValidator validator;
+
     private static final Logger logger = Logger.getLogger(OrdersController.class);
 
     @Autowired
@@ -127,8 +129,10 @@ public class OrdersController {
         ordersService.makeNewOrder(ordersDTO);
 
         status.setComplete();
+
+        ordersService.sendMessage(ordersDTO, customerService.getCustomer(securityService.findLoggedInEmail()),ordersDTO.getProductDTOs(), ordersDTO.getAddress(), MailConfig.USERNAME, securityService.findLoggedInEmail(), "Hard Candy");
         try {
-            productService.sendUpdateMessageToJmsServer();
+            productService.updateTopIfItHaveChanged();
             //log
             logger.info("System has sent message to ActiveMQ.");
         } catch (JmsException e) {
