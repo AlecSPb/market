@@ -5,11 +5,21 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 import ru.tsystem.javaschool.ordinaalena.DTO.OrdersDTO;
+import ru.tsystem.javaschool.ordinaalena.DTO.ProductDTO;
 import ru.tsystem.javaschool.ordinaalena.entities.Product;
 import ru.tsystem.javaschool.ordinaalena.services.api.CartService;
 import ru.tsystem.javaschool.ordinaalena.services.api.ProductService;
 import ru.tsystem.javaschool.ordinaalena.services.api.SecurityService;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.util.List;
+import java.util.Set;
 
 @Controller
 @RequestMapping("/bucket")
@@ -35,15 +45,13 @@ public class CartController {
      * @return          jsp
      */
     @RequestMapping(method = RequestMethod.GET)
-    public String cartGet(Model model, String error){
-        String customerEmail = securityService.findLoggedInEmail();
-        OrdersDTO cart = cartService.getCustomerCart(customerEmail);
+    public ModelAndView cartGet(Model model, String error, HttpServletRequest request) {
+        ModelAndView modelAndView=new ModelAndView("bucket");
+        modelAndView.addObject("bucket",request.getSession().getAttribute("bucket"));
         if(error!=null)
-            model.addAttribute("error", error);
-        model.addAttribute("products", cart.getProductDTOs());
-        model.addAttribute("productsSize", cart.getProductDTOs().size());
+            modelAndView.addObject("error", error);
 
-        return "/bucket";
+        return modelAndView;
      /*   Product product = productService.findProductById(Long.parseLong(id), false);
         Object bag = request.getSession().getAttribute("bag");
         if (bag == null) {
@@ -70,11 +78,12 @@ public class CartController {
      * @return             jsp
      */
     @RequestMapping(value = "/delete", method = RequestMethod.GET)
-    public String deleteFromBucket(String[] selected){
+    public String deleteFromBucket(Integer[] selected, HttpSession session){
         if(selected==null)
             return "redirect:/bucket?error='No one is selected'";
-        String customerEmail = securityService.findLoggedInEmail();
-        cartService.deleteFromCart(customerEmail, selected);
+        //String customerEmail = securityService.findLoggedInEmail();
+        List<ProductDTO> bucket= (List<ProductDTO>)session.getAttribute("bucket");
+        cartService.deleteFromCart(bucket,selected);
         return "redirect:/bucket";
     }
 }

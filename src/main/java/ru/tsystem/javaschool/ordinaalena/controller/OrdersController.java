@@ -2,6 +2,7 @@ package ru.tsystem.javaschool.ordinaalena.controller;
 
 import org.apache.log4j.Logger;
 import org.springframework.jms.JmsException;
+import ru.tsystem.javaschool.ordinaalena.DTO.ProductDTO;
 import ru.tsystem.javaschool.ordinaalena.constants.PaymentMethod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,6 +18,9 @@ import ru.tsystem.javaschool.ordinaalena.DTO.OrdersDTO;
 import ru.tsystem.javaschool.ordinaalena.services.api.*;
 import ru.tsystem.javaschool.ordinaalena.services.impl.MailConfig;
 import ru.tsystem.javaschool.ordinaalena.validation.MainValidator;
+
+import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 @RequestMapping("/order")
@@ -51,11 +55,11 @@ public class OrdersController {
      * @return          page.
      */
     @RequestMapping(value = "/make_order", method = RequestMethod.GET)
-    public String confirmOrder(Model model, String[] selected){
+    public String confirmOrder(Model model, Integer[] selected){
         if(selected == null)
             return "redirect:/bucket?error='No one is selected'";
         OrdersDTO ordersDTO = new OrdersDTO();
-        ordersDTO.setProductDtos(productService.getByTitles(selected));
+        ordersDTO.setProductDtos(productService.getById(selected));
         model.addAttribute("ordersDTO", ordersDTO);
         return "/makeOrder";
     }
@@ -118,7 +122,7 @@ public class OrdersController {
      * @return              page.
      */
     @RequestMapping(value = "/order_confirm", method = RequestMethod.POST)
-    public String confirm(@ModelAttribute("orderDto") OrdersDTO ordersDTO, SessionStatus status, Model model){
+    public String confirm(@ModelAttribute("orderDto") OrdersDTO ordersDTO, SessionStatus status, Model model, HttpSession session){
 
         if(PaymentMethod.valueOfOrNull(ordersDTO.getPaymentMethod())==null) {
             model.addAttribute("error","Payment method don't selected!");
@@ -126,11 +130,11 @@ public class OrdersController {
             model.addAttribute("orderDto", ordersDTO);
             return "/confirm";
         }
+        List<ProductDTO> bucket = (List<ProductDTO>) session.getAttribute("bucket");
         ordersService.makeNewOrder(ordersDTO);
-
         status.setComplete();
-
         ordersService.sendMessage(ordersDTO, customerService.getCustomer(securityService.findLoggedInEmail()),ordersDTO.getProductDTOs(), ordersDTO.getAddress(), MailConfig.USERNAME, securityService.findLoggedInEmail(), "Hard Candy");
+        bucket.clear();
         try {
             productService.updateTopIfItHaveChanged();
             //log

@@ -124,13 +124,20 @@ public class ProductServiceImpl implements ProductService {
         product = productDAO.getByTitle(title);
         return converter.convertToDTO(product);
     }
+    @Override
+    @Transactional
+    public ProductDTO getById(Integer id) {
+        Product product;
+        product = productDAO.getById(id);
+        return converter.convertToDTO(product);
+    }
 
     @Override
     @Transactional
-    public List<ProductDTO> getByTitles(String[] titles) {
+    public List<ProductDTO> getById(Integer[] ids) {
         List<ProductDTO> productDTOS = new ArrayList<>();
-        for (String title : titles) {
-            productDTOS.add(converter.convertToDTO(productDAO.getByTitle(title)));
+        for (Integer id : ids) {
+            productDTOS.add(converter.convertToDTO(productDAO.getById(id)));
         }
         return productDTOS;
     }

@@ -24,7 +24,7 @@
                 <h2>Your cart: </h2>
             </div>
             <form name="out">
-                <c:forEach var="product" items="${products}">
+                <c:forEach  items="${requestScope.bucket}" var="product">
                     <div class="bucket__item">
                         <div class="bucket__item_column">
                             <dl>
@@ -66,7 +66,7 @@
                                 <dt class="column__type">Select</dt>
                                 <dd class="bucket__item_description">
                                     <label class="menu__line">
-                                        <input type="checkbox" name="selected" value="${product.title}">
+                                        <input type="checkbox" name="selected" value="${product.id}">
                                         <span>Select</span>
                                     </label>
                                 </dd>

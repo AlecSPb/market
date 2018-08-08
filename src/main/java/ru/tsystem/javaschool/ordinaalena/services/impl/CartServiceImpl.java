@@ -40,22 +40,22 @@ public class CartServiceImpl  implements CartService {
     @Override
     @Transactional
     public void deleteFromCart(String email, String productTitle) {
-        Set<Product> products = this.getCart(email).getProducts();
+        Set<Product> products = this.getCart().getProducts();
         products.remove(productDAO.getByTitle(productTitle));
     }
 
     @Override
     @Transactional
-    public void deleteFromCart(String email, String[] productTitles) {
-        Set<Product> products = this.getCart(email).getProducts();
-        for(String title:productTitles)
-            products.remove(productDAO.getByTitle(title));
+    public void deleteFromCart( List<ProductDTO> bagProducts,Integer[]productId) {
+        for ( Integer id:productId)
+     bagProducts.remove(converter.convertToDTO(productDAO.getById(id)));
+
     }
 
     @Override
 
     public void deleteFromCart(String email, List<ProductDTO> removeProducts) {
-        Set<Product> products = this.getCart(email).getProducts();
+        Set<Product> products = this.getCart().getProducts();
         for(ProductDTO productDTO:removeProducts)
             products.remove(productDAO.find(productDTO.getId(), Product.class));
     }
@@ -68,33 +68,28 @@ public class CartServiceImpl  implements CartService {
 
     @Override
     @Transactional
-    public void addToCart(String email, int productId) {
-        Set<Product> products = this.getCart(email).getProducts();
-        products.add(productDAO.find(productId, Product.class));
+    public void addToCart( int productId, List<ProductDTO> bagProducts) {
+        bagProducts.add(converter.convertToDTO(productDAO.find(productId, Product.class)));
+
     }
 
     @Override
     @Transactional
-    public OrdersDTO getCustomerCart(String email) {
-        Orders customerCart = getCart(email);
+    public OrdersDTO getCustomerCart() {
+        Orders customerCart = getCart();
         return converter.convertToDTO(customerCart);
     }
-    private Orders getCart(String email){
-        int customerId = customerDAO.getCustomerIdByEmail(email);
+
+    private Orders getCart(){
         Orders cart;
-        try {
-            cart = ordersDAO.getClientBucket(customerId);
-        } catch (NoResultException exc){
-            cart = createCustomerCart(email);
-        }
+            cart = createCustomerCart();
+
         return cart;
     }
 
-    private Orders createCustomerCart(String email){
+    private Orders createCustomerCart(){
         Orders customerCart = new Orders();
         customerCart.setOrderStatus(OrderStatus.BUCKET);
-        customerCart.setCustomer(
-                customerDAO.find(customerDAO.getCustomerIdByEmail(email), Customer.class));
         ordersDAO.persist(customerCart);
         return customerCart;
     }

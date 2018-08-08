@@ -34,7 +34,7 @@ public interface ProductService {
      * @param titles  Product's names.
      * @return      Product's entities.
      */
-     List<ProductDTO> getByTitles(String[] titles);
+     List<ProductDTO> getById(Integer[] ids);
 
     /**
      * Add product to db.
@@ -47,6 +47,7 @@ public interface ProductService {
      * @return  table size.
      */
      long getPagesCount(String[] categories);
+     ProductDTO getById(Integer id);
      List<ProductDTO> findTopProduct();
      List<Product> getTops();
      List<ProductDTO> convertProductsToProductsDTO(List<Product> products);

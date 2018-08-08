@@ -73,7 +73,13 @@ public class ProductDAOImpl implements ProductDAO {
                 .setParameter("title",title)
                 .getSingleResult();
     }
-
+@Override
+public Product getById(Integer id){
+        return entityManager.createQuery("select product from Product as product where product.id=:id",
+                Product.class)
+                .setParameter("id",id)
+                .getSingleResult();
+}
     @Override
     public List<Product> getByCategories(String[] categories) {
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();

@@ -2,8 +2,10 @@ package ru.tsystem.javaschool.ordinaalena.services.api;
 
 import ru.tsystem.javaschool.ordinaalena.DTO.OrdersDTO;
 import ru.tsystem.javaschool.ordinaalena.DTO.ProductDTO;
+import ru.tsystem.javaschool.ordinaalena.entities.Product;
 
 import java.util.List;
+import java.util.Set;
 
 public interface CartService {
     /**
@@ -20,7 +22,7 @@ public interface CartService {
      * @param email     Customer email.
      * @param productTitles Product's names which unique.
      */
-     void deleteFromCart(String email, String[] productTitles);
+    void deleteFromCart ( List<ProductDTO> bagProducts,Integer[]productId);
 
     /**
      * Delete product from user's bucket if it exist.
@@ -43,7 +45,7 @@ public interface CartService {
      * @param email     Customer email.
      * @param productId     Product id which unique.
      */
-     void addToCart(String email, int productId);
+     void addToCart( int productId, List<ProductDTO> bagProducts);
 
     /**
      * Return bucket owned by user.
@@ -51,6 +53,6 @@ public interface CartService {
      * @param email     Customer email.
      * @return          Bucket dto.
      */
-     OrdersDTO getCustomerCart(String email);
+     OrdersDTO getCustomerCart();
 
 }

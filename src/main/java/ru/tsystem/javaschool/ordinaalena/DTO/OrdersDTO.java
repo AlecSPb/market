@@ -49,7 +49,14 @@ public class OrdersDTO {
         this.productDTOs = productDTOs;
         this.address = address;
     }
-
+    public OrdersDTO(Integer id, String paymentMethod, String orderStatus, List<ProductDTO> productDTOs,
+                     AddressDTO address) {
+        this.id=id;
+        this.paymentMethod = paymentMethod;
+        this.orderStatus = orderStatus;
+        this.productDTOs = productDTOs;
+        this.address = address;
+    }
     public OrdersDTO(String orderStatus) {
         this.orderStatus = orderStatus;
     }
