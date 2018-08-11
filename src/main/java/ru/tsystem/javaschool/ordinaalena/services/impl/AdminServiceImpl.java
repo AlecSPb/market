@@ -47,7 +47,7 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public List<ProductDTO> getProducts() {
-        return productDAO.getAll(Product.class)
+        return productDAO.getAllWithoutAvailable(Product.class)
                 .stream().map(product -> converter.convertToDTO(product))
                 .collect(Collectors.toList());
     }
@@ -68,6 +68,13 @@ public class AdminServiceImpl implements AdminService {
         OrderStatus status = orders.getOrderStatus();
         if(status.equals(OrderStatus.UNDONE))
             orders.setOrderStatus(OrderStatus.DONE);
+       /* String message = "Hi, " + ordersDAO.ge + "!" + System.lineSeparator()
+                + "Your order[ID=" + orders.getId() + "] is confirmed." + System.lineSeparator()
+                + "List of products: " + System.lineSeparator()
+                + products.toString() + System.lineSeparator()
+                + "Delivery address: " + address.toString() + System.lineSeparator() + System.lineSeparator()
+                + "Thank you for choosing us!";*/
+
         else if(status.equals(OrderStatus.DONE))
             orders.setOrderStatus(OrderStatus.UNDONE);
         ordersDAO.merge(orders);

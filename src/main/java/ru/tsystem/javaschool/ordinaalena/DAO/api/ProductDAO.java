@@ -16,6 +16,7 @@ public interface ProductDAO {
     Product getByTitle(String title);
     Product getById (Integer id);
     List<Product> getByCategories(String[] categories);
+    List<Product> getAllWithoutAvailable(Class<Product> className);
     long getProductsCount(String[] categories);
     long getProductsCount();
     List<Product> getTopProducts();

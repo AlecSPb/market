@@ -12,6 +12,10 @@
     <meta charset="UTF-8">
     <title>Market</title>
     <link rel="stylesheet" type="text/css" href="${contextPath}/css/app.css">
+    <script src="http://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+    <script src="${contextPath}/js/makeOrder.js"></script>
 </head>
 
 <body>
@@ -77,7 +81,10 @@
                                 <dd class="bucket__item_description">
                                     <label class="menu__line">
                                         <span>Quantity: </span>
-                                        <form:input type="text" name="counts" path="counts"/>
+                                        <span class="minus"><button class ="button1" >-</button></span>
+                                        <form:input type="text" name="counts" path="counts" value="1" size="5" readonly="true"/>
+                                        <span class="plus"><button class ="button1" >+</button></span>
+
                                     </label>
                                 </dd>
                             </dl>

@@ -38,6 +38,7 @@
                         <p>Enter password.</p>
                     </dd>
                 </dl>
+                <div class="sign-up">Already have an account? <a href="${contextPath}/user/registration">Sign up</a></div>
                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                <input  class="button19" type='submit' value='SIGN IN'>
             </form>

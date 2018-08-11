@@ -1,4 +1,4 @@
-package ru.tsystem.javaschool.ordinaalena.testimpl;
+package ru.tsystem.javaschool.ordinaalena.junit;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,10 +8,7 @@ import ru.tsystem.javaschool.ordinaalena.DTO.AddressDTO;
 import ru.tsystem.javaschool.ordinaalena.DTO.CustomerDTO;
 import ru.tsystem.javaschool.ordinaalena.services.api.CustomerService;
 
-import javax.swing.plaf.synth.Region;
-import java.lang.management.BufferPoolMXBean;
-
-import static ru.tsystem.javaschool.ordinaalena.testimpl.DataTest.*;
+import static ru.tsystem.javaschool.ordinaalena.junit.DataTest.*;
 import static org.junit.Assert.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)

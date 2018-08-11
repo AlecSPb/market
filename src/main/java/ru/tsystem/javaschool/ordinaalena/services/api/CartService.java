@@ -54,5 +54,6 @@ public interface CartService {
      * @return          Bucket dto.
      */
      OrdersDTO getCustomerCart();
+    void deleteFromCart( List<ProductDTO> bagProducts,int productId);
 
 }

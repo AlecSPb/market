@@ -96,14 +96,14 @@ public class Converter {
     public OrdersDTO convertToDTO (Orders orders){
         logger.info("Order " + orders.getId());
         Integer id = orders.getId();
-
+        String email=orders.getCustomer().getEmail();
         String paymentMethod = PaymentMethod.getString(orders.getPaymentMethod());
         String orderStatus = orders.getOrderStatus().toString();
         List<ProductDTO> productDTOs = orders.getProducts().stream().
                 map(product -> this.convertToDTO(product)).collect(Collectors.toList());
         AddressDTO addressDto = this.convertToDTO(orders.getAddress());
 
-        return new OrdersDTO(id, paymentMethod, orderStatus, productDTOs, addressDto);
+        return new OrdersDTO(id,email, paymentMethod, orderStatus, productDTOs, addressDto);
     }
 
     public Orders convertToEntity (OrdersDTO ordersDTO){

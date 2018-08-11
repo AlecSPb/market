@@ -91,3 +91,45 @@ function addAddress() {
         }
     })
 }
+
+
+$(document).ready(function() {
+    $('.minus').click(function () {
+        var $input = $(this).parent().find('input');
+        var count = parseInt($input.val()) - 1;
+        count = count < 1 ? 1 : count;
+        $input.val(count);
+        $input.change();
+        return false;
+    });
+    $('.plus').click(function () {
+        var $input = $(this).parent().find('input');
+        $input.val(parseInt($input.val()) + 1);
+        $input.change();
+        return false;
+    });
+});
+
+/*$("input[type=radio]").click(function (event) {
+   var myID=this.id;
+   var targetId=myID+"_div";
+   $("div.choice:not(#" +targetId+")").addClass(".none");
+   $("#"+targetId).removeClass(".none");
+});*/
+$(document).ready(function () {
+    $("input[type=radio]").click(function (){
+        var inputValue=$(this).attr("id");
+        var targetBox=inputValue+"_div";
+        $(targetBox).show();
+    }  );
+});
+/*$('.rbn').on('change', function(){
+    if($('#1').attr('checked')){
+        $('#div').show();
+    } else{
+        $('#div').hide();
+    }
+
+});*/
+
+

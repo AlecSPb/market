@@ -126,26 +126,118 @@ a.btn1:hover {
     height: 30px;
     text-decoration: none;
     padding-top: 9px;
-    color: #a675b3;
+    color: #000000;
     text-align: center;
     line-height: 20px;
     display: block;
     margin: 20px auto;
-    font: normal 17px arial;
+    font: bold 17px "Helvetica Neue", Helvetica, Arial, sans-serif;
+    border: none;
 }
 
 .button19:not(.active) {
-    box-shadow: inset 0 1px 1px rgba(111, 55, 125, 0.8), inset 0 -1px 0px rgba(63, 59, 113, 0.2), 0 9px 16px 0 rgba(0, 0, 0, 0.3), 0 4px 3px 0 rgba(0, 0, 0, 0.3), 0 0 0 1px #150a1e;
-    background-image: linear-gradient(#3b2751, #271739);
-    text-shadow: 0 0 21px rgba(223, 206, 228, 0.5), 0 -1px 0 #311d47;
+    box-shadow: inset 0 1px 1px rgba(204, 27, 108, 0.8), inset 0 -1px 0px rgba(204, 27, 108, 0.2), 0 9px 16px 0 rgba(180, 27, 90, 0.3), 0 4px 3px 0 rgba(180, 27, 90, 0.3), 0 0 0 1px #150a1e;
+    background-image: linear-gradient(#b41b5a, #cc1b6c);
+    text-shadow: 0 0 21px rgba(204, 27, 108, 0.5), 0 -1px 0 #cc1b6c;
 }
 
 .button19:not(.active):hover,
 .button19:not(.active):focus {
     transition: color 200ms linear, text-shadow 500ms linear;
     color: #fff;
-    text-shadow: 0 0 21px rgba(223, 206, 228, 0.5), 0 0 10px rgba(223, 206, 228, 0.4), 0 0 2px #2a153c;
+    text-shadow: 0 0 21px rgba(204, 27, 108, 0.5), 0 0 10px rgba(204, 27, 108, 0.4), 0 0 2px #cc1b6c;
 }
 .button19:not(:hover) {
     transition: 0.6s;
+}
+.button1{
+width: 30px;
+height: 100%;
+border-radius: 5px;
+border: 1px solid grey;
+background: #cc1b6c;
+color: #000000;
+font-size: 24px;}
+
+.knopka01 {
+    display: inline-block;
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 1px rgba(255,255,255,.2), 0 -1px rgba(0,0,0,.8);
+    outline: none;
+    border: none;
+    border-radius: 100px;
+    background: rgb(28,107,114) radial-gradient(150% 100% at 50% 5px, rgba(255,255,255,.2), rgba(0,0,0,0));
+    box-shadow: inset rgba(0,0,0,.6) 0 -2px 5px, inset rgba(252,255,255,.7) 0 2px 5px, rgba(0,0,0,.8) 0 2px 5px -1px;
+    color: rgb(0,79,86);
+    user-select: none;
+}
+.knopka01:hover {
+    color: rgb(0,59,66);
+    cursor: pointer;
+}
+.knopka01:active {
+    padding-bottom: 1px;
+    box-shadow:
+            inset rgba(0,0,0,1) 0 1px 3px,
+            inset rgba(0,0,0,.6) 0 -2px 5px,
+            inset rgba(252,255,255,.7) 0 2px 5px,
+            0 1px rgba(255,255,255,.08);
+    color: rgb(128,207,214);
+}
+/* Popup container */
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* The actual popup (appears on top) */
+.popup .popupText {
+    visibility: hidden;
+    width: 160px;
+    background-color: #cc1b6c;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #b41b5a transparent transparent transparent;
+}
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
 }

@@ -45,7 +45,7 @@ function getProductHtml(product){
         "</p>"+
         "</div>"+
         "<h4>Price: " + product.price + " $" +
-        "<a onclick='addToBucket(" + product.id + ")' " +
+        "<a onclick='addToBucket(" + product.id + ")'" +
         "class=\"link link_header\">"+
         "Add to cart" +
         "</a>"+
@@ -148,8 +148,15 @@ function addToBucket(prodId) {
         type: "post",
         data: {
           prodId : prodId
+        },
+        success:function () {
+          alert("Product added to cart");
         }
     })
 
 }
 
+function confirmFunction() {
+    var popup=document.getElementById("myPopup");
+    popup.classList.toggle("show");
+}

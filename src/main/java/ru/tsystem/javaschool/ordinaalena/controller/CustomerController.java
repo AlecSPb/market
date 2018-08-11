@@ -59,7 +59,7 @@ public class CustomerController {
             return "/registration";}
         customerService.registrationCustomer(customerDTO);
         securityService.autoLogin(customerDTO.getEmail(), customerDTO.getParole());
-        return "redirect:/";
+        return "redirect:/user/account";
     }
 
     @RequestMapping(value = "/account", method = RequestMethod.GET)

@@ -157,8 +157,8 @@ public class ProductServiceImpl implements ProductService {
     @Transactional
     public long getPagesCount(String[] categories) {
         if (categories == null)
-            return productDAO.getProductsCount();
-        return productDAO.getProductsCount(categories);
+            return (long) Math.ceil((double) (productDAO.getProductsCount())/4);
+        return(long) Math.ceil((double) (productDAO.getProductsCount(categories))/4);
     }
     @Override
     @Transactional
@@ -194,7 +194,7 @@ public class ProductServiceImpl implements ProductService {
             sendMessage();
         } else {
             List<Product> foundProducts = productDAO.getTopProducts();
-            for (int i = 0; i < 10; i++) {
+            for (int i = 0; i < 100; i++) {
                 if (tops.get(i).getId() != foundProducts.get(i).getId()) {
                     tops = productDAO.getTopProducts();
                     sendMessage();

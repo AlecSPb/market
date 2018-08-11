@@ -45,13 +45,20 @@ public class ProductDAOImpl implements ProductDAO {
     }
 
     @Override
-    public List<Product> getAll(Class<Product> className) {
+    public List<Product> getAllWithoutAvailable(Class<Product> className) {
         logger.info("find all " + className);
         return entityManager.
                 createQuery("from "+className.getSimpleName(), className).
                 getResultList();
     }
-
+    @Override
+    public List<Product> getAll(Class<Product> className) {
+        logger.info("find all " + className);
+        return entityManager.
+                createQuery("from Product as prod " +
+                        "where notavailable=false ", Product.class).
+                getResultList();
+    }
     @Override
     public List<Product> getByCategory(String category) {
         return entityManager.createQuery("from Product as prod " +

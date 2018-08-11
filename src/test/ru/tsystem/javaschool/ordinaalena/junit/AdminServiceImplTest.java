@@ -1,4 +1,4 @@
-package ru.tsystem.javaschool.ordinaalena.testimpl;
+package ru.tsystem.javaschool.ordinaalena.junit;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

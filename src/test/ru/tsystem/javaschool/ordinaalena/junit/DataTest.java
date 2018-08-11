@@ -1,4 +1,4 @@
-package ru.tsystem.javaschool.ordinaalena.testimpl;
+package ru.tsystem.javaschool.ordinaalena.junit;
 
 public abstract class DataTest {
 
@@ -10,8 +10,8 @@ public abstract class DataTest {
     protected static final String BUILDING = "11";
     protected static final String APARTMENT = "11";
 
-    protected static final String EMAIL = "test@mail.ru";
-    protected static final String PAROLE = "testParole";
+    protected static final String EMAIL = "test@gmail.com";
+    protected static final String PAROLE = "$2a$11$35ZOFLF4OH7aqNv3pPED1uhcu6jkZL5nylKSNtOuDIG2D7pxro0ZS";
     protected static final String FIRSTNAME = "customerName";
     protected static final String SECONDNAME = "secondName";
     protected static final String PHONE = "81111111111";

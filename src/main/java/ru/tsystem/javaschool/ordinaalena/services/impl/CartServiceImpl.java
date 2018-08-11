@@ -53,11 +53,16 @@ public class CartServiceImpl  implements CartService {
     }
 
     @Override
-
+    @Transactional
     public void deleteFromCart(String email, List<ProductDTO> removeProducts) {
         Set<Product> products = this.getCart().getProducts();
         for(ProductDTO productDTO:removeProducts)
             products.remove(productDAO.find(productDTO.getId(), Product.class));
+    }
+    @Override
+    @Transactional
+    public void deleteFromCart( List<ProductDTO> bagProducts,int productId) {
+        bagProducts.remove(converter.convertToDTO(productDAO.getById(productId)));
     }
 
     @Override

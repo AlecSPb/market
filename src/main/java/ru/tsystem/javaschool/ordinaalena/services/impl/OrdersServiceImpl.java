@@ -88,15 +88,16 @@ public class OrdersServiceImpl implements OrdersService {
 }
     private void decriminateProducts(OrdersDTO dto) {
         for (int i=0; i<dto.getCounts().size(); i++){
-            Product product = productDAO.getByTitle(dto.getProductDTOs().get(i).getTitle());
+            Product product = productDAO.getById(dto.getProductDTOs().get(i).getId());
             product.setCount(product.getCount()-Integer.valueOf(dto.getCounts().get(i)));
+            if(product.getCount()==0) product.setNotavailable(true);
             productDAO.merge(product);
         }
     }
     private Set<Product> getProductSet(OrdersDTO ordersDTO){
         Set<Product> products = new HashSet<>();
         for(ProductDTO product : ordersDTO.getProductDTOs())
-            products.add(productDAO.getByTitle(product.getTitle()));
+            products.add(productDAO.getById(product.getId()));
         return products;
     }
     @Override

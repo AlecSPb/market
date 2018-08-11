@@ -141,9 +141,10 @@
                                 </dd>
                                 <dd>
                                     <label class="menu__line">
-                                        <form:radiobutton name="address"
+                                        <form:radiobutton class="radio " name="address"
                                                           value="${address.id}"
                                                     path="id"/>
+                                        <span class="radio-custom"></span>
                                         <span >Select address</span>
                                     </label>
                                 </dd>

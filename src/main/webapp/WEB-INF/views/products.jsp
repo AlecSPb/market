@@ -16,6 +16,7 @@
                 crossorigin="anonymous"></script>
         <%--<link rel="script" href="../../../js/productsScript.js"/>--%>
         <script src="${contextPath}/js/productsScript.js"></script>
+
     </head>
     <body>
         <div class="bg__wrapper"></div>
@@ -75,6 +76,7 @@
                             showAllPagesCount();
                         </script>
                     </div>
+                    <span class="popupText" id="myPopup">Product added to cart!</span>
                 </div>
                 <div class="page__buttons">
                     <ul id="pageButtons">

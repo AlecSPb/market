@@ -4,7 +4,11 @@ import javax.persistence.*;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
-
+/**
+ * Customer entity model. This class maps on customers Table in our Database.
+ * There we put all necessary options in fields. Hibernate forces us to make class
+ * with fields and getters and setters for all of them and empty constructor, if we define custom one.
+ */
 @Entity
 @Table(name="customer")
 public class Customer {

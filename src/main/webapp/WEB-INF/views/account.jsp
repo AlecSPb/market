@@ -29,7 +29,7 @@
                         E-mail:
                     </dt>
                     <dd>
-                        <p>
+                        <p class="email">
                                 ${customer.email}
                         </p>
                     </dd>
@@ -87,11 +87,11 @@
             <div class="account__change_links">
                 <ul>
                     <li>
-                        <a href="${contextPath}/user/change_details" class="link link_header">Edit</a>
+                        <a href="${contextPath}/user/change_details" class="knopka01">Edit</a>
                     </li>
 
                     <li>
-                        <a href="${contextPath}/user/change_parole" class="link link_header">Change password</a>
+                        <a href="${contextPath}/user/change_parole" class="knopka01">Change password</a>
                     </li>
                 </ul>
             </div>

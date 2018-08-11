@@ -39,8 +39,8 @@ public class ProductController {
      * @return              jsp
      */
     @RequestMapping(value = "/product", method = RequestMethod.GET)
-    public String getProduct(Model model, String productTitle){
-        model.addAttribute("product", productService.getByTitle(productTitle));
+    public String getProduct(Model model, String title){
+        model.addAttribute("product", productService.getByTitle(title));
         return "/product";
     }
 }

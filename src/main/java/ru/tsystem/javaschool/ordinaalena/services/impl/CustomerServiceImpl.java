@@ -113,14 +113,14 @@ public class CustomerServiceImpl implements CustomerService {
         setDif(customerEntity, customer);
         customerDAO.merge(customerEntity);
     }
-    private Customer setDif(Customer customer, CustomerDTO customerDTO){
+    private void setDif(Customer customer, CustomerDTO customerDTO){
         if(customerDTO.getFirstName() != null)
             customer.setFirstName(customerDTO.getFirstName());
         if(customerDTO.getSecondName() != null)
             customer.setSecondName(customerDTO.getSecondName());
         if(customerDTO.getPhonenumber() != null)
             customer.setPhonenumber(customerDTO.getPhonenumber());
-        return customer;
+
     }
     @Override
     @Transactional
