@@ -128,7 +128,7 @@ public class ProductServiceImpl implements ProductService {
     @Transactional
     public ProductDTO getById(Integer id) {
         Product product;
-        product = productDAO.getById(id);
+         product = productDAO.getById(id);
         return converter.convertToDTO(product);
     }
 
@@ -194,7 +194,7 @@ public class ProductServiceImpl implements ProductService {
             sendMessage();
         } else {
             List<Product> foundProducts = productDAO.getTopProducts();
-            for (int i = 0; i < 100; i++) {
+            for (int i = 0; i < productDAO.getTopProducts().size(); i++) {
                 if (tops.get(i).getId() != foundProducts.get(i).getId()) {
                     tops = productDAO.getTopProducts();
                     sendMessage();
@@ -210,5 +210,30 @@ public class ProductServiceImpl implements ProductService {
             msg.setText("update");
             return msg;
         });
+    }
+
+    @Override
+    @Transactional
+    public void setProductDiff(Integer id, ProductDTO product) {
+
+        Product productEntity = productDAO.getById(id);
+        setDif(productEntity, product);
+        productDAO.merge(productEntity);
+    }
+
+    private void setDif(Product product,ProductDTO productDTO){
+        if(productDTO.getTitle() != null)
+            product.setTitle(productDTO.getTitle());
+        if(productDTO.getDescription() != null)
+            product.setDescription(productDTO.getDescription());
+        if(productDTO.getPrice() != null)
+            product.setPrice(productDTO.getPrice());
+        if(productDTO.getCategory() != null)
+            product.setCategory(productDTO.getCategory());
+        if(productDTO.getCount() != null)
+            product.setCount(productDTO.getCount());
+        if(productDTO.getProductParameterDTO() != null)
+            product.setParameter(converter.convertToEntity(productDTO.getProductParameterDTO()));
+
     }
 }

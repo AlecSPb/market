@@ -9,13 +9,15 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Market</title>
+        <title>Hard Candy</title>
+        <link rel="shortcut icon" href="${contextPath}/img/favicon.png" type="image/png"/>
         <link rel="stylesheet" href="${contextPath}css/app.css">
         <script src="http://code.jquery.com/jquery-3.3.1.js"
                 integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
                 crossorigin="anonymous"></script>
         <%--<link rel="script" href="../../../js/productsScript.js"/>--%>
         <script src="${contextPath}/js/productsScript.js"></script>
+        <script src="${contextPath}/js/smoke-pure.js"></script>
 
     </head>
     <body>
@@ -40,7 +42,7 @@
                         </c:forEach>
                     </ul>
                     <input type="submit"
-                           class="link link_header"
+                           class="knopka01"
                            value="Show"
                            onclick="makeItWork()">
                 </div>
@@ -66,7 +68,7 @@
                             </li>
                         </ul>
                         <input type="submit"
-                               class="link link_header"
+                               class="knopka01"
                                value="Sort"
                                onclick="showProducts()">
                     </div>
@@ -76,7 +78,6 @@
                             showAllPagesCount();
                         </script>
                     </div>
-                    <span class="popupText" id="myPopup">Product added to cart!</span>
                 </div>
                 <div class="page__buttons">
                     <ul id="pageButtons">
@@ -84,5 +85,6 @@
                 </div>
             </main>
         </div>
+        <%@include file="footer.jsp"%>
     </body>
 </html>

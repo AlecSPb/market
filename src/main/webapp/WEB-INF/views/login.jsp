@@ -8,7 +8,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>market-web</title>
+    <title>Hard Candy</title>
+    <link rel="shortcut icon" href="${contextPath}/img/favicon.png" type="image/png"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/app.css">
 </head>
 <body>
@@ -20,30 +21,27 @@
                 <h2>Sign in</h2>
                 <dl class="dl_class ${error != null ? 'has-error' : ''}">
                     <dt>
-                        E-mail
                         <p>${message}</p>
                     </dt>
                     <dd>
-                        <input type='text' name="email" id="email"
+                        <input type="text" class="vvod" name="email" id="email"
                                placeholder="E-mail">
-                        <p>Enter email.</p>
                         <span>${error}</span>
                     </dd>
                     <dt>
-                        Password
                     </dt>
                     <dd>
-                        <input type="password" name="parole" id="parole"
+                        <input type="password" class="vvod" name="parole" id="parole"
                                 placeholder="Password*">
-                        <p>Enter password.</p>
                     </dd>
                 </dl>
                 <div class="sign-up">Already have an account? <a href="${contextPath}/user/registration">Sign up</a></div>
                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-               <input  class="button19" type='submit' value='SIGN IN'>
+               <input  class="knopka01" type='submit' value='Sign in'>
             </form>
         </main>
     </div>
+    <%@include file="footer.jsp"%>
 </body>
 </html>
 

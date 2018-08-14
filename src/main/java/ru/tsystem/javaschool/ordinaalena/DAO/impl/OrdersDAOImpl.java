@@ -81,8 +81,8 @@ public class OrdersDAOImpl implements OrdersDAO {
                 "                                (SELECT id FROM Orders as ord where" +
                 "                                  ord.id = prord.orders.id and" +
                 "                                  prord.productId.id = :prid and"+
-                "                                  ord.orderStatus = 'UNDONE' or" +
-                "                                  ord.orderStatus = 'DONE')",Long.class)
+                "                                  ord.orderStatus = 'PENDING' or" +
+                "                                  ord.orderStatus = 'SENT')",Long.class)
                 .setParameter("prid", productId).getSingleResult();
     }
 
@@ -94,8 +94,8 @@ public class OrdersDAOImpl implements OrdersDAO {
                 "                                (SELECT id FROM Orders as ord where" +
                 "                                  ord.id = prord.orders.id and" +
                 "                                  ord.customer.id = :customerId and" +
-                "                                  ord.orderStatus = 'UNDONE' or" +
-                "                                   ord.orderStatus = 'DONE') ", Long.class)
+                "                                  ord.orderStatus = 'PENDING' or" +
+                "                                   ord.orderStatus = 'SENT') ", Long.class)
                 .setParameter("customerId", customerId)
                 .getSingleResult();
     }

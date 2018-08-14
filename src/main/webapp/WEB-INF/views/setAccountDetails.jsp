@@ -15,7 +15,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>market-web</title>
+    <title>Hard Candy</title>
+    <link rel="shortcut icon" href="${contextPath}/img/favicon.png" type="image/png"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/app.css">
 </head>
 <body>
@@ -24,36 +25,24 @@
     <%@include file="header.jsp"%>
     <main class="registration__main">
         <form:form  method='POST' modelAttribute="customer" class="registration__wrapper">
-            <h2>Change account</h2>
+            <h2>Change account details</h2>
             <dl class="dl_class">
                 <spring:bind path="secondName">
-                    <dt>
-                        Second name
-                    </dt>
                     <dd>
-                        <form:input type="text" path="secondName"
-                                    placeholder="Second name"/>
-                        <p>Indicate second name.</p>
+                        <form:input type="text" class="vvod" path="secondName"
+                                    placeholder="Last name*"/>
                     </dd>
                 </spring:bind>
                 <spring:bind path="firstName">
-                    <dt>
-                        Name
-                    </dt>
                     <dd>
-                        <form:input type="text" path="firstName"
-                                    placeholder="Name"/>
-                        <p>Indicate name.</p>
+                        <form:input type="text" class="vvod" path="firstName"
+                                    placeholder="First name*"/>
                     </dd>
                 </spring:bind>
                 <spring:bind path="phonenumber">
-                    <dt>
-                        Phone
-                    </dt>
                     <dd>
-                        <form:input type="text" path="phonenumber"
-                                    placeholder="Phone"/>
-                        <p>Indicate phone number.</p>
+                        <form:input type="text" class="vvod" path="phonenumber"
+                                    placeholder="Phone*"/>
                     </dd>
                 </spring:bind>
             </dl>
@@ -62,9 +51,10 @@
                     <span>${error}</span>
                 </div>
             </c:if>
-            <input type='submit' value='CHANGE'>
+            <input class="knopka01" type='submit' value='CHANGE'>
         </form:form>
     </main>
 </div>
+<%@include file="footer.jsp"%>
 </body>
 </html>

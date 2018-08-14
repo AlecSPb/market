@@ -15,11 +15,14 @@ import javax.servlet.http.HttpServletRequest;
 @ControllerAdvice
 public class GlobalExceptionController {
 
+
     private static final Logger logger = Logger.getLogger(GlobalExceptionController.class);
 
-    /**
+
+     /**
      * @return 404 page if NoHandlerFoundException thrown
      */
+
     @ExceptionHandler(NoHandlerFoundException.class)
     public String handle() {
         return "404";
@@ -45,5 +48,6 @@ public class GlobalExceptionController {
     public ModelAndView resetLogin() {
         return new ModelAndView("redirect:user/login");
     }
+
 
 }

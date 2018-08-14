@@ -14,7 +14,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>market-web</title>
+    <title>Hard Candy</title>
+    <link rel="shortcut icon" href="${contextPath}/img/favicon.png" type="image/png"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/app.css">
 </head>
 <body>
@@ -26,22 +27,17 @@
             <h2>Change password</h2>
             <dl class="dl_class">
                 <spring:bind path="parole">
-                    <dt>
-                        Password*
-                    </dt>
                     <dd>
-                        <form:input type="password" path="parole"
-                                    placeholder="New password"/>
-                        <p>Add new parole.</p>
+                        <form:input type="password" path="parole" class="vvod"
+                                    placeholder="Password*"/>
+                        <p>Enter new password.</p>
                     </dd>
                 </spring:bind>
                 <spring:bind path="paroleConfirm">
-                    <dt>
-                        Repeat password*
-                    </dt>
+
                     <dd>
-                        <form:input type="password" path="paroleConfirm"
-                                    placeholder="Confirm new password/"/>
+                        <form:input type="password" path="paroleConfirm" class="vvod"
+                                    placeholder="Confirm password*"/>
                         <p>Repeat new password. Passwords must match!</p>
                     </dd>
                 </spring:bind>
@@ -51,9 +47,10 @@
                     <span>${error}</span>
                 </div>
             </c:if>
-            <input type='submit' value='Change password'>
+            <input class="knopka01" type='submit' value='Change password'>
         </form:form>
     </main>
 </div>
+<%@include file="footer.jsp"%>
 </body>
 </html>

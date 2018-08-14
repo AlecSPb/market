@@ -2,6 +2,9 @@
     /*display: flex;*/
     /*justify-content: space-between;*/
     position: relative;
+    border-radius: 0 0 20px 20px;
+    background-color: #cc1b6c;
+    box-shadow: inset rgba(0,0,0,.6) 0 -2px 5px, inset rgba(252,255,255,.7) 0 2px 5px, rgba(0,0,0,.8) 0 2px 5px -1px;
 }
 .header__logo{
     background: url('../img/logo.png') center no-repeat;

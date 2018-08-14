@@ -7,12 +7,13 @@
 
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>market-web</title>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/app.css">
     <script src="http://code.jquery.com/jquery-3.3.1.js"
             integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
             crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <title>Hard Candy</title>
+    <link rel="stylesheet" type="text/css" href="${contextPath}/css/app.css">
+    <link rel="shortcut icon" href="${contextPath}/img/favicon.png" type="image/png"/>
     <%--<link rel="script" href="../../../js/productsScript.js"/>--%>
     <script src="${contextPath}/js/account.js"></script>
 </head>
@@ -147,7 +148,7 @@
                                     <p>${address.postcode}</p>
                                 </dd>
                                 <dd><a onclick="deleteAddress(${address.id})"
-                                       class="link link_header">Remove address</a> </dd>
+                                       class="knopka01">Remove address</a> </dd>
                             </dl>
                         </div>
                     </c:forEach>
@@ -156,13 +157,14 @@
                 <h3>Address not specified</h3>
             </c:if>
             <div class="account__change_links">
-                        <a href="${contextPath}/user/add_address" class="link link_header">
+                        <a href="${contextPath}/user/add_address" class="knopka01">
                             Add address
                         </a>
             </div>
         </div>
     </main>
 </div>
+<%@include file="footer.jsp"%>
 </body>
 </html>
 

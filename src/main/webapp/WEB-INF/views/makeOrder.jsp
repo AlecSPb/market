@@ -10,7 +10,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Market</title>
+    <title>Hard Candy</title>
+    <link rel="shortcut icon" href="${contextPath}/img/favicon.png" type="image/png"/>
     <link rel="stylesheet" type="text/css" href="${contextPath}/css/app.css">
     <script src="http://code.jquery.com/jquery-3.3.1.js"
             integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
@@ -28,7 +29,7 @@
             <div class="bucket__head">
                 <h2>Your Cart: </h2>
             </div>
-            <form:form method="post" action="${contextPath}/order/set_count" modelAttribute="ordersDTO">
+            <form:form method="post" action="${contextPath}/order/set_count/" modelAttribute="ordersDTO">
                 <c:forEach var="product" items="${ordersDTO.productDTOs}" varStatus="ind">
                     <div class="bucket__item">
                         <div class="bucket__item_column">
@@ -81,9 +82,9 @@
                                 <dd class="bucket__item_description">
                                     <label class="menu__line">
                                         <span>Quantity: </span>
-                                        <span class="minus"><button class ="button1" >-</button></span>
-                                        <form:input type="text" name="counts" path="counts" value="1" size="5" readonly="true"/>
-                                        <span class="plus"><button class ="button1" >+</button></span>
+                                            <span class="minus"><button class ="button1" >-</button></span>
+                                            <form:input type="text" name="counts" path="counts" value="1" size="5" readonly="true"/>
+                                            <span class="plus"><button class ="button1" >+</button></span>
 
                                     </label>
                                 </dd>
@@ -96,12 +97,13 @@
                     <span>${error}</span>
                 </div>
                 </c:if>
-                <input type="submit" value="add address">
+                <input class="knopka01" type="submit" value="Add address">
             </form:form>
         </div>
     </main>
-    <footer></footer>
+
 </div>
+<%@include file="footer.jsp"%>
 </body>
 
 </html>

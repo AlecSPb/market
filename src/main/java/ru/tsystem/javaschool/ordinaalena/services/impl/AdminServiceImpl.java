@@ -66,8 +66,8 @@ public class AdminServiceImpl implements AdminService {
         Orders orders = ordersDAO.find(ordersId, Orders.class);
 
         OrderStatus status = orders.getOrderStatus();
-        if(status.equals(OrderStatus.UNDONE))
-            orders.setOrderStatus(OrderStatus.DONE);
+        if(status.equals(OrderStatus.PENDING))
+            orders.setOrderStatus(OrderStatus.SENT);
        /* String message = "Hi, " + ordersDAO.ge + "!" + System.lineSeparator()
                 + "Your order[ID=" + orders.getId() + "] is confirmed." + System.lineSeparator()
                 + "List of products: " + System.lineSeparator()
@@ -75,8 +75,8 @@ public class AdminServiceImpl implements AdminService {
                 + "Delivery address: " + address.toString() + System.lineSeparator() + System.lineSeparator()
                 + "Thank you for choosing us!";*/
 
-        else if(status.equals(OrderStatus.DONE))
-            orders.setOrderStatus(OrderStatus.UNDONE);
+        else if(status.equals(OrderStatus.SENT))
+            orders.setOrderStatus(OrderStatus.PENDING);
         ordersDAO.merge(orders);
         return orders.getOrderStatus().toString();
     }

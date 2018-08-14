@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public enum OrderStatus {
-    BUCKET, DONE, UNDONE;
+    BUCKET, SENT, PENDING;
 
     public static List<OrderStatus> orderValues(){
         List<OrderStatus> statuses = new ArrayList<>(Arrays.asList(OrderStatus.values()));

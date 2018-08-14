@@ -8,86 +8,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>market-web</title>
+    <title>Hard Candy</title>
+    <link rel="shortcut icon" href="${contextPath}/img/favicon.png" type="image/png"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/app.css">
-  <%--  <script src="http://code.jquery.com/jquery-3.3.1.js"
+   <script src="http://code.jquery.com/jquery-3.3.1.js"
             integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-            crossorigin="anonymous"></script>--%>
-    <%--<link rel="script" href="../../../js/productsScript.js"/>--%>
-   <%-- <script src="${contextPath}/js/makeOrder.js"></script>--%>
+            crossorigin="anonymous"></script>
+   <script src="${contextPath}/js/makeOrder.js"></script>
 </head>
 <body>
 <div class="bg__wrapper"></div>
 <div class="container__wrapper">
     <%@include file="header.jsp"%>
     <main class="account__main">
-       <%-- <div class="addresses_wrapper"  id="currentAddresses${addresses}" >
-            <div class="address__wrapper">
-                <h2>Add address</h2>
-                <dl class="dl_class">
-                    <dt>
-                        Country
-                    </dt>
-                    <dd>
-                        <input type="text" id="country"
-                               placeholder="Country"/>
-                        <p>Add country.</p>
-                    </dd>
-                    <dt>
-                        Region
-                    </dt>
-                    <dd>
-                        <input type="text" id="region"
-                               placeholder="Region" />
-                        <p>Add region.</p>
-                    </dd>
-                    <dt>
-                        City
-                    </dt>
-                    <dd>
-                        <input type="text" id="city"
-                               placeholder="City"/>
-                        <p>Add city/</p>
-                    </dd>
-                    <dt>
-                        Street
-                    </dt>
-                    <dd>
-                        <input type="text" id="street"
-                               placeholder="Street"/>
-                        <p>Add street.</p>
-                    </dd>
-                    <dt>
-                        Building
-                    </dt>
-                    <dd>
-                        <input type="text" id="building"
-                               placeholder="Building"/>
-                        <p>Add number of building.</p>
-                    </dd>
-                    <dt>
-                        Apartment
-                    </dt>
-                    <dd>
-                        <input type="text" id="apartment"
-                               placeholder="Apartment"/>
-                        <p>Add number of apartment, if you have.</p>
-                    </dd>
-                    <dt>
-                        Postcode
-                    </dt>
-                    <dd>
-                        <input type="text" id="postcode"
-                               placeholder="Postcode"/>
-                        <p>Add postcode.</p>
-                    </dd>
-                </dl>
-                <div class="account__change_links">
-                    <a onclick="addAddress(${addresses})" class="link link_header">
-                        Add address
-                    </a>
-                </div>
-            </div>--%>
+        <div class="addresses_wrapper"  >
+            <a href="${contextPath}/user/account" class="knopka01">Add shipping address</a>
+            </div>
 
             <form:form action="${contextPath}/order/set_address" method="post" modelAttribute="orderAddress">
             <h2>Addresses:</h2>
@@ -159,12 +95,13 @@
                 </c:if>
 
                 <div>
-                    <input type="submit" value="Checkout">
+                    <input  class="knopka01" type="submit" value="Checkout">
                 </div>
                 </form:form>
         </div>
     </main>
 </div>
+<%@include file="footer.jsp"%>
 </body>
 </html>
 

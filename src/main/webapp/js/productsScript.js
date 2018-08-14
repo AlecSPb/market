@@ -46,7 +46,7 @@ function getProductHtml(product){
         "</div>"+
         "<h4>Price: " + product.price + " $" +
         "<a onclick='addToBucket(" + product.id + ")'" +
-        "class=\"link link_header\">"+
+        "class=\"knopka01\">"+
         "Add to cart" +
         "</a>"+
         "</h4>" +
@@ -150,7 +150,7 @@ function addToBucket(prodId) {
           prodId : prodId
         },
         success:function () {
-          alert("Product added to cart");
+            smoke.alert ("Product added to cart!");
         }
     })
 
@@ -160,3 +160,21 @@ function confirmFunction() {
     var popup=document.getElementById("myPopup");
     popup.classList.toggle("show");
 }
+
+$(document).ready(function() {
+
+    'use strict';
+
+    $('.input-file').each(function() {
+        var $input = $(this),
+            $label = $input.next('.js-labelFile'),
+            labelVal = $label.html();
+
+        $input.on('change', function(element) {
+            var fileName = '';
+            if (element.target.value) fileName = element.target.value.split('\\').pop();
+            fileName ? $label.addClass('has-file').find('.js-fileName').html(fileName) : $label.removeClass('has-file').html(labelVal);
+        });
+    });
+
+});

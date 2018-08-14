@@ -59,6 +59,7 @@ public interface ProductService {
      */
 
      void updateTopIfItHaveChanged();
+     void setProductDiff(Integer id, ProductDTO product);
 
 
 

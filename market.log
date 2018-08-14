@@ -24,3 +24,63 @@
 01:39:51,721  WARN main hibernate.mapping.RootClass:checkCompositeIdentifier:288 - HHH000039: Composite-id class does not override hashCode(): ru.tsystem.javaschool.ordinaalena.entities.ProductOrders
 01:39:52,841  INFO main hql.internal.QueryTranslatorFactoryInitiator:initiateService:47 - HHH000397: Using ASTQueryTranslatorFactory
 01:39:52,966  INFO main ordinaalena.converter.Converter:convertToEntity:92 - Address 
+09:34:04,355  INFO main internal.util.LogHelper:logPersistenceUnitInformation:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+09:34:04,853  INFO main org.hibernate.Version:logVersion:45 - HHH000412: Hibernate Core {5.2.15.Final}
+09:34:04,856  INFO main hibernate.cfg.Environment:<clinit>:213 - HHH000206: hibernate.properties not found
+09:34:05,117  INFO main annotations.common.Version:<clinit>:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+09:34:06,163  INFO main hibernate.dialect.Dialect:<init>:157 - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+09:34:06,185  WARN main hibernate.dialect.H2Dialect:<init>:103 - HHH000431: Unable to determine H2 database version, certain features may not work
+09:34:06,876  WARN main hibernate.mapping.RootClass:checkCompositeIdentifier:285 - HHH000038: Composite-id class does not override equals(): ru.tsystem.javaschool.ordinaalena.entities.ProductOrders
+09:34:06,876  WARN main hibernate.mapping.RootClass:checkCompositeIdentifier:288 - HHH000039: Composite-id class does not override hashCode(): ru.tsystem.javaschool.ordinaalena.entities.ProductOrders
+09:34:07,098  INFO main internal.util.Version:<clinit>:21 - HV000001: Hibernate Validator 6.0.8.Final
+09:34:12,412  INFO main DAO.impl.AddressDAOImpl:find:31 - find by id class ru.tsystem.javaschool.ordinaalena.entities.Product id 8
+09:34:12,895  INFO main DAO.impl.AddressDAOImpl:find:31 - find by id class ru.tsystem.javaschool.ordinaalena.entities.Product id 8
+09:34:12,901  INFO main DAO.impl.AddressDAOImpl:merge:43 - merge class ru.tsystem.javaschool.ordinaalena.entities.Product id 8
+09:34:13,109  INFO main DAO.impl.AddressDAOImpl:find:31 - find by id class ru.tsystem.javaschool.ordinaalena.entities.Product id 8
+09:34:13,140  INFO main DAO.impl.AddressDAOImpl:find:31 - find by id class ru.tsystem.javaschool.ordinaalena.entities.Product id 13
+09:34:13,231  INFO main DAO.impl.AddressDAOImpl:find:31 - find by id class ru.tsystem.javaschool.ordinaalena.entities.Product id 13
+09:34:13,238  INFO main ordinaalena.converter.Converter:convertToDTO:119 - Product 13
+09:34:13,241  INFO main ordinaalena.converter.Converter:convertToDTO:144 - ProductParameter 13
+09:34:13,330  INFO main hql.internal.QueryTranslatorFactoryInitiator:initiateService:47 - HHH000397: Using ASTQueryTranslatorFactory
+09:34:13,623  INFO main ordinaalena.converter.Converter:convertToDTO:119 - Product 13
+09:34:13,623  INFO main ordinaalena.converter.Converter:convertToDTO:144 - ProductParameter 13
+09:34:14,443  INFO main internal.util.LogHelper:logPersistenceUnitInformation:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+09:34:14,515  INFO main hibernate.dialect.Dialect:<init>:157 - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+09:34:14,517  WARN main hibernate.dialect.H2Dialect:<init>:103 - HHH000431: Unable to determine H2 database version, certain features may not work
+09:34:14,563  WARN main hibernate.mapping.RootClass:checkCompositeIdentifier:285 - HHH000038: Composite-id class does not override equals(): ru.tsystem.javaschool.ordinaalena.entities.ProductOrders
+09:34:14,564  WARN main hibernate.mapping.RootClass:checkCompositeIdentifier:288 - HHH000039: Composite-id class does not override hashCode(): ru.tsystem.javaschool.ordinaalena.entities.ProductOrders
+09:34:15,720  INFO main hql.internal.QueryTranslatorFactoryInitiator:initiateService:47 - HHH000397: Using ASTQueryTranslatorFactory
+09:34:15,796  INFO main ordinaalena.converter.Converter:convertToDTO:38 - Customer 29
+09:34:15,833  INFO main ordinaalena.converter.Converter:convertToEntity:92 - Address 
+09:34:15,837  INFO main DAO.impl.AddressDAOImpl:persist:23 - persist new class ru.tsystem.javaschool.ordinaalena.entities.Address
+09:34:15,972  INFO main DAO.impl.AddressDAOImpl:find:38 - find by id class ru.tsystem.javaschool.ordinaalena.entities.Address id 42
+09:34:15,976  INFO main ordinaalena.converter.Converter:convertToDTO:69 - Address 42
+09:34:16,034  INFO main ordinaalena.converter.Converter:convertToDTO:69 - Address 27
+09:34:16,035  INFO main ordinaalena.converter.Converter:convertToDTO:69 - Address 28
+09:34:16,035  INFO main ordinaalena.converter.Converter:convertToDTO:69 - Address 29
+09:34:16,036  INFO main ordinaalena.converter.Converter:convertToDTO:69 - Address 30
+09:34:16,036  INFO main ordinaalena.converter.Converter:convertToDTO:69 - Address 31
+09:34:16,036  INFO main ordinaalena.converter.Converter:convertToDTO:69 - Address 32
+09:34:16,037  INFO main ordinaalena.converter.Converter:convertToDTO:69 - Address 33
+09:34:16,037  INFO main ordinaalena.converter.Converter:convertToDTO:69 - Address 34
+09:34:16,038  INFO main ordinaalena.converter.Converter:convertToDTO:69 - Address 35
+09:34:16,038  INFO main ordinaalena.converter.Converter:convertToDTO:69 - Address 42
+09:34:16,059  INFO main DAO.impl.AddressDAOImpl:find:31 - find by id class ru.tsystem.javaschool.ordinaalena.entities.Product id 13
+09:34:16,064  INFO main ordinaalena.converter.Converter:convertToDTO:119 - Product 13
+09:34:16,064  INFO main ordinaalena.converter.Converter:convertToDTO:144 - ProductParameter 13
+09:34:16,081  INFO main services.impl.OrdersServiceImpl:makeNewOrder:69 - create new
+09:34:16,082  INFO main ordinaalena.converter.Converter:convertToEntity:92 - Address 
+09:34:16,090  INFO main DAO.impl.AddressDAOImpl:find:38 - find by id class ru.tsystem.javaschool.ordinaalena.entities.Address id 27
+09:34:16,094  INFO main DAO.impl.OrdersDAOImpl:persist:20 - persist newclass ru.tsystem.javaschool.ordinaalena.entities.Orders
+09:34:16,098  INFO main DAO.impl.OrdersDAOImpl:persist:20 - persist newclass ru.tsystem.javaschool.ordinaalena.entities.Orders
+09:34:16,102  INFO main DAO.impl.AddressDAOImpl:find:31 - find by id class ru.tsystem.javaschool.ordinaalena.entities.Product id 13
+09:34:16,121  INFO main DAO.impl.AddressDAOImpl:merge:43 - merge class ru.tsystem.javaschool.ordinaalena.entities.Product id 13
+09:34:16,206  INFO main DAO.impl.OrdersDAOImpl:find:27 - find by idclass ru.tsystem.javaschool.ordinaalena.entities.Ordersid329
+09:34:16,227  INFO main ordinaalena.converter.Converter:convertToDTO:97 - Order 329
+09:34:16,235  INFO main ordinaalena.converter.Converter:convertToDTO:119 - Product 13
+09:34:16,235  INFO main ordinaalena.converter.Converter:convertToDTO:144 - ProductParameter 13
+09:34:16,236  INFO main ordinaalena.converter.Converter:convertToDTO:69 - Address 27

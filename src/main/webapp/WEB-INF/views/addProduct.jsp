@@ -6,9 +6,16 @@
 
 <html lang="en">
 <head>
+    <script src="http://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
     <meta charset="UTF-8">
-    <title>market-web</title>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/app.css">
+    <title>Hard Candy</title>
+    <link rel="shortcut icon" href="${contextPath}/img/favicon.png" type="image/png"/>
+    <link rel="stylesheet" type="text/css" href="${contextPath}/css/app.css">
+
+    <%--<link rel="script" href="../../../js/productsScript.js"/>--%>
+    <script src="${contextPath}/js/productsScript.js"></script>
 </head>
 <body>
 <div class="bg__wrapper"></div>
@@ -22,84 +29,74 @@
                         action="${contextPath}/admin/add_new_product"
                         modelAttribute="product">
                 <dl class="dl_class">
-                    <dt>
-                        Title
-                    </dt>
                     <dd>
-                        <form:input type="text" path="title"
+                        <form:input type="text" class="vvod" path="title"
                                     placeholder="Title"/>
                         <form:errors path="title"/>
-                        <p>Add title of product</p>
                     </dd>
-                    <dt>
-                        Category
-                    </dt>
+
                     <dd>
-                        <form:input type="text" path="category"
+                        <form:input type="text" class="vvod" path="category"
                                     placeholder="Category"/>
                         <form:errors path="category"/>
-                        <p>Add Category</p>
                     </dd>
-                    <dt>
-                        Brand
-                    </dt>
+
                     <dd>
-                        <form:input type="text" path="productParameterDTO.brand"
+                        <form:input type="text" class="vvod" path="productParameterDTO.brand"
                                     placeholder="Brand"/>
                         <form:errors path="productParameterDTO.brand"/>
-                        <p>Add brand.</p>
+
                     </dd>
-                    <dt>
-                        Price
-                    </dt>
+
                     <dd>
-                        <form:input type="text" path="price"
+                        <form:input type="text" class="vvod" path="price"
                                     placeholder="Price"/>
                         <form:errors path="price"/>
-                        <p>Add price</p>
+
                     </dd>
-                    <dt>
-                        Count
-                    </dt>
+
                     <dd>
-                        <form:input type="text" path="count"
+                        <form:input type="text" class="vvod" path="count"
                                     placeholder="Count"/>
                         <form:errors path="count"/>
-                        <p>Add count.</p>
+
                     </dd>
-                    <dt>
-                        Description
-                    </dt>
+
                     <dd>
-                        <form:textarea type="text" path="description"
+                        <form:textarea type="text"  path="description" class="vvod"
                                        placeholder="Description"/>
                         <form:errors path="description"/>
-                        <p>Add description.</p>
+
                     </dd>
-                    <dt>
-                        Color
-                    </dt>
+
                     <dd>
-                        <form:input type="text" path="productParameterDTO.color"
+                        <form:input type="text" class="vvod" path="productParameterDTO.color"
                                     placeholder="Color"/>
                         <form:errors path="productParameterDTO.color"/>
-                        <p>Add color.</p>
+
                     </dd>
-                    <dt>
-                       Weight
-                    </dt>
+
                     <dd>
-                        <form:input type="text" path="productParameterDTO.weight"
+                        <form:input type="text" class="vvod" path="productParameterDTO.weight"
                                     placeholder="Weight"/>
                         <form:errors path="productParameterDTO.weight"/>
-                        <p>Add weight.</p>
+
                     </dd>
                 </dl>
-                File to upload: <input type="file" name="picture">
-                <input type="submit" value="Add product">
+                <div class="example-2">
+                    <div class="form-group">
+                        <input type="file" name="picture" id="file" class="input-file">
+                        <label for="file" class="btn btn-tertiary js-labelFile">
+                            <i class="icon fa fa-check"></i>
+                            <span class="js-fileName">Upload file</span>
+                        </label>
+                    </div>
+                </div>
+                <input class="knopka01" type="submit" value="Add product">
             </form:form>
         </div>
     </main>
 </div>
+<%@include file="footer.jsp"%>
 </body>
 </html>

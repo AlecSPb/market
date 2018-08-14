@@ -9,7 +9,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Market</title>
+    <title>Hard Candy</title>
+    <link rel="shortcut icon" href="${contextPath}/img/favicon.png" type="image/png"/>
     <link rel="stylesheet" type="text/css" href="${contextPath}/css/app.css">
 </head>
 
@@ -84,8 +85,9 @@
                 </c:forEach>
         </div>
     </main>
-    <footer></footer>
+
 </div>
+<%@include file="footer.jsp"%>
 </body>
 
 </html>

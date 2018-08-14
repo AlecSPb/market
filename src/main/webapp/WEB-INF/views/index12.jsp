@@ -14,8 +14,9 @@
             integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
             crossorigin="anonymous"></script>
     <meta charset="UTF-8">
-    <title>Market</title>
+    <title>Hard Candy</title>
     <link rel="stylesheet" type="text/css" href="${contextPath}/css/app.css">
+    <link rel="shortcut icon" href="${contextPath}/img/favicon.png" type="image/png"/>
 </head>
 <body>
 <div class="bg__wrapper"></div>
@@ -40,7 +41,7 @@
 
     </main>
 </div>
-
+<%@include file="footer.jsp"%>
 </body>
 
 </html>

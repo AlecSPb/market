@@ -75,7 +75,7 @@ function getAddressHtml(address) {
 }
 
 function addAddress() {
-    let addressDTO = getAddressDto();
+    var addressDTO = getAddressDto();
 
     $.ajax({
         url: "http://localhost:8081/addresses/",
@@ -110,26 +110,26 @@ $(document).ready(function() {
     });
 });
 
-/*$("input[type=radio]").click(function (event) {
-   var myID=this.id;
-   var targetId=myID+"_div";
-   $("div.choice:not(#" +targetId+")").addClass(".none");
-   $("#"+targetId).removeClass(".none");
-});*/
-$(document).ready(function () {
-    $("input[type=radio]").click(function (){
-        var inputValue=$(this).attr("id");
-        var targetBox=inputValue+"_div";
-        $(targetBox).show();
-    }  );
+
+$(document).ready(function (){
+    var card=document.getElementById("1");
+    var cash=document.getElementById('2');
+    var cardoff=document.getElementById('3');
+    var divCard=document.getElementById("card");
+    card.onchange=function () {
+        if(card.checked){
+            divCard.style.display='block';
+        }}
+        cash.onchange=function (ev) {
+            if(cash.checked){
+                divCard.style.display='none';
+            }
+        }
+        cardoff.onchange=function (ev) {
+        if (cardoff.checked){
+            divCard.style.display='none';
+        } }
+
+
 });
-/*$('.rbn').on('change', function(){
-    if($('#1').attr('checked')){
-        $('#div').show();
-    } else{
-        $('#div').hide();
-    }
-
-});*/
-
 

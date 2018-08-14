@@ -68,7 +68,7 @@ public class OrdersServiceImpl implements OrdersService {
     public void makeNewOrder(OrdersDTO ordersDTO) {
         logger.info("create new");
 
-        ordersDTO.setOrderStatus(OrderStatus.UNDONE.toString());
+        ordersDTO.setOrderStatus(OrderStatus.PENDING.toString());
         Orders order = converter.convertToEntity(ordersDTO);
         order.setProducts(getProductSet(ordersDTO));
         order.setCustomer(customerDAO.getByEmail(ordersDTO.getCustomerEmail()));

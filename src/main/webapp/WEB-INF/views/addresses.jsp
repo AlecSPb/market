@@ -8,7 +8,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>market-web</title>
+    <title>Hard Candy</title>
+    <link rel="shortcut icon" href="${contextPath}/img/favicon.png" type="image/png"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/app.css">
 </head>
 <body>
@@ -45,6 +46,7 @@
         </div>
     </main>
 </div>
+<%@include file="footer.jsp"%>
 </body>
 </html>
 

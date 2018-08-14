@@ -1,6 +1,6 @@
 function deleteAddressForm(id) {
     $("#address"+id).remove();
-}
+};
 
 function deleteAddress(id) {
     $.ajax({
@@ -10,4 +10,4 @@ function deleteAddress(id) {
             deleteAddressForm(id)
         }
     })
-}
+};

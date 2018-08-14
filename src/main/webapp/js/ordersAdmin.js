@@ -8,4 +8,3 @@ function changeStatus(orderId){
         }
     })
 }
-

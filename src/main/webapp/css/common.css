@@ -9,7 +9,7 @@ h1, h2, h3, h4, h5, h6, p, dl, dt, dd{
 }
 h15{
     margin: 0;
-    color: #FF1493;
+    color: #cc1b6c;
     font-size: large;
     font-weight: bolder;
 }
@@ -122,7 +122,7 @@ Cart
 
     color: #FFF;
 
-    background-color: #e20074;
+    background-color: #cc1b6c;
 
 }
 
@@ -238,7 +238,7 @@ Cart
 
     padding: 12px;
 
-    background-color: #e20074;
+    background-color: #cc1b6c;
 
     color: #FFF;
 

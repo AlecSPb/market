@@ -2,7 +2,7 @@
     text-align: center;
 }
 .registration__main h2{
-    color:#FF1493;
+    color:#cc1b6c;
     margin-bottom: 10px;
 }
 
@@ -10,7 +10,7 @@
 .registration__wrapper{
     display: inline-block;
 }
-.registration__wrapper input[type="text"],
+/*.registration__wrapper input[type="text"],
 .registration__wrapper input[type="password"]{
     width: inherit;
     border: 1px solid #cc1b6c;
@@ -22,7 +22,7 @@
     color: #000000;
     font-size: 11px;
     font-weight: bolder;
-}
+}*/
 input:focus {
     color: #000000;
     border: 1px solid #000000
@@ -34,7 +34,7 @@ input:focus {
 }
 .registration__wrapper dd{
     width: 250px;
-    margin: 0 0 15px 0;
+    margin: 0 115px 0;
     padding: 0;
 }
 .registration__wrapper p {
@@ -43,6 +43,6 @@ input:focus {
 }
 
 .has-error span{
-    color: #000000;
+    color: #911848;
     font-weight: bold;
 }

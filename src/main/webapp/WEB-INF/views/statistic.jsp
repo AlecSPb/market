@@ -1,3 +1,4 @@
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -8,12 +9,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>market-web</title>
+    <title>Hard Candy</title>
+    <link rel="shortcut icon" href="${contextPath}/img/favicon.png" type="image/png"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/app.css">
-    <%--<script src="http://code.jquery.com/jquery-3.3.1.js"--%>
-            <%--integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="--%>
-            <%--crossorigin="anonymous"></script>--%>
-    <%--<script src="${contextPath}/js/adminProducts.js"></script>--%>
+    <script src="http://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+    <script src="${contextPath}/js/adminProducts.js"></script>
 </head>
 <body>
 <div class="bg__wrapper"></div>
@@ -21,29 +23,35 @@
     <%@include file="header.jsp"%>
     <main class="users__main">
         <div >
-            <table >
-                <caption>Top products</caption>
+            <caption>Top products</caption>
+            <table id="topProd">
                 <tr>
+                    <th>№</th>
                     <th>Title</th>
                 </tr>
                 <c:forEach var="topprod" items="${topProduct}">
                     <tr>
+                        <td></td>
                         <td>${topprod.title}</td>
                     </tr>
                 </c:forEach>
             </table>
         </div>
                 <div>
-                    <table >
-                <caption>Top customers</caption>
+                    <caption>Top customers</caption>
+                    <table id="topCust">
                 <tr>
+                    <th>№</th>
                     <th>id</th>
+                    <th>Email</th>
                     <th>Name</th>
                     <th>Second name</th>
                 </tr>
                 <c:forEach var="topcust" items="${topCustomer}">
                     <tr>
+                        <td></td>
                             <td>${topcust.id}</td>
+                        <td>${topcust.email}</td>
                     <td>${topcust.firstName}</td>
                     <td>${topcust.secondName}</td>
                     </tr>
@@ -51,9 +59,10 @@
                     </table>
                 </div>
         <div>
-            <table >
-                <caption>Sales statistic:</caption>
+            <caption>Sales statistic:</caption>
+            <table id="sales">
                 <tr>
+                    <th>№</th>
                     <th>id</th>
                     <th>Title</th>
                     <th>Category</th>
@@ -66,6 +75,7 @@
                 </tr>
                 <c:forEach var="ord" items="${products}">
                     <tr>
+                        <td></td>
                         <td>${ord.id}</td>
                         <td>${ord.title}</td>
                         <td>${ord.category}</td>
@@ -79,29 +89,11 @@
                 </c:forEach>
             </table>
         </div>
-        <div >
-            <table>
-                <caption>Client statistic:</caption>
-                <tr>
-                    <th>id</th>
-                    <th>E-mail</th>
-                    <th>Name</th>
-                    <th>Second name</th>
-                    <th>Count of buying product:</th>
-                </tr>
-                <c:forEach var="customer" items="${customer}">
-                    <tr>
-                        <td>${customer.id}</td>
-                        <td>${customer.email}</td>
-                        <td>${customer.firstName}</td>
-                        <td>${customer.secondName}</td>
-                        <td>${customer.phonenumber}</td>
-                    </tr>
-                </c:forEach>
-            </table>
-        </div>
+
     </main>
+
 </div>
+<%@include file="footer.jsp"%>
 </body>
 </html>
 

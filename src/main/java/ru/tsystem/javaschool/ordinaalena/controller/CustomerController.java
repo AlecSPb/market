@@ -53,6 +53,10 @@ public class CustomerController {
         if (bindingResult.hasErrors()){
                 model.addAttribute("error","Email is incorrected");
             return "/registration";}
+        mainValidator.emailIsFree(customerDTO,bindingResult);
+        if (bindingResult.hasErrors()){
+            model.addAttribute("error","Email already used");
+            return "/registration";}
         mainValidator.validateParoleSet(customerDTO,bindingResult);
         if (bindingResult.hasErrors()){
             model.addAttribute("error","Passwords must match!");

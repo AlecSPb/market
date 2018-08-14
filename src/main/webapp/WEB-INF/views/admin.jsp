@@ -8,7 +8,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>market-web</title>
+    <title>Hard Candy</title>
+    <link rel="shortcut icon" href="${contextPath}/img/favicon.png" type="image/png"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/app.css">
     <script src="http://code.jquery.com/jquery-3.3.1.js"
             integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
@@ -25,22 +26,23 @@
             <div class="account__change_links">
                 <ul>
                     <li>
-                        <a href="${contextPath}/admin/users" class="link link_header">Customers</a>
+                        <a href="${contextPath}/admin/users" class="knopka01">Customers</a>
                     </li>
                     <li>
-                        <a href="${contextPath}/admin/production" class="link link_header">Product</a>
+                        <a href="${contextPath}/admin/production" class="knopka01">Product</a>
                     </li>
                     <li>
-                        <a href="${contextPath}/admin/add_new_product" class="link link_header">Add new product</a>
+                        <a href="${contextPath}/admin/add_new_product" class="knopka01">Add new product</a>
                     </li>
                     <li>
-                        <a href="${contextPath}/admin/statistic" class="link link_header">Statistic</a>
+                        <a href="${contextPath}/admin/statistic" class="knopka01">Statistic</a>
                     </li>
                 </ul>
             </div>
         </div>
     </main>
 </div>
+<%@include file="footer.jsp"%>
 </body>
 </html>
 
